@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Cancellation &amp; Refund Policy - HostelHome</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #F8FAFC; color: #0F172A; }
+    </style>
+</head>
+<body class="min-h-screen antialiased">
+
+    <!-- Loading Spinner -->
+    <div id="legal-spinner" class="flex flex-col items-center justify-center min-h-screen p-6 text-center">
+        <div class="w-12 h-12 border-4 border-blue-600 border-t-transparent rounded-full animate-spin mb-4"></div>
+        <p class="text-sm font-semibold text-slate-500">Loading Cancellation &amp; Refund Policy...</p>
+    </div>
+
+    <!-- Container for Dynamic Bucket Content -->
+    <div id="legal-content" class="hidden"></div>
+
+    <script>
+        (async function() {
+            const BUCKET_URL = "https://wwpewgllqjgzfzyykuke.supabase.co/storage/v1/object/public/legal-docs/refund.html";
+            const spinner = document.getElementById('legal-spinner');
+            const content = document.getElementById('legal-content');
+
+            try {
+                // Fetch with cache-busting timestamp so updates in Supabase buckets reflect instantly!
+                const response = await fetch(BUCKET_URL + '?t=' + Date.now());
+                if (!response.ok) throw new Error("Could not load refund policy from server.");
+                
+                const htmlText = await response.text();
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(htmlText, 'text/html');
+                const docBody = doc.body ? doc.body.innerHTML : htmlText;
+                
+                content.innerHTML = docBody;
+                spinner.classList.add('hidden');
+                content.classList.remove('hidden');
+            } catch (err) {
+                console.error("Dynamic Policy Load Error:", err);
+                spinner.innerHTML = `
+                    <div class="max-w-md bg-white p-8 rounded-3xl shadow-xl border border-slate-100 text-center mx-auto my-12">
+                        <div class="w-12 h-12 bg-red-100 text-red-600 rounded-2xl flex items-center justify-center mx-auto mb-4 font-bold text-xl">✕</div>
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">Unable to load Refund Policy</h3>
+                        <p class="text-xs text-slate-500 mb-6">${err.message}</p>
+                        <a href="index.html" class="px-6 py-2.5 bg-blue-600 text-white font-bold text-xs rounded-full shadow-md">Return to Home</a>
+                    </div>
+                `;
+            }
+        })();
+    </script>
+</body>
+</html>

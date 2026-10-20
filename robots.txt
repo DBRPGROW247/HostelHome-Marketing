@@ -1,0 +1,26 @@
+User-agent: *
+Allow: /
+Allow: /index.html
+Allow: /about.html
+Allow: /founders.html
+Allow: /pricing.html
+Allow: /register-hostel.html
+Allow: /contact.html
+Allow: /privacy.html
+Allow: /terms.html
+Allow: /refund-policy.html
+Allow: /delete-account.html
+Allow: /google72b9f571543a2a80.html
+
+# Internal authenticated dashboard paths (Prevent unnecessary crawling)
+Disallow: /hstldash.html
+Disallow: /manage_hostel.html
+Disallow: /hpayments.html
+Disallow: /rooms.html
+Disallow: /complaints.html
+Disallow: /hsmeal.html
+Disallow: /wmeal.html
+Disallow: /settings.html
+Disallow: /hstlprofile.html
+
+Sitemap: https://hostelhome.pages.dev/sitemap.xml

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Account - HostelHome</title>
+    <link rel="stylesheet" href="legal.css">
+    <script src="scripts/ui-core.js"></script>
+    <script src="scripts/android-bridge.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        html, body { overscroll-behavior-y: none; }
+        .sidebar, .modal-card, .overflow-y-auto, .custom-scrollbar { -webkit-overflow-scrolling: touch; overscroll-behavior-y: contain; }
+    </style>
+</head>
+<body>
+    <nav class="nav-legal">
+        <div class="nav-container">
+            <a href="index.html" class="logo-wrapper" style="display:flex; align-items:center; gap:12px; text-decoration:none;">
+                <div class="logo" style="width:44px; height:44px; flex-shrink:0;"><img src="icons/hostelhome-logo.png" alt="HostelHome Logo" style="width:44px; height:44px; max-width:44px; max-height:44px; object-fit:contain; border-radius:10px;"></div>
+                <span class="logo-text" style="font-size:1.25rem; font-weight:700;">HostelHome</span>
+            </a>
+            <a href="index.html" class="back-link">Back to App</a>
+        </div>
+    </nav>
+
+    <main class="content-wrapper content-single">
+        <article class="doc-card animate-fade-in">
+            <div class="deletion-header">
+                <div class="warning-icon">
+                    <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                    </svg>
+                </div>
+                <h1 style="font-size: 2rem; font-weight: 800; margin-bottom: 0.5rem;">Request Account Deletion</h1>
+                <p style="color: var(--text-muted-light); font-size: 0.935rem; margin-bottom: 1.5rem;">
+                    Account deletion is permanent. You can request deletion via our official Google Form, email us directly at <a href="mailto:hostelhome247@gmail.com" style="color: #2563eb; text-decoration: underline; font-weight: 600;">hostelhome247@gmail.com</a>, or complete the form below.
+                </p>
+
+                <!-- Google Form Request Box -->
+                <div style="background: #eff6ff; border: 1px solid #bfdbfe; padding: 1.25rem; border-radius: 12px; margin-bottom: 2rem; text-align: center;">
+                    <p style="font-size: 0.9rem; color: #1e40af; font-weight: 600; margin-bottom: 0.75rem;">Option 1: Submit Request via Official Google Form</p>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfoCNVs-iUxyiDGXoFMNhDw2UIOTLCaJryn31tQEhKHnOOVHg/viewform" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: #2563eb; color: white; padding: 0.75rem 1.5rem; border-radius: 8px; font-weight: 700; text-decoration: none; transition: background 0.2s;">
+                        <span>Open Account Deletion Google Form</span>
+                        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+                    </a>
+                </div>
+
+                <div style="border-top: 1px solid var(--border-light); margin-bottom: 1.5rem; position: relative; text-align: center;">
+                    <span style="position: relative; top: -0.75rem; background: var(--card-light); padding: 0 0.75rem; color: var(--text-muted-light); font-size: 0.8rem; font-weight: 600; text-transform: uppercase;">Or Option 2: Quick Email Form</span>
+                </div>
+            </div>
+
+            <form id="deletion-form">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" required class="form-control" placeholder="Your registered name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Registered Email Address</label>
+                    <input type="email" id="email" required class="form-control" placeholder="your@email.com">
+                </div>
+                <div class="form-group">
+                    <label for="reason">Reason for Deletion (Optional)</label>
+                    <textarea id="reason" class="form-control" rows="3" placeholder="Tell us why you're leaving..."></textarea>
+                </div>
+                
+                <div style="margin-top: 2rem;">
+                    <button type="submit" class="btn-delete">Submit Deletion Request</button>
+                </div>
+            </form>
+
+            <div id="success-banner" class="success-banner animate-fade-in">
+                <div style="font-size: 1.25rem; margin-bottom: 0.5rem;">Request Received</div>
+                <p style="font-size: 0.875rem; font-weight: 400;">Your account deletion request has been submitted to <b>hostelhome247@gmail.com</b> and will be processed within 7 business days.</p>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2026 HostelHome. All rights reserved.</p>
+            <div class="footer-links" style="margin-top: 1rem;">
+                <a href="privacy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+                <a href="terms.html" target="_blank" rel="noopener noreferrer">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        if (localStorage.getItem('theme') === 'dark' || 
+            (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.body.classList.add('dark-mode');
+        }
+
+        document.getElementById('deletion-form').onsubmit = (e) => {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const reason = document.getElementById('reason').value;
+
+            const bodyText = 'Account Deletion Request Details:\n\nName: ' + name + '\nRegistered Email: ' + email + '\nReason for Deletion: ' + (reason || 'None provided');
+            const mailtoUrl = 'mailto:hostelhome247@gmail.com?subject=' + encodeURIComponent('[ACCOUNT DELETION REQUEST] - ' + email) + '&body=' + encodeURIComponent(bodyText);
+            window.location.href = mailtoUrl;
+
+            document.getElementById('deletion-form').style.display = 'none';
+            document.querySelector('.deletion-header').style.display = 'none';
+            document.getElementById('success-banner').style.display = 'block';
+        };
+    </script>
+</body>
+</html>

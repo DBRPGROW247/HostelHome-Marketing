@@ -1,0 +1,344 @@
+/* Global Dark Mode Consistency Styles */
+
+body.dark-mode {
+  --bg: #020617;
+  --card: #1e293b;
+  --text-main: #f1f5f9;
+  --text-muted: #94a3b8;
+  --border: #334155;
+  --primary-light: rgba(59, 130, 246, 0.15);
+  background-color: var(--bg);
+  color: var(--text-main);
+}
+
+body.dark-mode .app-shell,
+body.dark-mode main {
+  background-color: var(--bg);
+}
+
+body.dark-mode .sidebar {
+  background-color: #0f172a;
+  border-right: 1px solid var(--border);
+}
+
+body.dark-mode .topbar {
+  background: rgba(15, 23, 42, 0.8);
+  border-bottom: 1px solid var(--border);
+}
+
+/* Base Elements */
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6 {
+  color: var(--text-main) !important;
+}
+
+body.dark-mode p,
+body.dark-mode span,
+body.dark-mode div {
+  color: inherit;
+}
+
+body.dark-mode strong,
+body.dark-mode b {
+  color: #fff !important;
+}
+
+/* Cards & Modals */
+body.dark-mode .card,
+body.dark-mode .stat-card:not(.bg-blue-600),
+body.dark-mode .table-card,
+body.dark-mode .modal-card,
+body.dark-mode .modal-content,
+body.dark-mode .student-tooltip {
+  background: var(--card) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+}
+
+/* Inputs, Textareas, Selects */
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select {
+  background-color: #020617 !important;
+  color: var(--text-main) !important;
+  border-color: #475569 !important;
+}
+
+body.dark-mode input::placeholder,
+body.dark-mode textarea::placeholder {
+  color: var(--text-muted) !important;
+}
+
+/* Buttons */
+body.dark-mode .btn-secondary,
+body.dark-mode .btn-outline {
+  border-color: #475569;
+  background: transparent;
+  color: var(--text-muted);
+}
+
+body.dark-mode .btn-secondary:hover,
+body.dark-mode .btn-outline:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-main);
+}
+
+/* Navigation & Tabs */
+body.dark-mode .nav-item:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: var(--text-main);
+}
+
+body.dark-mode .settings-nav-item {
+  background: var(--card) !important;
+  color: var(--text-muted) !important;
+  border-color: var(--border) !important;
+}
+
+body.dark-mode .settings-nav-item.active {
+  background: var(--primary-light) !important;
+  color: #60a5fa !important;
+  border-color: #60a5fa !important;
+}
+
+body.dark-mode .settings-nav-item.active svg {
+  color: #60a5fa !important;
+}
+
+body.dark-mode .tab-btn.active {
+  background: #1e293b !important;
+  color: white !important;
+  border: 1px solid var(--border) !important;
+}
+
+body.dark-mode .tabs-header,
+body.dark-mode .tabs {
+  background: #0f172a !important;
+}
+
+/* Search */
+body.dark-mode .search {
+  background: #0f172a !important;
+  border-color: var(--border) !important;
+}
+
+body.dark-mode .search svg {
+  color: var(--text-muted) !important;
+}
+
+body.dark-mode .search input {
+  color: var(--text-main) !important;
+}
+
+/* Tables */
+body.dark-mode .table,
+body.dark-mode .table-container {
+  border-color: var(--border);
+}
+
+body.dark-mode .table thead {
+  background: #0f172a !important;
+  border-color: var(--border) !important;
+}
+
+body.dark-mode .table thead th {
+  color: var(--text-muted) !important;
+}
+
+body.dark-mode .table tbody td,
+body.dark-mode .table td {
+  color: var(--text-main) !important;
+  border-color: var(--border) !important;
+}
+
+body.dark-mode .table tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.03) !important;
+}
+
+/* Overriding Tailwind Colors for proper visibility */
+
+/* Grays */
+body.dark-mode .text-gray-900,
+body.dark-mode .text-gray-800,
+body.dark-mode .text-gray-700,
+body.dark-mode .text-gray-600 {
+  color: var(--text-main) !important;
+}
+
+body.dark-mode .text-gray-500,
+body.dark-mode .text-gray-400 {
+  color: var(--text-muted) !important;
+}
+
+body.dark-mode .bg-white {
+  background-color: var(--card) !important;
+}
+
+body.dark-mode .bg-gray-50,
+body.dark-mode .bg-gray-50\/50,
+body.dark-mode .bg-gray-50\/80,
+body.dark-mode .bg-gray-100,
+body.dark-mode .bg-gray-200,
+body.dark-mode .bg-gray-100\/50,
+body.dark-mode .border-gray-100\/50,
+body.dark-mode .border-gray-200 {
+  background-color: #0f172a !important;
+  border-color: var(--border) !important;
+  color: var(--text-main) !important;
+}
+
+/* Blues */
+body.dark-mode .text-blue-900,
+body.dark-mode .text-blue-800,
+body.dark-mode .text-blue-700,
+body.dark-mode .text-blue-600,
+body.dark-mode .hover\:text-blue-600:hover {
+  color: #60a5fa !important; /* Lighter blue for dark mode */
+}
+
+body.dark-mode .bg-blue-50,
+body.dark-mode .bg-blue-50\/50,
+body.dark-mode .bg-blue-100,
+body.dark-mode .bg-blue-200,
+body.dark-mode .border-blue-100\/50,
+body.dark-mode .hover\:bg-blue-50:hover {
+  background-color: rgba(59, 130, 246, 0.15) !important;
+  border-color: rgba(59, 130, 246, 0.2) !important;
+  color: var(--text-main) !important;
+}
+
+/* Greens / Emeralds */
+body.dark-mode .text-green-600,
+body.dark-mode .text-green-700,
+body.dark-mode .text-emerald-600,
+body.dark-mode .text-emerald-700 {
+  color: #34d399 !important;
+}
+
+body.dark-mode .bg-green-50,
+body.dark-mode .bg-emerald-50 {
+  background-color: rgba(16, 185, 129, 0.1) !important;
+  border-color: rgba(16, 185, 129, 0.2) !important;
+}
+
+/* Reds / Roses */
+body.dark-mode .text-red-500,
+body.dark-mode .text-red-600,
+body.dark-mode .text-rose-500,
+body.dark-mode .text-rose-600 {
+  color: #fb7185 !important;
+}
+
+body.dark-mode .bg-red-50,
+body.dark-mode .bg-rose-50 {
+  background-color: rgba(244, 63, 94, 0.1) !important;
+  border-color: rgba(244, 63, 94, 0.2) !important;
+}
+
+/* Oranges / Yellows / Ambers */
+body.dark-mode .text-orange-500,
+body.dark-mode .text-orange-600,
+body.dark-mode .text-yellow-500,
+body.dark-mode .text-yellow-600,
+body.dark-mode .text-amber-500,
+body.dark-mode .text-amber-600,
+body.dark-mode .text-amber-700,
+body.dark-mode .text-amber-900 {
+  color: #fbbf24 !important;
+}
+
+body.dark-mode .bg-orange-50,
+body.dark-mode .bg-yellow-50,
+body.dark-mode .bg-amber-50,
+body.dark-mode .bg-amber-100 {
+  background-color: rgba(245, 158, 11, 0.1) !important;
+  border-color: rgba(245, 158, 11, 0.2) !important;
+}
+
+body.dark-mode .border-amber-200 {
+  border-color: rgba(245, 158, 11, 0.2) !important;
+}
+
+/* Indigo & Purple */
+body.dark-mode .text-indigo-600,
+body.dark-mode .text-indigo-700 {
+  color: #818cf8 !important;
+}
+
+body.dark-mode .bg-indigo-50 {
+  background-color: rgba(99, 102, 241, 0.1) !important;
+  border-color: rgba(99, 102, 241, 0.2) !important;
+}
+
+body.dark-mode .text-purple-600,
+body.dark-mode .text-purple-700,
+body.dark-mode .text-purple-800 {
+  color: #c084fc !important;
+}
+
+body.dark-mode .bg-purple-50,
+body.dark-mode .border-purple-100,
+body.dark-mode .border-purple-200 {
+  background-color: rgba(168, 85, 247, 0.1) !important;
+  border-color: rgba(168, 85, 247, 0.2) !important;
+}
+
+/* Specific elements that might be hardcoded */
+body.dark-mode #role-selector,
+body.dark-mode #role-selector .card {
+  background-color: var(--bg);
+  border: none;
+}
+
+body.dark-mode #announcement-list li,
+body.dark-mode #leaves-list li {
+  background-color: #0f172a !important;
+  border-color: var(--border) !important;
+  color: var(--text-main);
+}
+
+body.dark-mode #payment-config-card .bg-gray-50 {
+  background-color: #0f172a !important;
+}
+
+/* Chat Styles */
+body.dark-mode .chat-bubble.others {
+  background: #334155 !important;
+  color: #f8fafc !important;
+}
+
+body.dark-mode .chat-bubble.mine {
+  background: var(--primary) !important;
+  color: white !important;
+}
+
+/* Form Groups & Dividers */
+body.dark-mode .border-gray-100,
+body.dark-mode .border-gray-200,
+body.dark-mode .border-gray-300,
+body.dark-mode .divide-y > * {
+  border-color: var(--border) !important;
+}
+
+/* Text placeholders */
+body.dark-mode .text-muted, body.dark-mode .muted-sm {
+  color: var(--text-muted) !important;
+}
+
+/* Status Badges */
+body.dark-mode .status-paid {
+  background: rgba(34, 197, 94, 0.15) !important;
+  color: #4ade80 !important;
+}
+body.dark-mode .status-pending {
+  background: rgba(234, 179, 8, 0.15) !important;
+  color: #facc15 !important;
+}
+body.dark-mode .status-overdue {
+  background: rgba(239, 68, 68, 0.15) !important;
+  color: #f87171 !important;
+}

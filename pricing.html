@@ -1,0 +1,609 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Primary SEO Meta Tags -->
+  <title>Pricing & Plans • Transparent Hostel Management | HostelHome</title>
+  <meta name="title" content="Pricing & Plans • Transparent Hostel Management | HostelHome" />
+  <meta name="description" content="Affordable, transparent pricing for modern hostels and PGs. Starter (50 Students) from ₹1,199/mo and Growth (120 Students) from ₹1,599/mo with full features included." />
+  <meta name="keywords" content="HostelHome Pricing, Hostel Management Software Cost, PG Management App Price, HostelDesk Plans" />
+  <meta name="author" content="HostelHome" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://hostelhome.pages.dev/pricing.html" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://hostelhome.pages.dev/pricing.html" />
+  <meta property="og:site_name" content="HostelHome" />
+  <meta property="og:title" content="HostelHome Pricing • Transparent Plans with Full Features" />
+  <meta property="og:description" content="All features included across all plans. Choose between 50 students (₹1,199/mo) and 120 students (₹1,599/mo), or custom for larger hostels." />
+  <meta property="og:image" content="https://hostelhome.pages.dev/icons/hostelhome-logo.png" />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://hostelhome.pages.dev/pricing.html" />
+  <meta property="twitter:title" content="HostelHome Pricing • Transparent Plans with Full Features" />
+  <meta property="twitter:description" content="All features included across all plans. Choose between 50 students (₹1,199/mo) and 120 students (₹1,599/mo)." />
+  <meta property="twitter:image" content="https://hostelhome.pages.dev/icons/hostelhome-logo.png" />
+
+  <!-- Structured Data / JSON-LD Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "HostelHome",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web, Android, iOS",
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "Starter Plan (50 Students)",
+        "price": "1199",
+        "priceCurrency": "INR",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "price": "1199",
+          "priceCurrency": "INR",
+          "unitText": "MONTH"
+        },
+        "description": "Full feature suite for hostels up to 50 students."
+      },
+      {
+        "@type": "Offer",
+        "name": "Growth Plan (120 Students)",
+        "price": "1599",
+        "priceCurrency": "INR",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "price": "1599",
+          "priceCurrency": "INR",
+          "unitText": "MONTH"
+        },
+        "description": "Full feature suite for hostels up to 120 students."
+      }
+    ]
+  }
+  </script>
+
+  <!-- Google Fonts & Tailwind -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="scripts/ui-core.js"></script>
+  <script src="scripts/android-bridge.js"></script>
+  <link rel="stylesheet" href="dark-mode.css">
+
+  <style>
+    :root {
+      --primary: #2563EB;
+      --primary-dark: #1D4ED8;
+      --bg: #F8FAFC;
+      --card: #FFFFFF;
+      --border: #E2E8F0;
+      --text-main: #0F172A;
+      --text-muted: #64748B;
+    }
+
+    html, body {
+      min-height: 100%;
+      background: var(--bg);
+      color: var(--text-main);
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      margin: 0;
+      scroll-behavior: smooth;
+    }
+
+    h1, h2, h3, h4, .brand-title {
+      font-family: 'Outfit', 'Inter', sans-serif;
+    }
+
+    .glass-card {
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(226, 232, 240, 0.85);
+      border-radius: 28px;
+      box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.05);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    .grad-text {
+      background: linear-gradient(135deg, #2563EB 0%, #0EA5E9 50%, #10B981 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      background-size: 200% auto;
+      animation: shine 6s linear infinite;
+    }
+
+    @keyframes shine {
+      to {
+        background-position: 200% center;
+      }
+    }
+
+    .blob {
+      position: absolute;
+      filter: blur(60px);
+      opacity: 0.45;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .blob-1 {
+      width: 450px;
+      height: 450px;
+      left: -150px;
+      top: -100px;
+      background: radial-gradient(circle, #93C5FD 0%, #3B82F6 100%);
+    }
+
+    .blob-2 {
+      width: 500px;
+      height: 500px;
+      right: -200px;
+      top: 15%;
+      background: radial-gradient(circle, #BAE6FD 0%, #38BDF8 100%);
+    }
+  </style>
+</head>
+
+<body class="relative overflow-x-hidden">
+  <!-- Background Glows -->
+  <div class="blob blob-1 rounded-full"></div>
+  <div class="blob blob-2 rounded-full"></div>
+
+  <!-- Top Navigation Bar -->
+  <header class="sticky top-0 z-50 w-full border-b border-slate-200/80 bg-white/85 backdrop-blur-xl transition-all">
+    <div class="max-w-6xl mx-auto px-5 py-4 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3 group">
+        <div class="w-11 h-11 flex items-center justify-center overflow-hidden transition-transform group-hover:scale-105" style="width:44px; height:44px; flex-shrink:0;">
+          <img src="icons/hostelhome-logo.png" alt="HostelHome Logo" class="w-full h-full object-contain" style="width:44px; height:44px; object-fit:contain;">
+        </div>
+        <div>
+          <div class="text-xl font-black tracking-tight text-slate-900 brand-title">HostelHome</div>
+          <div class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Smarter Management</div>
+        </div>
+      </a>
+
+      <div class="flex items-center gap-3">
+        <a href="index.html" class="px-5 py-2.5 rounded-xl text-xs font-extrabold text-white bg-blue-600 hover:bg-blue-700 shadow-md shadow-blue-500/20 transition-all hover:-translate-y-0.5 flex items-center gap-1.5">
+          <span>Log In</span>
+          <span>→</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-5 py-12 relative z-10 space-y-16">
+
+    <!-- HERO SECTION -->
+    <section class="text-center max-w-3xl mx-auto space-y-4">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200/80 text-blue-700 text-xs font-extrabold">
+        <span class="w-2 h-2 rounded-full bg-blue-600 animate-pulse"></span>
+        All Features Included In Every Plan
+      </div>
+
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-black text-slate-900 tracking-tight leading-[1.15]">
+        Simple Pricing for <span class="grad-text">Modern Hostels.</span>
+      </h1>
+
+      <p class="text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
+        Every plan gives you 100% access to all features—from instant QR admissions to PhonePe PG auto-verification and live analytics. The only difference is your hostel's student capacity.
+      </p>
+
+      <!-- BILLING CYCLE SWITCHER (MATCHING REGISTER HOSTEL) -->
+      <div class="pt-4 flex flex-col items-center gap-2.5">
+        <div class="inline-flex p-1.5 bg-slate-200/70 rounded-full border border-slate-300/80 shadow-inner">
+          <button id="cycle-btn-1" onclick="setBillingCycle(1)" class="px-5 py-2 rounded-full text-xs font-extrabold transition-all bg-blue-600 text-white shadow-md">Monthly</button>
+          <button id="cycle-btn-6" onclick="setBillingCycle(6)" class="px-5 py-2 rounded-full text-xs font-extrabold transition-all text-slate-600 hover:text-slate-900">6 Months <span class="text-[10px] text-emerald-600 font-black ml-1">Save ~13%</span></button>
+          <button id="cycle-btn-12" onclick="setBillingCycle(12)" class="px-5 py-2 rounded-full text-xs font-extrabold transition-all text-slate-600 hover:text-slate-900">1 Year <span class="text-[10px] text-emerald-600 font-black ml-1">Save ~18%</span></button>
+        </div>
+        <p id="savings-badge" class="text-xs font-bold text-emerald-600">Monthly billing selected</p>
+      </div>
+    </section>
+
+    <!-- PRICING CARDS GRID -->
+    <section class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+
+      <!-- PLAN 1: STARTER (50 STUDENTS) -->
+      <div class="glass-card p-8 sm:p-9 flex flex-col justify-between relative hover:shadow-2xl hover:border-blue-300 transition-all duration-300">
+        <div>
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="text-2xl font-black text-slate-900">Starter</h3>
+            <span class="px-3.5 py-1 rounded-full bg-slate-100 text-slate-700 text-[11px] font-extrabold uppercase tracking-wider">
+              50 Students
+            </span>
+          </div>
+
+          <p class="text-xs text-slate-500 min-h-[32px]">Essential management suite for small to medium hostels & individual PGs.</p>
+
+          <!-- Price Header -->
+          <div class="my-6 pb-6 border-b border-slate-100">
+            <div class="flex items-baseline gap-1.5">
+              <span id="price-starter-rate" class="text-4xl sm:text-5xl font-black text-slate-900 tracking-tight">₹1,199</span>
+              <span class="text-slate-500 text-sm font-bold">/ mo</span>
+              <span id="price-starter-strike" class="text-xs text-slate-400 line-through ml-2 hidden">₹1,199</span>
+            </div>
+            <p id="price-starter-summary" class="text-[11px] text-slate-400 font-semibold mt-1">Billed monthly</p>
+          </div>
+
+          <!-- Feature List -->
+          <div class="space-y-3.5 mb-8">
+            <p class="text-[11px] font-black text-slate-900 uppercase tracking-wider">Complete Feature Suite Included</p>
+            <ul class="space-y-3 text-xs text-slate-700 font-semibold">
+              <li class="flex items-start gap-2.5">
+                <svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                <span><strong>50 Student Capacity</strong> limit</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                <span><strong>1-Scan Quick QR</strong> student admission</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                <span><strong>PhonePe PG</strong> auto & manual verification</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                <span>Digital ID Cards & student verification</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                <span>Weekly Mess Menu & meal scheduler</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                <span>In-App Maintenance & complaints desk</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                <span>Live Occupancy Graphs & Financials tracking</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                <span>Digital Leave logs & permanent clearance</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Action Button -->
+        <a href="register-hostel.html?plan=starter" class="w-full py-3.5 px-6 rounded-2xl bg-slate-900 hover:bg-blue-600 text-white font-extrabold text-xs text-center tracking-wide transition-all shadow-md hover:shadow-blue-500/20 hover:-translate-y-0.5 flex items-center justify-center gap-2">
+          <span>Get Starter Plan</span>
+          <span>→</span>
+        </a>
+      </div>
+
+      <!-- PLAN 2: GROWTH (120 STUDENTS) - RECOMMENDED -->
+      <div class="glass-card p-8 sm:p-9 flex flex-col justify-between relative border-2 border-blue-600 shadow-2xl ring-4 ring-blue-600/10 hover:shadow-blue-500/15 transition-all duration-300">
+        <!-- Floating Tag -->
+        <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-blue-600 text-white text-[10px] font-black uppercase tracking-wider shadow-md">
+          ★ Most Popular & Recommended
+        </div>
+
+        <div>
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="text-2xl font-black text-slate-900">Growth</h3>
+            <span class="px-3.5 py-1 rounded-full bg-blue-100 text-blue-800 text-[11px] font-extrabold uppercase tracking-wider">
+              120 Students
+            </span>
+          </div>
+
+          <p class="text-xs text-slate-500 min-h-[32px]">Full-featured suite for growing hostels, PG buildings, and campuses.</p>
+
+          <!-- Price Header -->
+          <div class="my-6 pb-6 border-b border-slate-100">
+            <div class="flex items-baseline gap-1.5">
+              <span id="price-growth-rate" class="text-4xl sm:text-5xl font-black text-blue-600 tracking-tight">₹1,599</span>
+              <span class="text-slate-500 text-sm font-bold">/ mo</span>
+              <span id="price-growth-strike" class="text-xs text-slate-400 line-through ml-2 hidden">₹1,599</span>
+            </div>
+            <p id="price-growth-summary" class="text-[11px] text-slate-400 font-semibold mt-1">Billed monthly • Best value</p>
+          </div>
+
+          <!-- Feature List -->
+          <div class="space-y-3.5 mb-8">
+            <p class="text-[11px] font-black text-slate-900 uppercase tracking-wider">Complete Feature Suite Included</p>
+            <ul class="space-y-3 text-xs text-slate-700 font-semibold">
+              <li class="flex items-start gap-2.5">
+                <svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                <span><strong>120 Student Capacity</strong> limit</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                <span><strong>1-Scan Quick QR</strong> student admission</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                <span><strong>PhonePe PG</strong> auto & manual verification</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                <span>Digital ID Cards & student verification</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                <span>Weekly Mess Menu & meal scheduler</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                <span>In-App Maintenance & complaints desk</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                <span>Live Occupancy Graphs & Financials tracking</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                <span>Digital Leave logs & permanent clearance</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Action Button -->
+        <a href="register-hostel.html?plan=growth" class="w-full py-4 px-6 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-extrabold text-xs text-center tracking-wide transition-all shadow-lg shadow-blue-500/25 hover:-translate-y-0.5 flex items-center justify-center gap-2">
+          <span>Get Growth Plan</span>
+          <span>→</span>
+        </a>
+      </div>
+
+      <!-- PLAN 3: CUSTOM (120+ STUDENTS) -->
+      <div class="glass-card p-8 sm:p-9 flex flex-col justify-between relative hover:shadow-2xl hover:border-slate-300 transition-all duration-300">
+        <div>
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="text-2xl font-black text-slate-900">Custom</h3>
+            <span class="px-3.5 py-1 rounded-full bg-purple-100 text-purple-800 text-[11px] font-extrabold uppercase tracking-wider">
+              120+ Capacity
+            </span>
+          </div>
+
+          <p class="text-xs text-slate-500 min-h-[32px]">Custom tailored plans for large colleges, multiple branches & multi-building hostel chains.</p>
+
+          <!-- Price Header -->
+          <div class="my-6 pb-6 border-b border-slate-100">
+            <div class="flex items-baseline gap-1.5">
+              <span class="text-4xl sm:text-5xl font-black text-slate-900 tracking-tight">Custom</span>
+            </div>
+            <p class="text-[11px] text-slate-400 font-semibold mt-1">Tailored for your exact student volume</p>
+          </div>
+
+          <!-- Feature List -->
+          <div class="space-y-3.5 mb-8">
+            <p class="text-[11px] font-black text-slate-900 uppercase tracking-wider">Custom Inclusions</p>
+            <ul class="space-y-3 text-xs text-slate-700 font-semibold">
+              <li class="flex items-start gap-2.5">
+                <svg class="w-4 h-4 text-purple-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                <span><strong>120+ Student Capacity</strong> tailored to your hostel</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <svg class="w-4 h-4 text-purple-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                <span><strong>All features accessible</strong></span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <svg class="w-4 h-4 text-purple-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                <span>Direct assistance & custom onboarding</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Action Button -->
+        <a href="contact.html?subject=CustomPlan" class="w-full py-3.5 px-6 rounded-2xl border-2 border-slate-900 hover:bg-slate-900 hover:text-white text-slate-900 font-extrabold text-xs text-center tracking-wide transition-all shadow-xs flex items-center justify-center gap-2">
+          <span>Contact Us</span>
+          <span>→</span>
+        </a>
+      </div>
+
+    </section>
+
+    <!-- DETAILED FEATURE COMPARISON TABLE -->
+    <section class="space-y-6">
+      <div class="text-center max-w-xl mx-auto">
+        <h2 class="text-3xl font-black text-slate-900">Side-by-Side Comparison</h2>
+        <p class="text-xs sm:text-sm text-slate-500 mt-2">Every plan includes 100% of our core management tools.</p>
+      </div>
+
+      <div class="glass-card overflow-hidden">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs border-collapse">
+            <thead>
+              <tr class="border-b border-slate-200 bg-slate-50/70 text-slate-900 font-black">
+                <th class="p-4 sm:p-5">Feature</th>
+                <th class="p-4 sm:p-5 text-center">Starter Plan</th>
+                <th class="p-4 sm:p-5 text-center text-blue-600">Growth Plan</th>
+                <th class="p-4 sm:p-5 text-center">Custom Plan</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100 text-slate-700 font-medium">
+              <tr>
+                <td class="p-4 sm:p-5 font-bold text-slate-900">Student Capacity Limit</td>
+                <td class="p-4 sm:p-5 text-center font-bold">50 Students</td>
+                <td class="p-4 sm:p-5 text-center font-bold text-blue-600">120 Students</td>
+                <td class="p-4 sm:p-5 text-center font-bold text-purple-600">120+ / Unlimited</td>
+              </tr>
+              <tr>
+                <td class="p-4 sm:p-5 font-bold text-slate-900">1-Scan Quick QR Admissions</td>
+                <td class="p-4 sm:p-5 text-center text-emerald-600 font-bold">✓ Included</td>
+                <td class="p-4 sm:p-5 text-center text-emerald-600 font-bold">✓ Included</td>
+                <td class="p-4 sm:p-5 text-center text-emerald-600 font-bold">✓ Included</td>
+              </tr>
+              <tr>
+                <td class="p-4 sm:p-5 font-bold text-slate-900">PhonePe PG Fee Collection & Auto-Verification</td>
+                <td class="p-4 sm:p-5 text-center text-emerald-600 font-bold">✓ Included</td>
+                <td class="p-4 sm:p-5 text-center text-emerald-600 font-bold">✓ Included</td>
+                <td class="p-4 sm:p-5 text-center text-emerald-600 font-bold">✓ Included</td>
+              </tr>
+              <tr>
+                <td class="p-4 sm:p-5 font-bold text-slate-900">Digital Student Profiles & ID Cards</td>
+                <td class="p-4 sm:p-5 text-center text-emerald-600 font-bold">✓ Included</td>
+                <td class="p-4 sm:p-5 text-center text-emerald-600 font-bold">✓ Included</td>
+                <td class="p-4 sm:p-5 text-center text-emerald-600 font-bold">✓ Included</td>
+              </tr>
+              <tr>
+                <td class="p-4 sm:p-5 font-bold text-slate-900">Room Allocation & Vacant Bed Tracking</td>
+                <td class="p-4 sm:p-5 text-center text-emerald-600 font-bold">✓ Included</td>
+                <td class="p-4 sm:p-5 text-center text-emerald-600 font-bold">✓ Included</td>
+                <td class="p-4 sm:p-5 text-center text-emerald-600 font-bold">✓ Included</td>
+              </tr>
+              <tr>
+                <td class="p-4 sm:p-5 font-bold text-slate-900">Weekly Mess Planner & Daily Menu</td>
+                <td class="p-4 sm:p-5 text-center text-emerald-600 font-bold">✓ Included</td>
+                <td class="p-4 sm:p-5 text-center text-emerald-600 font-bold">✓ Included</td>
+                <td class="p-4 sm:p-5 text-center text-emerald-600 font-bold">✓ Included</td>
+              </tr>
+              <tr>
+                <td class="p-4 sm:p-5 font-bold text-slate-900">In-App Complaints Desk & Maintenance</td>
+                <td class="p-4 sm:p-5 text-center text-emerald-600 font-bold">✓ Included</td>
+                <td class="p-4 sm:p-5 text-center text-emerald-600 font-bold">✓ Included</td>
+                <td class="p-4 sm:p-5 text-center text-emerald-600 font-bold">✓ Included</td>
+              </tr>
+              <tr>
+                <td class="p-4 sm:p-5 font-bold text-slate-900">Live Occupancy Trends Graph & Statistics</td>
+                <td class="p-4 sm:p-5 text-center text-emerald-600 font-bold">✓ Included</td>
+                <td class="p-4 sm:p-5 text-center text-emerald-600 font-bold">✓ Included</td>
+                <td class="p-4 sm:p-5 text-center text-emerald-600 font-bold">✓ Included</td>
+              </tr>
+              <tr>
+                <td class="p-4 sm:p-5 font-bold text-slate-900">Digital Leave & Permanent Clearance</td>
+                <td class="p-4 sm:p-5 text-center text-emerald-600 font-bold">✓ Included</td>
+                <td class="p-4 sm:p-5 text-center text-emerald-600 font-bold">✓ Included</td>
+                <td class="p-4 sm:p-5 text-center text-emerald-600 font-bold">✓ Included</td>
+              </tr>
+              <tr>
+                <td class="p-4 sm:p-5 font-bold text-slate-900">Resident Mobile App (Android / iOS)</td>
+                <td class="p-4 sm:p-5 text-center text-emerald-600 font-bold">100% Free</td>
+                <td class="p-4 sm:p-5 text-center text-emerald-600 font-bold">100% Free</td>
+                <td class="p-4 sm:p-5 text-center text-emerald-600 font-bold">100% Free</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- FREQUENTLY ASKED QUESTIONS -->
+    <section class="max-w-3xl mx-auto space-y-6">
+      <div class="text-center">
+        <h2 class="text-3xl font-black text-slate-900">Frequently Asked Questions</h2>
+        <p class="text-xs sm:text-sm text-slate-500 mt-2">Everything you need to know about plans and capacity.</p>
+      </div>
+
+      <div class="space-y-4">
+        <div class="glass-card p-6">
+          <h3 class="font-bold text-sm text-slate-900 mb-2">Are all features included in the 50-student Starter pack?</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">Yes! There is zero feature difference between the 50-student pack and the 120-student pack. Both packs include the entire HostelHome management suite (QR onboarding, PhonePe PG fees, digital ID cards, mess planner, occupancy graphs, and financials). The only distinction is your student capacity limit.</p>
+        </div>
+
+        <div class="glass-card p-6">
+          <h3 class="font-bold text-sm text-slate-900 mb-2">What if my hostel has more than 120 students?</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">For hostels, PG chains, or campuses with more than 120 students, choose the Custom plan and contact us. We will set up a custom capacity tailored to your exact needs.</p>
+        </div>
+
+        <div class="glass-card p-6">
+          <h3 class="font-bold text-sm text-slate-900 mb-2">Can I upgrade from 50 to 120 students later?</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">Yes. If your hostel grows, you can seamlessly upgrade your capacity at any time without losing any student records or payment history.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODERN FOOTER -->
+    <footer class="pt-8 pb-12 border-t border-slate-200">
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div class="flex items-center gap-2.5">
+          <div class="w-7 h-7 flex items-center justify-center overflow-hidden shrink-0" style="width:28px; height:28px; flex-shrink:0;">
+            <img src="icons/hostelhome-logo.png" alt="HostelHome Logo" class="w-full h-full object-contain" style="width:28px; height:28px; object-fit:contain;">
+          </div>
+          <span class="text-xs text-slate-500 font-bold">© <span id="year"></span> HostelHome. All rights reserved.</span>
+        </div>
+        <div class="flex flex-wrap gap-5 text-xs font-semibold text-slate-500 items-center">
+          <a href="about.html" class="hover:text-blue-600 transition-colors">About Us</a>
+          <a href="founders.html" class="hover:text-blue-600 transition-colors">Founders</a>
+          <a href="pricing.html" class="text-blue-600 font-bold">Pricing & Plans</a>
+          <a href="privacy.html" target="_blank" rel="noopener noreferrer" class="hover:text-blue-600 transition-colors">Privacy Policy</a>
+          <a href="terms.html" target="_blank" rel="noopener noreferrer" class="hover:text-blue-600 transition-colors">Terms of Service</a>
+          <a href="refund-policy.html" target="_blank" rel="noopener noreferrer" class="hover:text-blue-600 transition-colors">Refund Policy</a>
+          <a href="contact.html" class="hover:text-blue-600 transition-colors">Contact Support</a>
+          <a href="https://www.instagram.com/hostelhome247/" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-pink-600 transition-colors p-1 flex items-center justify-center" title="HostelHome Instagram" aria-label="HostelHome Instagram">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Exact Pricing Matrix from Register Hostel
+    const PLAN_MATRIX = {
+      50: {
+        1: { rate: 1199, total: 1199, strike: null, summary: 'Billed monthly' },
+        6: { rate: 1049, total: 6294, strike: 1199, summary: 'Billed ₹6,294 for 6 months' },
+        12: { rate: 979, total: 11748, strike: 1199, summary: 'Billed annually at ₹11,748' }
+      },
+      120: {
+        1: { rate: 1599, total: 1599, strike: null, summary: 'Billed monthly' },
+        6: { rate: 1450, total: 8700, strike: 1599, summary: 'Billed ₹8,700 for 6 months' },
+        12: { rate: 1399, total: 16788, strike: 1599, summary: 'Billed annually at ₹16,788' }
+      }
+    };
+
+    let selectedCycle = 1;
+
+    function setBillingCycle(months) {
+      selectedCycle = months;
+
+      [1, 6, 12].forEach(m => {
+        const btn = document.getElementById('cycle-btn-' + m);
+        if (btn) {
+          if (m === months) {
+            btn.className = "px-5 py-2 rounded-full text-xs font-extrabold transition-all bg-blue-600 text-white shadow-md";
+          } else {
+            btn.className = "px-5 py-2 rounded-full text-xs font-extrabold transition-all text-slate-600 hover:text-slate-900";
+          }
+        }
+      });
+
+      const badge = document.getElementById('savings-badge');
+      if (badge) {
+        if (months === 12) badge.innerHTML = "✨ Save up to 18% with 1-year annual billing";
+        else if (months === 6) badge.innerHTML = "⚡ Save up to 13% with 6-month billing";
+        else badge.innerHTML = "Monthly billing selected";
+      }
+
+      // Update 50 Students (Starter)
+      const sData = PLAN_MATRIX[50][selectedCycle];
+      document.getElementById('price-starter-rate').innerText = '₹' + sData.rate.toLocaleString('en-IN');
+      document.getElementById('price-starter-summary').innerText = sData.summary;
+      const sStrike = document.getElementById('price-starter-strike');
+      if (sData.strike) {
+        sStrike.innerText = '₹' + sData.strike.toLocaleString('en-IN');
+        sStrike.classList.remove('hidden');
+      } else {
+        sStrike.classList.add('hidden');
+      }
+
+      // Update 120 Students (Growth)
+      const gData = PLAN_MATRIX[120][selectedCycle];
+      document.getElementById('price-growth-rate').innerText = '₹' + gData.rate.toLocaleString('en-IN');
+      document.getElementById('price-growth-summary').innerText = gData.summary;
+      const gStrike = document.getElementById('price-growth-strike');
+      if (gData.strike) {
+        gStrike.innerText = '₹' + gData.strike.toLocaleString('en-IN');
+        gStrike.classList.remove('hidden');
+      } else {
+        gStrike.classList.add('hidden');
+      }
+    }
+  </script>
+</body>
+
+</html>

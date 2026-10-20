@@ -1,0 +1,2928 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>HostelHome — Smart Hostel & Student Living Management Platform</title>
+  <meta name="title" content="HostelHome — Smart Hostel & Student Living Management Platform" />
+  <meta name="description" content="HostelHome is the all-in-one digital operating system for hostels and PGs. Effortless 1-scan QR admissions, automated PhonePe PG rent collections, mess planner, and live occupancy analytics." />
+  <meta name="keywords" content="HostelHome, Hostel Management System, PG Management Software, Student Hostel App, HostelDesk, Warden App, Hostel Rent Payment" />
+  <meta name="author" content="HostelHome" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://hostelhome.pages.dev/" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://hostelhome.pages.dev/" />
+  <meta property="og:site_name" content="HostelHome" />
+  <meta property="og:title" content="HostelHome — Smart Hostel & Student Living Management" />
+  <meta property="og:description" content="All-in-one management platform for hostels and PGs. QR admissions, automated PhonePe PG payments, and live occupancy analytics." />
+  <meta property="og:image" content="https://hostelhome.pages.dev/icons/hostelhome-logo.png" />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://hostelhome.pages.dev/" />
+  <meta property="twitter:title" content="HostelHome — Smart Hostel & Student Living Management" />
+  <meta property="twitter:description" content="All-in-one management platform for hostels and PGs. QR admissions, automated PhonePe PG payments, and live occupancy analytics." />
+  <meta property="twitter:image" content="https://hostelhome.pages.dev/icons/hostelhome-logo.png" />
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "HostelHome",
+    "url": "https://hostelhome.pages.dev",
+    "description": "Smart Hostel & Student Living Management Platform",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://hostelhome.pages.dev/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- <link href="/dist/output.css" rel="stylesheet"> -->
+  <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+  <script src="scripts/ui-core.js"></script>
+  <script src="scripts/android-bridge.js"></script>
+
+  <!-- PWA Requirements -->
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#3B82F6" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="HostelHome" />
+  <link rel="apple-touch-icon" href="icons/icon-192x192.png" />
+
+  
+  <!-- Service Worker Registration handled by ui-core.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.9/purify.min.js"></script>
+
+  <style>
+    :root {
+      /* BRAND COLORS */
+      --primary: #3B82F6;
+      --primary-hover: #2563EB;
+      --primary-light: #EFF6FF;
+        /* NEUTRALS */
+        --bg: #F3F4F6;
+      --card: #FFFFFF;
+      --text-main: #111827;
+      --text-muted: #6B7280;
+      --border: #E5E7EB;
+
+      /* DIMENSIONS */
+      --sidebar-w: 280px;
+      --header-h: 70px;
+    }
+
+    /* GLOBAL RESET */
+    html,
+    body {
+      height: 100%;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      margin: 0;
+    }
+
+    /* LAYOUT */
+    .app-shell {
+      display: grid;
+      grid-template-columns: var(--sidebar-w) 1fr;
+      min-height: 100vh;
+        min-min-height: 100dvh;
+        padding-bottom: max(32px, env(safe-area-inset-bottom));
+    }
+
+    /* SIDEBAR */
+    .sidebar {
+      background: #FFFFFF;
+      border-right: 1px solid var(--border);
+      padding: 32px 24px;
+      display: flex;
+      flex-direction: column;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+        height: 100dvh;
+        padding-bottom: max(32px, env(safe-area-inset-bottom));
+      z-index: 50;
+      overflow-y: auto;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 40px;
+      padding-left: 8px;
+    }
+
+    .brand .logo {
+      width: 48px;
+      height: 48px;
+      background: transparent !important;
+      box-shadow: none !important;
+      border-radius: 0 !important;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .brand h1 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-main);
+      letter-spacing: -0.02em;
+      margin: 0;
+    }
+
+    .nav-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      border-radius: 10px;
+      color: var(--text-muted);
+      font-weight: 500;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      position: relative;
+    }
+
+    .notif-dot {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 8px;
+      height: 8px;
+      background-color: #EF4444;
+      border-radius: 50%;
+      border: 1.5px solid white;
+      box-shadow: 0 0 0 1px rgba(239, 68, 68, 0.2);
+    }
+
+    .nav-item:hover {
+      background: var(--bg);
+      color: var(--text-main);
+    }
+
+    .nav-item.active {
+      background: var(--primary-light);
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    /* TOPBAR */
+    .topbar {
+      box-sizing: content-box;
+      height: var(--header-h);
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: max(35px, env(safe-area-inset-top)) 32px 0 32px;
+      position: sticky;
+      top: 0;
+      z-index: 40;
+    }
+
+    .topbar-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .search {
+      width: 380px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      padding: 8px 14px;
+      border-radius: 10px;
+      height: 42px;
+      transition: all 0.2s;
+    }
+
+    .search:focus-within {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    }
+
+    .search input {
+      border: none;
+      outline: none;
+      width: 100%;
+      font-size: 14px;
+      color: var(--text-main);
+      background: transparent;
+    }
+
+    /* CONTENT */
+    .main-wrap {
+      padding: 32px;
+      max-width: 1400px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    /* CARDS */
+    .card {
+      background: var(--card);
+      border: 1px solid rgba(229, 231, 235, 0.5);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .card:hover {
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
+    }
+
+    .card h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text-main);
+      margin: 0 0 16px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* BUTTONS */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 0 16px;
+      height: 42px;
+      border-radius: 8px;
+      font-weight: 500;
+      font-size: 14px;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s ease;
+    }
+
+    .btn:active {
+      transform: scale(0.98);
+    }
+
+    .btn-sm {
+      height: 32px;
+      font-size: 13px;
+      padding: 0 12px;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+      box-shadow: 0 4px 10px rgba(59, 130, 246, 0.25);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-hover);
+      box-shadow: 0 6px 15px rgba(59, 130, 246, 0.35);
+    }
+
+    .btn-muted {
+      background: white;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+    }
+
+    .btn-muted:hover {
+      border-color: var(--text-muted);
+      color: var(--text-main);
+      background: #F9FAFB;
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--text-muted);
+    }
+
+    .btn-ghost:hover {
+      background: var(--bg);
+      color: var(--text-main);
+    }
+
+    /* INPUTS */
+    input,
+    textarea {
+      width: 100%;
+      padding: 11px 14px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 14px;
+      transition: all 0.2s;
+      background: #F9FAFB;
+    }
+
+    input:focus,
+    textarea:focus {
+      background: #fff;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+      outline: none;
+    }
+
+    /* TABLES */
+    .table-container {
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+    }
+
+    /* ANNOUNCEMENTS SHOW MORE */
+    #announcement-list-container {
+      transition: max-height 0.5s ease-in-out;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .btn-blue-secondary {
+      background-color: var(--primary-light);
+      color: var(--primary);
+      border: 1px solid #DBEAFE;
+      font-weight: 600;
+    }
+
+    .btn-blue-secondary:hover {
+      background-color: #DBEAFE;
+      color: var(--primary-hover);
+      border-color: #BFDBFE;
+    }
+
+    .rotate-180 {
+      transform: rotate(180deg);
+    }
+
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+    }
+
+    .table thead {
+      background: #F9FAFB;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .table th {
+      text-align: left;
+      padding: 14px 16px;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+    }
+
+    .table td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border);
+      font-size: 14px;
+      color: var(--text-main);
+    }
+
+    .table tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    .table tbody tr:hover {
+      background: #F9FAFB;
+    }
+
+    /* MODALS */
+    .modal-backdrop {
+      background: rgba(17, 24, 39, 0.7);
+      backdrop-filter: blur(4px);
+    }
+
+    .modal-card {
+      background: white;
+      border-radius: 16px;
+      padding: 32px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* UTILS */
+    .grid-columns {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    @media (max-width: 1024px) {
+      .grid-columns {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .muted-sm {
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+
+    /* MOBILE */
+    @media (max-width: 930px) {
+      .app-shell {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        position: fixed;
+        left: -300px;
+        transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        width: 280px;
+        box-shadow: 10px 0 30px rgba(0, 0, 0, 0.1);
+        z-index: 100;
+        height: 100vh;
+        height: 100dvh;
+        padding-bottom: max(32px, env(safe-area-inset-bottom));
+        overflow-y: auto;
+      }
+
+      .sidebar.open {
+        left: 0;
+      }
+
+      .topbar {
+      box-sizing: content-box;
+        padding: max(35px, env(safe-area-inset-top)) 16px 0 16px;
+      }
+
+      .main-wrap {
+        padding: 16px;
+      }
+
+      .search {
+        display: none; /* Hide search on mobile topbar to save space */
+      }
+
+      .topbar-right {
+        gap: 8px;
+      }
+
+      .btn span.hidden.sm\:inline {
+        display: none;
+      }
+
+      .grid-columns {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .card {
+        padding: 16px;
+      }
+
+      .table-container {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .table {
+        min-width: 600px;
+      }
+
+      .modal-card {
+        padding: 20px;
+        width: 95%;
+        margin: 10px;
+      }
+
+      #role-selector .card {
+        grid-template-columns: 1fr;
+      }
+
+      #role-selector .hidden.md\:flex {
+        display: none;
+      }
+    }
+
+    /* SIDEBAR OVERLAY */
+    .sidebar-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 90;
+      backdrop-filter: blur(2px);
+    }
+
+    .sidebar-overlay.open {
+      display: block;
+    }
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    /* Stats Card specific */
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    /* Custom Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* TOOLTIP */
+    .student-tooltip {
+      position: absolute;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      z-index: 9999;
+      width: 280px;
+      max-width: calc(100vw - 32px);
+      word-wrap: break-word;
+      pointer-events: none;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.2s, transform 0.2s;
+      font-size: 13px;
+    }
+
+    .student-tooltip.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .tooltip-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .tooltip-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--primary-light);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 16px;
+    }
+
+    .tooltip-name {
+      font-weight: 700;
+      color: var(--text-main);
+      font-size: 15px;
+    }
+
+    .tooltip-status {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .tooltip-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+
+    .tooltip-label {
+      color: var(--text-muted);
+    }
+
+    .tooltip-val {
+      color: var(--text-main);
+      font-weight: 500;
+      text-align: right;
+    }
+
+    .hover-student {
+      cursor: pointer;
+      text-decoration: underline;
+      text-decoration-style: dotted;
+      text-underline-offset: 4px;
+      text-decoration-color: var(--text-muted);
+    }
+
+    .hover-student:hover {
+      color: var(--primary);
+      text-decoration-color: var(--primary);
+    }
+
+    
+  </style>
+    <link rel="stylesheet" href="dark-mode.css">
+    <link rel="stylesheet" href="skeleton.css">
+
+  <style>
+    /* Prevent pull-to-refresh on mobile */
+    html, html, body {
+      overscroll-behavior-y: none;
+    }
+    /* Smooth scrolling for sidebar and modals */
+    .sidebar, .modal-card, .overflow-y-auto, .custom-scrollbar {
+      -webkit-overflow-scrolling: touch;
+      overscroll-behavior-y: contain;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Skeleton Loading State -->
+  <div id="loading-screen" class="fixed inset-0 z-[200] flex flex-col items-center justify-center bg-gray-50 px-4 overflow-hidden">
+    <div class="w-full max-w-4xl grid md:grid-cols-2 gap-8 items-center bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100">
+      <div class="hidden md:block h-full bg-blue-100/50 p-10 relative">
+        <div class="skeleton h-8 w-32 mb-4"></div>
+        <div class="skeleton h-4 w-full mb-2"></div>
+        <div class="skeleton h-4 w-3/4"></div>
+      </div>
+      <div class="p-8 md:p-10 flex flex-col justify-center space-y-8">
+        <div class="space-y-2">
+          <div class="skeleton h-8 w-48"></div>
+          <div class="skeleton h-4 w-64"></div>
+        </div>
+        <div class="skeleton h-14 w-full rounded-xl"></div>
+        <div class="space-y-4">
+          <div class="skeleton h-12 w-full rounded-lg"></div>
+          <div class="skeleton h-12 w-full rounded-lg"></div>
+        </div>
+        <div class="pt-6 border-t border-gray-100 flex flex-col items-center gap-3">
+          <div class="skeleton h-4 w-32"></div>
+          <div class="skeleton h-4 w-48"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <div id="role-selector" class="flex flex-col items-center justify-center min-h-screen bg-gray-50 px-4 hidden">
+    <!-- Clean Background (Blobs Removed) -->
+    <div class="card w-full max-w-4xl grid md:grid-cols-2 gap-8 items-center !p-0 overflow-hidden shadow-2xl border-0">
+      <div
+        class="hidden md:flex flex-col justify-center h-full bg-blue-600 p-10 text-white bg-[url('https://images.unsplash.com/photo-1555854877-bab0e564b8d5?q=80&w=2069&auto=format&fit=crop')] bg-cover bg-center relative">
+        <div class="absolute inset-0 bg-blue-600/90"></div>
+        <div class="relative z-10">
+          <div class="w-20 h-20 mb-4"><img src="icons/hostelhome-logo.png" alt="HostelHome Logo" class="w-full h-full object-contain rounded-2xl shadow-sm"></div>
+          <div class="font-bold text-3xl mb-4">HostelHome</div>
+          <p class="text-blue-100 text-lg leading-relaxed">Streamline your hostel management with easy check-ins, leave
+            tracking, and instant announcements.</p>
+        </div>
+      </div>
+      <div class="p-8 md:p-10 flex flex-col justify-center">
+        <h2 class="text-2xl font-bold text-gray-900 mb-2">Welcome Back</h2>
+        <p class="text-gray-500 mb-8">Please select your role to continue.</p>
+
+        <!-- New to HostelHome Section -->
+        <a href="about.html" id="about-us-hero-btn" class="flex items-center justify-center gap-2 p-4 mb-8 bg-blue-600 text-white rounded-xl shadow-lg shadow-blue-500/30 hover:bg-blue-700 transition-all hover:-translate-y-0.5 active:scale-95 group">
+            <span class="font-bold">New here? Learn how it works</span>
+            <svg width="18" height="18" class="group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 7l5 5-5 5M6 7l5 5-5 5"></path></svg>
+        </a>
+
+        <div class="space-y-4">
+          <a href="register-hostel.html" class="w-full btn bg-emerald-600 text-white hover:bg-emerald-700 py-3 text-base justify-between group h-auto shadow-md rounded-xl font-bold flex items-center px-4"><span>Register New Hostel & Plan</span><span class="group-hover:translate-x-1 transition-transform">→</span></a>
+          <button id="warden-btn" class="w-full btn btn-primary py-3 text-base justify-between group h-auto"><span>Log
+              in as Warden</span><span class="group-hover:translate-x-1 transition-transform">→</span></button>
+          <button id="hostellite-btn" class="w-full btn btn-muted py-3 text-base justify-between group h-auto"><span>Log
+              in as Hostellite</span><span class="group-hover:translate-x-1 transition-transform">→</span></button>
+        </div>
+        <div class="mt-8 pt-6 border-t border-gray-100 text-center">
+          <div class="flex flex-col gap-4">
+            <div>
+              <p class="text-xs text-gray-400 mb-1 uppercase font-bold tracking-wider">New Student?</p>
+              <button id="create-student-btn" class="text-blue-600 font-bold hover:text-blue-800 transition-colors text-sm">+ Create Student Account</button>
+            </div>
+            <div class="mt-4 pt-4 border-t border-gray-50 flex flex-wrap justify-center gap-x-6 gap-y-2 text-[10px] font-bold uppercase tracking-widest text-gray-400">
+                <a href="privacy.html" target="_blank" rel="noopener noreferrer">Privacy</a>
+                <a href="terms.html" target="_blank" rel="noopener noreferrer">Terms</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mt-8 flex flex-wrap justify-center items-center gap-x-6 gap-y-2 text-xs text-gray-400">
+      <a href="about.html" class="hover:text-blue-600 transition-colors">About Us</a>
+      <a href="founders.html" class="hover:text-blue-600 transition-colors">Founders</a>
+      <a href="pricing.html" class="hover:text-blue-600 transition-colors">Pricing & Plans</a>
+      <a href="privacy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+      <a href="terms.html" target="_blank" rel="noopener noreferrer">Terms of Service</a>
+      <a href="delete-account.html" class="hover:text-blue-600 transition-colors">Delete Account</a>
+      <a href="contact.html" class="hover:text-blue-600 transition-colors">Contact Support</a>
+      <a href="https://www.instagram.com/hostelhome247/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-pink-600 transition-colors p-1 flex items-center justify-center" title="HostelHome Instagram" aria-label="HostelHome Instagram">
+        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- Legal Content Modal -->
+  <div id="legal-modal" class="fixed inset-0 modal-backdrop hidden flex items-center justify-center z-[150]">
+    <div class="modal-card w-full max-w-4xl max-h-[90vh] overflow-hidden flex flex-col">
+      <div class="flex justify-between items-center p-6 border-b bg-gray-50/50">
+        <h2 id="legal-modal-title" class="text-xl font-bold text-gray-900 capitalize">Legal Document</h2>
+        <button id="legal-modal-close" class="text-gray-400 hover:text-gray-600 transition-colors">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+      <div class="flex-1 overflow-y-auto p-8 bg-white custom-scrollbar">
+        <!-- Loading Spinner -->
+        <div id="legal-loading" class="flex flex-col items-center justify-center py-20">
+          <div class="w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full animate-spin mb-4"></div>
+          <p class="text-gray-500 font-medium animate-pulse">Fetching document...</p>
+        </div>
+        <!-- Content Container -->
+        <div id="policy-content" class="prose prose-blue prose-sm sm:prose-base max-w-none hidden"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="create-student-modal" class="fixed inset-0 modal-backdrop hidden flex items-center justify-center z-[100]">
+    <div class="modal-card w-full max-w-lg">
+      <h2 class="text-xl font-bold mb-6 text-gray-900 border-b pb-4">Create Student Account</h2>
+      <div class="space-y-4">
+        <input id="create-student-name" placeholder="Full Name" />
+        <div>
+          <input id="create-student-email" type="email" placeholder="Email Address" class="w-full" />
+          <p id="create-student-email-error" class="text-red-500 text-xs mt-1 hidden"></p>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="block text-[10px] font-bold text-gray-500 uppercase mb-1 ml-1">Date of Birth</label>
+            <input id="create-student-dob" type="date" class="text-gray-500 w-full" />
+          </div>
+          <div>
+            <label class="block text-[10px] font-bold text-gray-500 uppercase mb-1 ml-1">Hometown</label>
+            <input id="create-student-hometown" placeholder="Hometown" class="w-full" />
+          </div>
+        </div>
+        <div class="relative">
+          <input id="create-student-password" type="password" placeholder="Create Password" class="pr-10" />
+          <button type="button" onclick="togglePassword('create-student-password')"
+            class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 focus:outline-none flex items-center justify-center">
+            <svg id="create-student-password-eye" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+            </svg>
+          </button>
+        </div>
+        <div class="relative">
+          <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Search Hostel</label>
+          <input id="create-student-hostel-search" type="text" placeholder="Type hostel name..." class="w-full px-4 py-3 rounded-lg border border-gray-200 outline-none focus:border-blue-500 transition-colors" autocomplete="off" />
+          <input type="hidden" id="create-student-hostel" />
+          <div id="hostel-search-results" class="absolute z-10 w-full mt-1 bg-white border border-gray-200 rounded-lg shadow-xl max-h-60 overflow-y-auto hidden"></div>
+        </div>
+      </div>
+      <div class="flex justify-end gap-3 mt-8">
+        <button id="create-student-cancel" class="btn btn-ghost">Cancel</button>
+        <button id="create-student-submit" class="btn btn-primary">Submit Request</button>
+      </div>
+      <p id="create-student-error" class="text-sm text-red-600 mt-4 hidden"></p>
+      <p id="create-student-success" class="text-sm text-green-600 mt-4 hidden">Account created successfully! Awaiting
+        warden approval.</p>
+    </div>
+  </div>
+
+  <div id="login-modal" class="fixed inset-0 modal-backdrop hidden flex items-center justify-center z-[100]">
+    <div class="modal-card w-full max-w-md animate-[fadeIn_0.2s_ease-out]">
+      <div class="text-center mb-6">
+        <div class="inline-flex items-center justify-center w-20 h-20 mb-3"><img src="icons/hostelhome-logo.png" alt="HostelHome Logo" class="w-full h-full object-contain rounded-2xl"></div>
+        <h2 id="login-title" class="text-2xl font-bold text-gray-900">Login</h2>
+        <p class="text-gray-500 text-sm mt-1">Enter your credentials to access the dashboard</p>
+      </div>
+      <div class="space-y-4">
+        <div><input id="login-email" placeholder="Email Address" type="email" autocapitalize="none" spellcheck="false" /></div>
+        <div id="login-hostel-name-container" class="hidden">
+           <input id="login-hostel-name" placeholder="Hostel Name" type="text" class="mb-3" />
+        </div>
+        <div class="relative">
+          <input id="login-password" placeholder="Password" type="password" class="pr-10" />
+          <button type="button" onclick="togglePassword('login-password')"
+            class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 focus:outline-none flex items-center justify-center">
+            <svg id="login-password-eye" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+            </svg>
+          </button>
+        </div>
+        <div class="text-right mt-1">
+          <button type="button" onclick="openForgotPasswordModal()" class="text-xs font-bold text-blue-600 hover:text-blue-800 transition-colors">Forgot Password?</button>
+        </div>
+        
+        <!-- Not in Hostel Checkbox -->
+        <div id="not-in-hostel-container" class="hidden">
+          <label class="flex items-center gap-2 cursor-pointer p-1">
+            <input type="checkbox" id="not-in-hostel-check" class="w-4 h-4 text-blue-600 rounded border-gray-300">
+            <span class="text-sm text-gray-600 font-medium tracking-tight">I'm not in any hostel currently</span>
+          </label>
+        </div>
+
+        <!-- Hidden Join Request Section -->
+        <div id="login-join-request-section" class="hidden space-y-4 pt-4 border-t border-gray-100 bg-gray-50/50 p-4 rounded-xl">
+            <div>
+              <label class="block text-[10px] font-bold text-blue-500 uppercase mb-2 tracking-widest">Request to Join</label>
+              <input id="login-join-name" placeholder="Full Name" class="mb-3" />
+              <input id="login-join-contact" placeholder="Contact Number" class="mb-3" />
+              <div class="grid grid-cols-2 gap-3 mb-3">
+                  <div>
+                    <label class="block text-[9px] font-bold text-gray-400 uppercase mb-1 ml-1">Date of Birth</label>
+                    <input id="login-join-dob" type="date" class="text-gray-500 text-xs w-full" />
+                  </div>
+                  <div>
+                    <label class="block text-[9px] font-bold text-gray-400 uppercase mb-1 ml-1">Hometown</label>
+                    <input id="login-join-hometown" placeholder="Hometown" class="text-xs w-full" />
+                  </div>
+              </div>
+              <div class="relative">
+                  <label class="block text-[10px] font-bold text-gray-500 uppercase mb-1.5 ml-1">Search Hostel</label>
+                  <input id="login-join-hostel-search" type="text" placeholder="Type hostel name..." class="w-full px-4 py-3 rounded-lg border border-gray-200 outline-none focus:border-blue-500 transition-colors" autocomplete="off" />
+                  <input type="hidden" id="login-join-hostel-id" />
+                  <div id="login-join-hostel-results" class="absolute z-10 w-full mt-1 bg-white border border-gray-200 rounded-lg shadow-xl max-h-40 overflow-y-auto hidden"></div>
+              </div>
+            </div>
+        </div>
+      </div>
+      <div class="flex justify-end gap-3 mt-8">
+        <button id="login-cancel" class="btn btn-ghost">Cancel</button>
+        <button id="login-submit" class="btn btn-primary px-6">Sign In</button>
+      </div>
+      <p id="login-error" class="text-sm text-red-600 mt-4 text-center bg-red-50 p-2 rounded-lg hidden"></p>
+    </div>
+  </div>
+
+  <div id="forgot-password-modal" class="fixed inset-0 modal-backdrop hidden flex items-center justify-center z-[150]">
+    <div class="modal-card w-full max-w-sm text-center p-6 animate-[fadeIn_0.2s_ease-out]">
+      <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+          <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+        </svg>
+      </div>
+      <h2 class="text-lg font-bold text-gray-900 mb-2">Reset Password</h2>
+      <p class="text-gray-500 text-sm mb-6">Enter your email address and we'll send you a link to reset your password.</p>
+      <input id="forgot-password-email" type="email" placeholder="Email Address" class="w-full mb-4 text-sm" />
+      <div class="flex gap-3">
+        <button onclick="closeForgotPasswordModal()" class="btn btn-ghost flex-1">Cancel</button>
+        <button id="forgot-password-submit" onclick="submitForgotPassword()" class="btn btn-primary flex-1">Send Link</button>
+      </div>
+      <p id="forgot-password-msg" class="text-xs mt-4 hidden"></p>
+    </div>
+  </div>
+
+  <div id="update-password-modal" class="fixed inset-0 modal-backdrop hidden flex items-center justify-center z-[200]">
+    <div class="modal-card w-full max-w-sm text-center p-6 animate-[fadeIn_0.2s_ease-out]">
+      <div class="w-12 h-12 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+          <polyline points="22 4 12 14.01 9 11.01"></polyline>
+        </svg>
+      </div>
+      <h2 class="text-lg font-bold text-gray-900 mb-2">Update Password</h2>
+      <p class="text-gray-500 text-sm mb-6">Please enter your new password below.</p>
+      <div class="relative mb-6">
+        <input id="update-password-new" type="password" placeholder="New Password" class="w-full pr-10 text-sm" />
+        <button type="button" onclick="togglePassword('update-password-new')"
+          class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 focus:outline-none flex items-center justify-center">
+          <svg id="update-password-new-eye" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+          </svg>
+        </button>
+      </div>
+      <button id="update-password-submit" onclick="submitUpdatePassword()" class="btn btn-primary w-full">Save New Password</button>
+      <p id="update-password-msg" class="text-xs mt-4 hidden"></p>
+    </div>
+  </div>
+
+  <div id="announcement-modal" class="fixed inset-0 modal-backdrop hidden flex items-center justify-center z-[100]">
+    <div class="modal-card w-full max-w-lg relative">
+      <button id="announcement-close"
+        class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-2xl">&times;</button>
+      <h2 class="text-lg font-bold mb-1 text-gray-900">New Announcement</h2>
+      <input id="announcement-title" placeholder="Subject / Title" class="mb-4 font-semibold mt-4" />
+      <textarea id="announcement-message" rows="4" placeholder="Type your message here..."
+        class="mb-4 resize-none"></textarea>
+      <div class="flex justify-end gap-3">
+        <button id="announcement-cancel" class="btn btn-ghost">Discard</button>
+        <button id="announcement-send" class="btn btn-primary">Publish</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="briefing-modal" class="fixed inset-0 modal-backdrop hidden flex items-center justify-center z-[110]">
+    <div class="modal-card w-full max-w-sm text-center p-6 animate-[fadeIn_0.3s]">
+      <div
+        class="w-12 h-12 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center mx-auto mb-4 text-xl">
+        ⚡</div>
+      <h2 class="text-xl font-bold text-gray-900 mb-2">Morning Briefing</h2>
+      <p class="text-gray-500 text-sm mb-6">Here's what needs your attention today.</p>
+
+      <div class="space-y-3 mb-6 text-left">
+        <div id="briefing-money"
+          class="p-3 bg-red-50 border border-red-100 rounded-lg flex justify-between items-center hidden">
+          <span class="text-sm text-gray-700">Pending Fees</span>
+          <span class="font-bold text-red-600" id="briefing-money-val">₹0</span>
+        </div>
+        <div id="briefing-complaints"
+          class="p-3 bg-orange-50 border border-orange-100 rounded-lg flex justify-between items-center hidden">
+          <span class="text-sm text-gray-700">Open Complaints</span>
+          <span class="font-bold text-orange-600" id="briefing-complaints-val">0</span>
+        </div>
+
+      </div>
+
+      <button onclick="document.getElementById('briefing-modal').classList.add('hidden')"
+        class="btn btn-primary w-full">Got it, Thanks</button>
+    </div>
+  </div>
+
+  <div id="rules-modal" class="fixed inset-0 modal-backdrop hidden flex items-center justify-center z-[110]">
+    <div class="modal-card w-full max-w-2xl animate-[fadeIn_0.2s] flex flex-col h-[80vh]">
+      <div class="flex justify-between items-center mb-4 border-b pb-4">
+        <div>
+          <h2 class="text-xl font-bold text-gray-900">Hostel Rules & Regulations</h2>
+          <p class="text-xs text-gray-500">These will be visible to all students in their app.</p>
+        </div>
+        <button id="close-rules" class="text-gray-400 hover:text-gray-600 text-2xl">&times;</button>
+      </div>
+      <textarea id="rules-editor"
+        class="flex-1 w-full p-4 border rounded-lg font-mono text-sm bg-gray-50 focus:bg-white resize-none"
+        placeholder="1. Gates close at 10:00 PM..."></textarea>
+      <div class="flex justify-end gap-3 mt-4 pt-4 border-t">
+        <span id="rules-save-status"
+          class="flex items-center text-sm font-bold text-green-600 mr-2 opacity-0 transition-opacity">Saved!</span>
+        <button id="save-rules" class="btn btn-primary px-6">Save & Publish</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="error-popup-modal" class="fixed inset-0 modal-backdrop hidden flex items-center justify-center z-[150]">
+    <div class="modal-card w-full max-w-sm text-center p-6">
+      <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4"><span
+          class="text-2xl">⚠️</span></div>
+      <h2 class="text-lg font-bold text-gray-900 mb-2">Action Failed</h2>
+      <p id="error-popup-message" class="text-gray-600 text-sm mb-6"></p>
+      <button id="error-popup-close" class="btn btn-primary w-full">Okay, Try Again</button>
+    </div>
+  </div>
+
+  <div id="student-tooltip" class="student-tooltip"></div>
+
+  <div class="sidebar-overlay" id="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+  <div id="warden-dashboard" class="hidden app-shell">
+    <aside class="sidebar" id="mobile-sidebar" aria-label="Sidebar">
+      <div class="brand">
+        <div class="logo"><img src="icons/hostelhome-logo.png" alt="HostelHome Logo" class="w-full h-full object-contain rounded-xl"></div>
+        <div>
+          <h1>HostelHome</h1>
+          <div class="muted-sm">Warden Dashboard</div>
+        </div>
+      </div>
+      <nav class="nav-list" role="navigation">
+        <div class="nav-item active" data-target="overview">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="7" height="7" rx="1" />
+            <rect x="14" y="3" width="7" height="7" rx="1" />
+            <rect x="14" y="14" width="7" height="7" rx="1" />
+            <rect x="3" y="14" width="7" height="7" rx="1" />
+          </svg> Overview
+        </div>
+        <div class="nav-item" id="nav-payments" onclick="location.href='hpayments.html'">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+          </svg> Payments
+        </div>
+
+        <div class="nav-item" id="rules-nav-btn">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+          </svg> Rules
+        </div>
+
+
+        <div class="nav-item" data-target="hostellites">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+            <circle cx="9" cy="7" r="4" />
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+          </svg> Hostellites
+        </div>
+        <div class="nav-item" data-target="rooms">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+            <polyline points="9 22 9 12 15 12 15 22" />
+          </svg> Rooms
+        </div>
+        <div class="nav-item" onclick="location.href='wmeal.html'">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+            <path
+              d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8zm0-14a2 2 0 1 0 2 2 2 2 0 0 0-2-2zm0 4a2 2 0 1 0 2 2 2 2 0 0 0-2-2zm0 4a2 2 0 1 0 2 2 2 2 0 0 0-2-2z" />
+          </svg> Meals
+        </div>
+        <div class="nav-item" onclick="location.href='complaints.html'">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+          </svg> Complaints
+          <span id="notif-dot-complaints" class="notif-dot hidden"></span>
+        </div>
+        <div class="nav-item" onclick="location.href='manage_hostel.html'">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+            <path
+              d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.1a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z">
+            </path>
+            <circle cx="12" cy="12" r="3"></circle>
+          </svg> Manage Hostel
+          <span id="notif-dot-requests" class="notif-dot hidden"></span>
+        </div>
+      </nav>
+      <div style="margin-top:auto;">
+        <div class="muted-sm mb-2 px-2 uppercase tracking-wider font-semibold text-[11px]">Settings</div>
+        <div class="flex flex-col gap-2">
+                    <button onclick="location.href='settings.html'" class="nav-item justify-start w-full">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="3"></circle>
+                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+            </svg> Settings
+          </button>
+<button id="open-profile-btn" class="nav-item justify-start w-full">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+              <circle cx="12" cy="7" r="4" />
+            </svg> My Profile
+          </button>
+          <div id="theme-toggle" class="nav-item"><span>🌙</span> Dark Mode</div>
+          <button id="open-app-feedback-btn" class="nav-item justify-start w-full text-blue-500 hover:bg-blue-50">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg> App Feedback
+          </button>
+          <button id="sign-out-btn"
+            class="nav-item justify-start w-full text-red-500 hover:text-red-600 hover:bg-red-50">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+              <polyline points="16 17 21 12 16 7" />
+              <line x1="21" y1="12" x2="9" y2="12" />
+            </svg> Sign Out
+          </button>
+        </div>
+      </div>
+      <!-- Notifications Style & Logic -->
+      <style>
+        .nav-item { position: relative !important; }
+        .notif-dot {
+          position: absolute;
+          top: 12px;
+          right: 16px;
+          width: 8px;
+          height: 8px;
+          background-color: #EF4444;
+          border-radius: 50%;
+          border: 1.5px solid white;
+          box-shadow: 0 0 0 1px rgba(239, 68, 68, 0.2);
+          z-index: 10;
+        }
+      </style>
+      <script>
+        (function() {
+          async function check() {
+            const sb = window.supabase;
+            const hid = window.currentHostelId;
+            if (!sb || !hid) return;
+            try {
+              // Pending Join Requests
+              const { count: reqCount } = await sb.from('hostellites').select('*', { count: 'exact', head: true }).eq('hostel_id', hid).eq('status', 'pending');
+              const reqDot = document.getElementById('notif-dot-requests');
+              if (reqDot) {
+                 if (reqCount > 0) reqDot.classList.remove('hidden');
+                 else reqDot.classList.add('hidden');
+              }
+
+              // Open Complaints
+              const { count: compCount } = await sb.from('complaints').select('*', { count: 'exact', head: true }).eq('hostel_id', hid).eq('status', 'open');
+              const compDot = document.getElementById('notif-dot-complaints');
+              if (compDot) {
+                 if (compCount > 0) compDot.classList.remove('hidden');
+                 else compDot.classList.add('hidden');
+              }
+            } catch (e) {
+              console.error("Notif Error:", e);
+            }
+          }
+          // Poll every 60s
+          setInterval(check, 60000);
+          // Initial check when ready
+          const itv = setInterval(() => {
+            if (window.supabase && window.currentHostelId) {
+              check();
+              clearInterval(itv);
+            }
+          }, 1000);
+        })();
+      </script>
+    </aside>
+
+    <div class="flex flex-col min-h-screen">
+      <header class="topbar" style="padding-top: max(35px, env(safe-area-inset-top));">
+        <div class="flex items-center gap-4">
+          <button id="sidebar-toggle" onclick="toggleSidebar()" class="p-2 rounded-md hover:bg-gray-100 lg:hidden">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="3" y1="12" x2="21" y2="12" />
+              <line x1="3" y1="6" x2="21" y2="6" />
+              <line x1="3" y1="18" x2="21" y2="18" />
+            </svg>
+          </button>
+          <div class="flex items-center gap-3">
+            <div class="relative group cursor-pointer">
+              <img id="header-hostel-pfp" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 50 50'%3E%3Crect width='50' height='50' rx='25' fill='%23dbeafe'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Inter,sans-serif' font-size='18' fill='%232563eb' font-weight='700'%3EH%3C/text%3E%3C/svg%3E"
+                class="w-10 h-10 rounded-full object-cover border-2 border-white shadow-md">
+              <div
+                class="absolute inset-0 bg-black/30 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+                onclick="document.getElementById('hostel-upload-input').click()">
+                <span class="text-white text-xs">📷</span>
+              </div>
+            </div>
+            <div class="flex flex-col">
+              <h2 id="warden-hostel-name" class="text-sm font-bold text-gray-900 leading-tight">Loading...</h2>
+              <span class="text-xs text-gray-500">Warden</span>
+            </div>
+            <input type="file" id="hostel-upload-input" accept="image/*" class="hidden">
+          </div>
+        </div>
+
+        <div class="topbar-right">
+          <button id="add-hostellite-small" class="btn btn-primary shadow-lg shadow-blue-500/20"><span
+              class="text-lg leading-none mr-1">+</span> <span class="hidden sm:inline">Add Student</span></button>
+
+        </div>
+      </header>
+
+      <main class="main-wrap">
+
+        <section id="financial-pulse"
+          class="card mb-8 grid grid-cols-1 md:grid-cols-3 gap-0 p-0 overflow-hidden divide-y md:divide-y-0 md:divide-x divide-gray-100 hidden animate-[fadeIn_0.3s]">
+          <div class="p-6 bg-emerald-50 text-center flex flex-col justify-center">
+            <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 mb-1">Total Revenue</span>
+            <span class="text-2xl font-bold text-gray-900" id="stat-revenue">₹0</span>
+          </div>
+          <div class="p-6 bg-indigo-50 text-center flex flex-col justify-center">
+            <span class="text-xs font-bold uppercase tracking-wider text-indigo-600 mb-1">Collected (This Month)</span>
+            <span class="text-2xl font-bold text-gray-900" id="stat-collected">₹0</span>
+          </div>
+          <div class="p-6 bg-rose-50 text-center flex flex-col justify-center">
+            <span class="text-xs font-bold uppercase tracking-wider text-rose-600 mb-1">Pending Fees</span>
+            <span class="text-2xl font-bold text-red-600" id="stat-pending">₹0</span>
+          </div>
+        </section>
+
+        <section id="overview" class="grid-columns">
+          <div class="card relative overflow-hidden">
+
+            <h3>Quick Invites</h3>
+            <p class="muted-sm mb-4">Generate links to onboard new users.</p>
+            <div class="flex gap-3 flex-wrap">
+              <button id="invite-student-btn" class="btn btn-primary flex-1">Invite Student</button>
+              <button id="invite-warden-btn"
+                class="btn btn-muted flex-1 text-red-500 border-red-200 hover:bg-red-50 hover:border-red-300">Invite
+                Warden</button>
+            </div>
+            <div id="invite-link-section" class="hidden mt-4 bg-gray-50 p-3 rounded-lg border border-gray-200">
+              <div class="flex gap-2"><input id="invite-link" readonly class="bg-white text-sm" /><button
+                  id="copy-invite-btn" class="btn btn-primary px-3">Copy</button></div>
+              <div id="invite-copied" class="text-xs text-green-600 mt-2 font-medium hidden">Link copied to clipboard!
+              </div>
+            </div>
+          </div>
+
+          <div class="card h-full flex flex-col">
+            <h3>Leaves Notification <span
+                class="text-xs font-normal text-gray-400 bg-gray-50 px-2 py-1 rounded-full">Read Only</span></h3>
+            <div class="flex-1 overflow-y-auto pr-1" style="max-height: 200px;">
+              <ul id="leaves-list" class="space-y-3"></ul>
+              <div id="no-leaves"
+                class="flex flex-col items-center justify-center h-32 text-gray-400 text-sm border-2 border-dashed border-gray-100 rounded-lg">
+                <span>No notifications.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Notice Board <button id="open-announcement-btn" class="btn btn-sm btn-muted text-xs py-1 px-2">+ New</button></h3>
+            <div id="announcement-list-container" class="mt-2">
+              <ul id="announcement-list" class="space-y-3"></ul>
+            </div>
+            <button id="toggle-announcements-btn" class="btn btn-blue-secondary w-full mt-4 hidden items-center justify-center gap-2">
+              <span id="toggle-ann-text">View All</span>
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" id="toggle-ann-icon" class="transition-transform duration-300">
+                <path d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+          </div>
+
+          <div
+            class="card p-0 hidden flex flex-col h-full bg-white border border-gray-100 shadow-sm rounded-xl overflow-hidden"
+            id="payment-config-card">
+            <!-- Header -->
+            <div class="px-5 py-3 border-b border-gray-100 bg-gray-50/50 flex justify-between items-center">
+              <h3 class="m-0 text-sm font-bold text-gray-800 flex items-center gap-2">
+                <svg width="18" height="18" class="text-blue-600" fill="none" stroke="currentColor" stroke-width="2"
+                  viewBox="0 0 24 24">
+                  <rect x="2" y="5" width="20" height="14" rx="2" />
+                  <line x1="2" y1="10" x2="22" y2="10" />
+                </svg>
+                Payment Settings
+              </h3>
+              <div id="pay-config-status"
+                class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded transition-all"></div>
+            </div>
+
+            <!-- Scrollable Content -->
+            <div class="flex-1 overflow-y-auto p-5 custom-scrollbar">
+              <div class="space-y-4">
+
+                <!-- Bank Info Group -->
+                <div class="space-y-3">
+                  <div class="relative">
+                    <label class="text-[10px] uppercase font-bold text-gray-400 absolute left-3 top-2">Bank Name</label>
+                    <input id="pay-bank-name"
+                      class="w-full text-sm font-medium pt-7 pb-2 px-3 bg-gray-50 border border-gray-200 rounded-lg focus:bg-white focus:border-blue-500 transition-colors"
+                      placeholder="e.g. HDFC Bank" />
+                  </div>
+
+                  <div class="relative">
+                    <label class="text-[10px] uppercase font-bold text-gray-400 absolute left-3 top-2">Account
+                      Holder</label>
+                    <input id="pay-account-name"
+                      class="w-full text-sm font-medium pt-7 pb-2 px-3 bg-gray-50 border border-gray-200 rounded-lg focus:bg-white focus:border-blue-500 transition-colors"
+                      placeholder="Name on Account" />
+                  </div>
+
+                  <div class="relative">
+                    <label class="text-[10px] uppercase font-bold text-gray-400 absolute left-3 top-2">Account
+                      Number</label>
+                    <input id="pay-account-number"
+                      class="w-full text-sm font-medium font-mono pt-7 pb-2 px-3 bg-gray-50 border border-gray-200 rounded-lg focus:bg-white focus:border-blue-500 transition-colors"
+                      placeholder="0000 0000 0000" />
+                  </div>
+                </div>
+
+                <!-- Secondary Info -->
+                <div class="space-y-3">
+                  <div class="relative">
+                    <label class="text-[10px] uppercase font-bold text-gray-400 absolute left-3 top-2">IFSC Code</label>
+                    <input id="pay-ifsc"
+                      class="w-full text-sm font-medium font-mono pt-7 pb-2 px-3 bg-gray-50 border border-gray-200 rounded-lg focus:bg-white focus:border-blue-500 transition-colors uppercase"
+                      placeholder="ABCD0123456" />
+                  </div>
+                  <div class="relative">
+                    <label class="text-[10px] uppercase font-bold text-gray-400 absolute left-3 top-2">UPI ID</label>
+                    <input id="pay-upi-id"
+                      class="w-full text-sm font-medium pt-7 pb-2 px-3 bg-gray-50 border border-gray-200 rounded-lg focus:bg-white focus:border-blue-500 transition-colors"
+                      placeholder="user@upi" />
+                  </div>
+                </div>
+
+                <!-- Notes -->
+                <div class="relative">
+                  <label
+                    class="text-[10px] uppercase font-bold text-gray-400 absolute left-3 top-2">Instructions</label>
+                  <textarea id="pay-note" rows="2"
+                    class="w-full text-sm font-medium pt-7 pb-2 px-3 bg-gray-50 border border-gray-200 rounded-lg focus:bg-white focus:border-blue-500 transition-colors resize-none"
+                    placeholder="Notes for students..."></textarea>
+                </div>
+
+                <!-- QR Code -->
+                <div class="bg-blue-50 border border-dashed border-blue-200 rounded-xl p-3 flex items-center gap-3">
+                  <div id="pay-qr-preview-wrap"
+                    class="w-12 h-12 bg-white rounded border border-blue-100 flex items-center justify-center shrink-0 hidden overflow-hidden">
+                    <img id="pay-qr-preview" class="w-full h-full object-contain" />
+                  </div>
+                  <div class="flex-1 overflow-hidden">
+                    <label class="block text-[10px] uppercase font-bold text-blue-800 mb-1">QR Code Image</label>
+                    <input id="pay-qr-file" type="file" accept="image/png, image/jpeg"
+                      class="block w-full text-xs text-blue-600 file:mr-2 file:py-1 file:px-2 file:rounded-md file:border-0 file:text-[10px] file:font-semibold file:bg-blue-100 file:text-blue-700 hover:file:bg-blue-200 cursor-pointer" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="p-4 border-t border-gray-100 bg-gray-50/50 flex gap-2">
+              <button id="pay-config-save" class="flex-1 btn btn-primary text-sm shadow-sm h-10">Save Details</button>
+              <button id="pay-config-refresh"
+                class="btn btn-white border border-gray-200 text-gray-500 hover:text-gray-700 h-10 w-10 p-0 flex items-center justify-center">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M23 4v6h-6M1 20v-6h6M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <section class="mt-8 grid lg:grid-cols-[1fr_2fr] gap-6">
+          <div class="card flex flex-col justify-between">
+            <div>
+              <h3>Rooms Management</h3>
+              <p class="muted-sm mb-4">Assign students to rooms and manage capacity.</p>
+            </div>
+            <button id="manage-rooms-btn" class="btn btn-primary w-full mt-4">Go to Rooms Dashboard</button>
+          </div>
+          <div class="card">
+            <!-- Header row -->
+            <div class="flex flex-wrap items-center justify-between gap-3 mb-3">
+              <div class="flex items-center gap-2">
+                <h3 class="mb-0">Entry &amp; Exit Logs</h3>
+                <span id="logs-live-dot" class="hidden w-2 h-2 rounded-full bg-green-500 animate-pulse" title="Live updates on"></span>
+              </div>
+              <div class="flex items-center gap-2 flex-wrap">
+                <!-- Date filters -->
+                <div class="flex rounded-lg border border-gray-200 overflow-hidden text-xs font-semibold">
+                  <button id="logs-filter-today" onclick="setLogsFilter('today',this)"
+                    class="px-3 py-1.5 bg-blue-600 text-white transition-colors">Today</button>
+                  <button id="logs-filter-week"  onclick="setLogsFilter('week',this)"
+                    class="px-3 py-1.5 bg-white text-gray-600 hover:bg-gray-50 border-l border-gray-200 transition-colors">This Week</button>
+                  <button id="logs-filter-all"   onclick="setLogsFilter('all',this)"
+                    class="px-3 py-1.5 bg-white text-gray-600 hover:bg-gray-50 border-l border-gray-200 transition-colors">All</button>
+                </div>
+                <!-- CSV upload (for USB/CSV devices) -->
+                <label title="Upload CSV attendance report" class="cursor-pointer flex items-center gap-1 px-3 py-1.5 text-xs font-semibold border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
+                  <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                  Upload CSV
+                  <input type="file" id="logs-csv-input" accept=".csv,.txt" class="hidden" onchange="uploadLogsCSV(event)">
+                </label>
+                <!-- Toggle visibility -->
+                <button id="view-logs-btn" class="btn btn-sm btn-muted text-xs">Show / Hide</button>
+              </div>
+            </div>
+            <!-- CSV upload status -->
+            <p id="logs-csv-status" class="hidden text-xs mb-2 font-medium"></p>
+            <!-- Table -->
+            <div id="logs-table-wrapper" class="hidden table-container max-h-[420px] overflow-y-auto overflow-x-auto w-full max-w-full">
+              <table class="table">
+                <thead class="sticky top-0 z-10">
+                  <tr>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Room</th>
+                    <th>Student</th>
+                    <th>Status</th>
+                    <th>Source</th>
+                  </tr>
+                </thead>
+                <tbody id="logs-body">
+                  <tr><td colspan="6" class="text-center text-gray-400 py-8">Loading logs...</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <div class="card mt-8 p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div class="flex items-center gap-6 text-center md:text-left flex-col md:flex-row">
+            <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center shrink-0">
+              <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-gray-900 mb-1">Student Directory</h3>
+              <p class="text-gray-500 max-w-xl">Manage all student profiles, assign rooms, and view detailed information
+                about every hostellite in your facility.</p>
+            </div>
+          </div>
+          <button id="hostellite-profile-btn"
+            class="btn btn-primary px-8 py-3 h-auto text-base shadow-lg shadow-blue-500/20 whitespace-nowrap">
+            Manage Students
+          </button>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- INVITE WARDEN MODAL -->
+  <div id="invite-warden-modal" class="fixed inset-0 modal-backdrop hidden flex items-center justify-center z-[120]">
+    <div class="modal-card w-full max-w-sm">
+      <h3 class="font-bold text-lg mb-4">Invite New Warden</h3>
+      <p class="text-sm text-gray-500 mb-6">Set permissions for this new team member.</p>
+
+      <div id="invite-finance-toggle-container"
+        class="bg-gray-50 p-4 rounded-lg flex items-center justify-between mb-6">
+        <div>
+          <span class="font-bold text-sm text-gray-800 block">Payments Access</span>
+          <span class="text-xs text-gray-500">View & Manage finances</span>
+        </div>
+        <div class="relative inline-block w-10 mr-2 align-middle select-none">
+          <input type="checkbox" id="invite-perm-finance"
+            class="absolute block w-5 h-5 rounded-full bg-white border-4 appearance-none cursor-pointer border-gray-300 left-0 checked:bg-blue-500 checked:border-blue-500 checked:right-0 checked:left-auto transition-all"
+            style="top:2px" />
+          <label for="invite-perm-finance"
+            class="block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"></label>
+        </div>
+      </div>
+
+      <div class="flex gap-3">
+        <button id="close-invite-modal" class="btn btn-ghost flex-1">Cancel</button>
+        <button id="generate-invite-btn" class="btn btn-primary flex-1">Generate Link</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="payment-toast-container" class="fixed top-20 right-6 z-[9999] flex flex-col gap-3 pointer-events-none w-80">
+  </div>
+
+
+
+  <script type="module">
+    import imageCompression from 'https://cdn.jsdelivr.net/npm/browser-image-compression@2.0.2/+esm';
+    import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.42.4/+esm";
+    window.supabase = createClient(
+      'https://supabase-proxy.dbrpgrow247.workers.dev',
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Ind3cGV3Z2xscWpnemZ6eXlrdWtlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDk4OTcxMzcsImV4cCI6MjA2NTQ3MzEzN30.P8qEjnoFGBAmss-cLgUsjQWvFDAc4aDQcbKYExDW35M'
+    );
+    const supabase = window.supabase;
+    (async () => { if (location.search.includes("devreset")) { await supabase.auth.signOut(); } })();
+    const $ = id => document.getElementById(id);
+    const show = el => el?.classList.remove('hidden');
+    const hide = el => el?.classList.add('hidden');
+
+    /* DOM References */
+    const roleSelector = $('role-selector'), wardenBtn = $('warden-btn'), hostBtn = $('hostellite-btn'),
+      loginModal = $('login-modal'), loginTitle = $('login-title'), loginEmail = $('login-email'), loginPass = $('login-password'),
+      loginError = $('login-error'), loginCancel = $('login-cancel'),
+      wardenDash = $('warden-dashboard'), inviteWardenBtn = $('invite-warden-btn'), inviteStudentBtn = $('invite-student-btn'),
+      inviteLinkSection = $('invite-link-section'), inviteLinkInput = $('invite-link'), copyInviteBtn = $('copy-invite-btn'),
+      inviteCopiedSpan = $('invite-copied'), signOutBtn = $('sign-out-btn'), annModal = $('announcement-modal'),
+      annTitleInp = $('announcement-title'), annMsgInp = $('announcement-message'),
+      leavesList = $('leaves-list'), noLeavesTxt = $('no-leaves'), logsWrap = $('logs-table-wrapper'), logsBody = $('logs-body');
+
+    /* Legal Doc Loading */
+    window.loadLegalDoc = async (docName) => {
+      const modal = $('legal-modal');
+      const spinner = $('legal-loading');
+      const content = $('policy-content');
+      const title = $('legal-modal-title');
+      
+      title.innerText = docName.replace('.html', '').replace('-', ' ').replace('_', ' ');
+      show(modal);
+      modal.classList.add('flex');
+      show(spinner);
+      hide(content);
+      content.innerHTML = '';
+
+      try {
+        // Use Supabase client to get the public URL
+        const { data } = supabase.storage.from('legal-docs').getPublicUrl(docName);
+        if (!data.publicUrl) throw new Error("Could not generate public URL");
+
+        // Use fetch to get the raw content
+        const response = await fetch(data.publicUrl);
+        if (!response.ok) throw new Error(`Document not found: ${docName}`);
+        
+        const htmlText = await response.text();
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(htmlText, 'text/html');
+        const docBody = doc.body ? doc.body.innerHTML : htmlText;
+        content.innerHTML = docBody;
+        
+        hide(spinner);
+        show(content);
+      } catch (err) {
+        content.innerHTML = `
+          <div class="text-center py-10">
+            <div class="w-16 h-16 bg-red-100 text-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold text-gray-900 mb-2">Error Loading Document</h3>
+            <p class="text-gray-500 mb-6">${err.message}</p>
+            <button onclick="hide($('legal-modal')); $('legal-modal').classList.remove('flex');" class="btn btn-primary px-6">Close</button>
+          </div>`;
+        hide(spinner);
+        show(content);
+      }
+    };
+
+    $('legal-modal-close').onclick = () => {
+      hide($('legal-modal'));
+      $('legal-modal').classList.remove('flex');
+    };
+
+    let currentLoginRole = null;
+    let currentHostelId = null;
+
+    /* Profile References */
+    const profileModal = document.getElementById('profile-modal');
+    const openProfileBtn = document.getElementById('open-profile-btn');
+    const wardenUploadInput = document.getElementById('warden-upload-input');
+    const hostelUploadInput = document.getElementById('hostel-upload-input');
+    const wardenPfpDisplay = document.getElementById('warden-pfp-display');
+    const hostelPfpDisplay = document.getElementById('header-hostel-pfp');
+
+    /* ========== DARK MODE LOGIC ========== */
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
+
+    if (localStorage.getItem('theme') === 'dark') {
+      body.classList.add('dark-mode');
+      if (themeToggle) themeToggle.innerHTML = '<span>☀️</span> Light Mode';
+    }
+
+    if (themeToggle) {
+      themeToggle.onclick = () => {
+        body.classList.toggle('dark-mode');
+        if (body.classList.contains('dark-mode')) {
+          localStorage.setItem('theme', 'dark');
+          themeToggle.innerHTML = '<span>☀️</span> Light Mode';
+        } else {
+          localStorage.setItem('theme', 'light');
+          themeToggle.innerHTML = '<span>🌙</span> Dark Mode';
+        }
+      };
+    }
+
+    wardenUploadInput?.addEventListener('change', (e) => handleImageUpload(e.target.files[0], 'warden'));
+    hostelUploadInput?.addEventListener('change', (e) => handleImageUpload(e.target.files[0], 'hostel'));
+
+    async function handleImageUpload(file, type) {
+      if (!file) return;
+      const statusLabel = type === 'warden' ? $('warden-name') : document.getElementById('warden-hostel-name');
+      const originalText = statusLabel.textContent || statusLabel.value;
+      if (type !== 'warden') statusLabel.textContent = "Uploading...";
+      try {
+        const options = { maxSizeMB: 0.15, maxWidthOrHeight: 800, useWebWorker: true };
+        const compressedFile = await imageCompression(file, options);
+        const fileName = `${currentHostelId}/${type}_${Date.now()}.jpg`;
+        const { error: uploadError } = await supabase.storage.from('avatars').upload(fileName, compressedFile, { upsert: true });
+        if (uploadError) throw uploadError;
+        const { data: publicData } = supabase.storage.from('avatars').getPublicUrl(fileName);
+        if (type === 'warden') {
+          const { data: sessionData } = await supabase.auth.getSession();
+          await supabase.from('wardens').update({ avatar_url: publicData.publicUrl }).eq('uid', sessionData.session.user.id);
+          $('warden-avatar').src = publicData.publicUrl;
+        } else {
+          await supabase.from('hostels').update({ image_url: publicData.publicUrl }).eq('id', currentHostelId);
+          hostelPfpDisplay.src = publicData.publicUrl;
+        }
+        if (type !== 'warden') statusLabel.textContent = "Done!";
+        setTimeout(() => { if (type !== 'warden') statusLabel.textContent = originalText; }, 2000);
+      } catch (err) { console.error(err); showToast("Upload failed: " + err.message, 'error'); }
+    }
+
+    async function loadProfileData() {
+      if (!currentHostelId) return;
+      const { data: hostel } = await supabase.from('hostels').select('image_url, name').eq('id', currentHostelId).single();
+      if (hostel) {
+        if (hostel.image_url) hostelPfpDisplay.src = hostel.image_url;
+        document.getElementById('warden-hostel-name').textContent = hostel.name;
+      }
+    }
+
+    const hostelNameInput = $('login-hostel-name');
+    const hostelNameContainer = $('login-hostel-name-container');
+
+    const safeClose = (btnId, modalId) => { const btn = $(btnId); const modal = $(modalId); if (btn && modal) btn.onclick = () => hide(modal); };
+    safeClose('announcement-close', 'announcement-modal');
+    safeClose('announcement-cancel', 'announcement-modal'); safeClose('login-cancel', 'login-modal'); safeClose('error-popup-close', 'error-popup-modal');
+    safeClose('create-student-cancel', 'create-student-modal');
+
+    wardenBtn.onclick = () => { 
+      currentLoginRole = 'warden'; 
+      loginTitle.textContent = 'Warden Login'; 
+      hide(loginError); 
+      hide(hostelNameContainer); 
+      hide($('not-in-hostel-container'));
+      hide($('login-join-request-section'));
+      show(loginModal); 
+    };
+    hostBtn.onclick = () => { 
+      currentLoginRole = 'hostellite'; 
+      loginTitle.textContent = 'Student Login'; 
+      hide(loginError); 
+      show(hostelNameContainer); 
+      show($('not-in-hostel-container'));
+      $('not-in-hostel-check').checked = false;
+      hide($('login-join-request-section'));
+      show(loginModal); 
+    };
+
+    $('not-in-hostel-check').onclick = (e) => {
+      if (e.target.checked) {
+        hide(hostelNameContainer);
+        show($('login-join-request-section'));
+        $('login-submit').textContent = 'Request warden for entry';
+      } else {
+        show(hostelNameContainer);
+        hide($('login-join-request-section'));
+        $('login-submit').textContent = 'Sign In';
+      }
+    };
+
+    // Join Request Search Logic
+    $('login-join-hostel-search').oninput = (e) => {
+      const query = e.target.value.trim();
+      $('login-join-hostel-id').value = ''; 
+      const resultsDiv = $('login-join-hostel-results');
+      if (query.length < 2) {
+        hide(resultsDiv);
+        return;
+      }
+      clearTimeout(searchTimeout);
+      searchTimeout = setTimeout(async () => {
+        const { data, error } = await supabase.from('hostels')
+          .select('id, name, address, contact_number')
+          .ilike('name', `%${query}%`)
+          .order('name')
+          .limit(10);
+          
+        if (data && data.length) {
+          resultsDiv.innerHTML = data.map(h => `
+            <div class="p-3 hover:bg-blue-50 cursor-pointer border-b border-gray-100 last:border-0" onclick="window.selectJoinHostel('${h.id}', '${h.name.replace(/'/g, "\\'")}')">
+              <div class="font-bold text-gray-900">${h.name}</div>
+              <div class="text-[10px] text-gray-500 mt-1">${h.address || 'Location unavailable'}</div>
+            </div>
+          `).join('');
+          show(resultsDiv);
+        } else {
+          resultsDiv.innerHTML = '<div class="p-3 text-sm text-gray-500 text-center">No hostels found.</div>';
+          show(resultsDiv);
+        }
+      }, 300);
+    };
+
+    window.selectJoinHostel = (id, name) => {
+      $('login-join-hostel-id').value = id;
+      $('login-join-hostel-search').value = name;
+      hide($('login-join-hostel-results'));
+    };
+
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('#login-join-hostel-search') && !e.target.closest('#login-join-hostel-results')) {
+        hide($('login-join-hostel-results'));
+      }
+    });
+
+    $('create-student-btn').onclick = async () => {
+      $('create-student-hostel-search').value = '';
+      $('create-student-hostel').value = '';
+      $('create-student-email-error').textContent = '';
+      hide($('create-student-email-error'));
+      $('create-student-submit').disabled = false;
+      $('create-student-submit').style.opacity = '1';
+      $('create-student-submit').style.cursor = 'pointer';
+      hide($('hostel-search-results'));
+      hide($('create-student-success'));
+      hide($('create-student-error'));
+      show($('create-student-modal'));
+    };
+
+    let searchTimeout;
+    $('create-student-hostel-search').oninput = (e) => {
+      const query = e.target.value.trim();
+      $('create-student-hostel').value = ''; // clear previous selection
+      const resultsDiv = $('hostel-search-results');
+      if (query.length < 2) {
+        hide(resultsDiv);
+        return;
+      }
+      clearTimeout(searchTimeout);
+      searchTimeout = setTimeout(async () => {
+        const { data, error } = await supabase.from('hostels')
+          .select('id, name, address, contact_number')
+          .ilike('name', `%${query}%`)
+          .order('name')
+          .limit(10);
+          
+        if (data && data.length) {
+          resultsDiv.innerHTML = data.map(h => `
+            <div class="p-3 hover:bg-blue-50 cursor-pointer border-b border-gray-100 last:border-0" onclick="window.selectHostel('${h.id}', '${h.name.replace(/'/g, "\\'")}')">
+              <div class="font-bold text-gray-900">${h.name}</div>
+              <div class="text-xs text-gray-500 mt-1">${h.address || 'Location unavailable'} &bull; ${h.contact_number || 'Contact unlisted'}</div>
+            </div>
+          `).join('');
+          show(resultsDiv);
+        } else {
+          resultsDiv.innerHTML = '<div class="p-3 text-sm text-gray-500 text-center">No hostels found. Try a different name.</div>';
+          show(resultsDiv);
+        }
+      }, 300);
+    };
+
+    window.selectHostel = (id, name) => {
+      $('create-student-hostel').value = id;
+      $('create-student-hostel-search').value = name;
+      hide($('hostel-search-results'));
+    };
+
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('#create-student-hostel-search') && !e.target.closest('#hostel-search-results')) {
+        hide($('hostel-search-results'));
+      }
+    });
+
+    async function validateStudentEmail(email) {
+      const errorEl = $('create-student-email-error');
+      const emailInput = $('create-student-email');
+      const submitBtn = $('create-student-submit');
+      
+      if (!email) {
+        hide(errorEl);
+        submitBtn.disabled = false;
+        submitBtn.style.opacity = '1';
+        return true;
+      }
+
+      const { data, error } = await supabase.rpc('check_email_exists', { query_email: email });
+      
+      if (data) {
+        showToast('This email is already registered.', 'error');
+        emailInput.classList.add('border-red-500');
+        submitBtn.disabled = true;
+        submitBtn.style.opacity = '0.5';
+        return false;
+      }
+
+      emailInput.classList.remove('border-red-500');
+      hide(errorEl);
+      submitBtn.disabled = false;
+      submitBtn.style.opacity = '1';
+      return true;
+    }
+
+    $('create-student-email').onblur = async (e) => {
+      await validateStudentEmail(e.target.value.trim());
+    };
+
+    $('create-student-submit').onclick = async () => {
+      const btn = $('create-student-submit');
+      btn.disabled = true;
+      btn.textContent = 'Saving Profile...';
+      const email = $('create-student-email').value.trim();
+      const password = $('create-student-password').value;
+      const fullName = $('create-student-name').value.trim();
+      const dob = $('create-student-dob').value;
+      const hometown = $('create-student-hometown').value.trim();
+      const hostelId = $('create-student-hostel').value;
+
+      if (!email || !password || !fullName || !dob || !hometown || !hostelId) return alert('Please fill all fields');
+      
+      btn.disabled = true;
+      btn.textContent = 'Validating...';
+
+      // Re-run validation just in case they typed fast and clicked Submit
+      const isValid = await validateStudentEmail(email);
+      if (!isValid) {
+        btn.textContent = 'Submit Request';
+        return; // Validation already populated the error UI
+      }
+
+      btn.textContent = 'Submitting...';
+
+      const metaData = {
+        full_name: fullName,
+        dob: dob,
+        hometown: hometown,
+        role: 'hostellite',
+        hostel_id: hostelId,
+        request_join: 'true'
+      };
+
+      const { data, error } = await supabase.auth.signUp({
+        email: email.toLowerCase(),
+        password,
+        options: {
+          data: metaData
+        }
+      });
+
+      btn.disabled = false;
+      btn.textContent = 'Submit Request';
+
+      if (error) {
+        if (error.message.includes('already registered')) {
+          const fallbackMsg = `This email is already registered securely in our system. Please try a different email or select 'Forgot Password' from the login screen.`;
+          $('error-popup-message').textContent = fallbackMsg;
+          show($('error-popup-modal'));
+        } else {
+          $('create-student-error').textContent = error.message;
+          show($('create-student-error'));
+        }
+        hide($('create-student-success'));
+      } else {
+        hide($('create-student-error'));
+        show($('create-student-success'));
+        setTimeout(() => {
+          hide($('create-student-success'));
+          hide($('create-student-modal'));
+        }, 3000);
+      }
+    };
+
+    $('login-submit').onclick = async () => {
+      loginError.style.display = 'none';
+      const email = loginEmail.value.trim(), password = loginPass.value, hostelName = hostelNameInput.value.trim();
+      const notInHostel = $('not-in-hostel-check').checked;
+      
+      if (!email || !password) return alert('Email and Password are required.');
+      
+      if (currentLoginRole === 'warden') {
+        const { data, error } = await supabase.auth.signInWithPassword({ email: email.toLowerCase(), password });
+        if (error) { console.error(error); return alert('Login Failed: ' + error.message); }
+        await checkSession();
+      }
+      else if (currentLoginRole === 'hostellite') {
+        if (!notInHostel) {
+          if (!hostelName) return alert('Please enter your hostel name.');
+          const { data: hostelCheck } = await supabase.from('hostels').select('id, name').ilike('name', hostelName).maybeSingle();
+          if (!hostelCheck) return alert('Hostel not found.');
+          const { data, error } = await supabase.auth.signInWithPassword({ email: email.toLowerCase(), password });
+          if (error) return alert('Login Failed: ' + error.message);
+          let { data: hostelliteCheck } = await supabase.from('hostellites').select('uid, status, exit_date').eq('uid', data.user.id).eq('hostel_id', hostelCheck.id).maybeSingle();
+          
+          if (!hostelliteCheck) { 
+            // Check if they exist in any other hostel?
+            const { data: anyCheck } = await supabase.from('hostellites').select('status, hostels(name)').eq('uid', data.user.id).neq('status', 'left').limit(1).maybeSingle();
+            if (anyCheck) {
+              await supabase.auth.signOut(); 
+              return alert(`You are registered in ${anyCheck.hostels.name}, not this hostel.`);
+            }
+            await supabase.auth.signOut(); 
+            return alert('You are not registered in any hostel. Please select "I\'m not in any hostel currently" to join one.'); 
+          }
+          
+          // Dynamic status update for leaving students
+          if (hostelliteCheck.status === 'leaving' && hostelliteCheck.exit_date) {
+             const todayStr = new Date().toISOString().split('T')[0];
+             if (todayStr >= hostelliteCheck.exit_date) {
+                 await supabase.from('hostellites').update({ status: 'left', room_id: null, room_slot: null }).eq('uid', data.user.id);
+                 hostelliteCheck.status = 'left';
+             }
+          }
+
+          if (hostelliteCheck.status === 'pending') { await supabase.auth.signOut(); return alert('Your request to join this hostel is pending warden approval.'); }
+          
+          if (hostelliteCheck.status === 'left' || hostelliteCheck.status === 'archived') {
+             await supabase.auth.signOut();
+             return alert('You have left this hostel and cannot login or rejoin.');
+          }
+
+          location.href = 'hstldash.html';
+        } else {
+          // Join existing account to a new hostel
+          const fullName = $('login-join-name').value.trim();
+          const contact = $('login-join-contact').value.trim();
+          const dob = $('login-join-dob').value;
+          const hometown = $('login-join-hometown').value.trim();
+          const hostelId = $('login-join-hostel-id').value;
+          
+          if (!fullName || !contact || !dob || !hometown || !hostelId) return alert('Please fill all join request fields.');
+          if (!/^\d{10}$/.test(contact)) return alert('Contact number must be exactly 10 digits.');
+          
+          $('login-submit').disabled = true;
+          $('login-submit').textContent = 'Processing...';
+          
+          const { data, error } = await supabase.auth.signInWithPassword({ email: email.toLowerCase(), password });
+          if (error) {
+              $('login-submit').disabled = false;
+              $('login-submit').textContent = 'Request warden for entry';
+              return alert('Login Failed: ' + error.message);
+          }
+          
+          // Check if already in this hostel
+          const { data: existing } = await supabase.from('hostellites').select('id, status, exit_date').eq('uid', data.user.id).eq('hostel_id', hostelId).maybeSingle();
+          if (existing) {
+              let existingStatus = existing.status;
+              if (existingStatus === 'leaving' && existing.exit_date) {
+                 const todayStr = new Date().toISOString().split('T')[0];
+                 if (todayStr >= existing.exit_date) {
+                     existingStatus = 'left';
+                     // update db async
+                     supabase.from('hostellites').update({ status: 'left', room_id: null, room_slot: null }).eq('id', existing.id).then();
+                 }
+              }
+
+              await supabase.auth.signOut();
+              $('login-submit').disabled = false;
+              $('login-submit').textContent = 'Request warden for entry';
+              
+              if (existingStatus !== 'left' && existingStatus !== 'archived') {
+                  await supabase.auth.signOut();
+                  $('login-submit').disabled = false;
+                  $('login-submit').textContent = 'Request warden for entry';
+                  return alert('You already have a request or registration for this hostel.');
+              }
+          }
+          
+          // Insert Join Request
+          const { error: insertErr } = await supabase.from('hostellites').upsert([{
+              uid: data.user.id,
+              hostel_id: hostelId,
+              name: fullName,
+              contact: contact,
+              email: email,
+              dob: dob,
+              hometown: hometown,
+              status: 'pending',
+              room_id: null,
+              exit_date: null
+          }]);
+          
+          if (insertErr) {
+              console.error(insertErr);
+              await supabase.auth.signOut();
+              $('login-submit').disabled = false;
+              $('login-submit').textContent = 'Request warden for entry';
+              return alert('Failed to send join request: ' + insertErr.message);
+          }
+          
+          alert('Join request sent successfully! Awaiting warden approval.');
+          await supabase.auth.signOut();
+          location.reload();
+        }
+      }
+    };
+
+    // --- FINANCIAL STATS (Feature 8) ---
+    async function loadFinancialStats() {
+      try {
+        const { data: hSettings } = await supabase.from('hostels').select('billing_sync_to_first').eq('id', currentHostelId).single();
+        const { data: defFeeData } = await supabase.from('hostel_fees').select('amount').eq('hostel_id', currentHostelId).order('created_at', { ascending: false }).limit(1).maybeSingle();
+
+        const syncToFirst = hSettings?.billing_sync_to_first || false;
+        const globalDefaultFee = defFeeData?.amount || 0;
+
+        // Fetch ALL Students (Removed .neq('status', 'leaving') to ensure all dues are counted)
+        const { data: students } = await supabase.from('hostellites')
+          .select('uid, monthly_fee, joining_date, created_at, status')
+          .eq('hostel_id', currentHostelId)
+          .eq('status', 'active');
+
+        // Get Collected (Sum of rent payments this month)
+        const now = new Date();
+        const startOfMonth = new Date(now.getFullYear(), now.getMonth(), 1);
+
+        const { data: payments } = await supabase.from('payments')
+          .select('amount, hostellite_id, type')
+          .eq('hostel_id', currentHostelId)
+          .gte('payment_date', startOfMonth.toISOString())
+          .eq('is_verified', true);
+
+        // Filter for Rent only (exclude deposits)
+        const rentPayments = payments?.filter(p => !['deposit', 'security_deposit'].includes(p.type)) || [];
+        const collected = rentPayments.reduce((sum, p) => sum + (Number(p.amount) || 0), 0);
+
+        // Calculate Logic (Pro-Rata Awareness)
+        let totalExpected = 0;
+        let totalPending = 0;
+
+        const paymentsMap = {};
+        rentPayments.forEach(p => {
+          paymentsMap[p.hostellite_id] = (paymentsMap[p.hostellite_id] || 0) + (Number(p.amount) || 0);
+        });
+
+        const daysInMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0).getDate();
+
+        students?.forEach(s => {
+          // Determine Base Fee
+          let baseFee = parseFloat(s.monthly_fee);
+          if (!baseFee || isNaN(baseFee)) baseFee = parseFloat(globalDefaultFee);
+
+          let expected = baseFee || 0;
+
+          // Pro-rata Logic
+          const sDate = s.joining_date ? new Date(s.joining_date) : new Date(s.created_at);
+          const joinedThisMonth = (sDate.getFullYear() === now.getFullYear() && sDate.getMonth() === now.getMonth());
+
+          if (syncToFirst && joinedThisMonth) {
+            const joiningDay = sDate.getDate();
+            const remainingDays = (daysInMonth - joiningDay) + 1;
+            if (remainingDays > 0 && remainingDays <= daysInMonth) {
+              expected = (baseFee / daysInMonth) * remainingDays;
+            }
+          }
+          expected = Math.round(expected);
+
+          totalExpected += expected;
+
+          const paid = paymentsMap[s.uid] || 0;
+          const pending = Math.max(0, expected - paid);
+          totalPending += pending;
+        });
+
+        $('stat-revenue').textContent = `₹${totalExpected}`;
+        $('stat-collected').textContent = `₹${collected}`;
+        $('stat-pending').textContent = `₹${totalPending}`;
+        if (window.userCanAccessFinance) {
+          show($('financial-pulse'));
+        }
+
+      } catch (err) {
+        console.error("Stats Error:", err);
+      }
+    }
+
+    // --- MORNING BRIEFING (Feature 1) ---
+    async function checkBriefing() {
+      // Check Open Complaints
+      const { count: openComplaints } = await supabase.from('complaints').select('*', { count: 'exact', head: true }).eq('hostel_id', currentHostelId).eq('status', 'open');
+
+      // Check Pending Fees (Simplified: from stats logic)
+      const pendingText = $('stat-pending').textContent.replace('₹', '');
+      const pendingAmount = parseInt(pendingText) || 0;
+
+      if (openComplaints > 0 || pendingAmount > 0) {
+        if (pendingAmount > 0 && window.userCanAccessFinance) {
+          $('briefing-money').classList.remove('hidden');
+          $('briefing-money-val').textContent = `₹${pendingAmount}`;
+        }
+
+        if (openComplaints > 0) {
+          $('briefing-complaints').classList.remove('hidden');
+          $('briefing-complaints-val').textContent = openComplaints;
+        }
+        show($('briefing-modal'));
+      }
+    }
+
+    // --- RULES LOGIC (New Feature) ---
+    const rulesModal = $('rules-modal');
+    $('rules-nav-btn').onclick = async () => {
+      const { data } = await supabase.from('hostels').select('rules').eq('id', currentHostelId).single();
+      $('rules-editor').value = data?.rules || '';
+      show(rulesModal);
+    };
+    $('close-rules').onclick = () => hide(rulesModal);
+    $('save-rules').onclick = async (e) => {
+      const btn = e.target;
+      const originalText = btn.textContent;
+      btn.textContent = 'Saving...'; btn.disabled = true;
+      const { error } = await supabase.from('hostels').update({ rules: $('rules-editor').value }).eq('id', currentHostelId);
+      
+      btn.textContent = originalText; btn.disabled = false;
+      
+      if (error) {
+        alert("Failed to save rules: " + error.message);
+      } else {
+        $('rules-save-status').classList.remove('opacity-0');
+        setTimeout(() => $('rules-save-status').classList.add('opacity-0'), 2000);
+      }
+    };
+
+
+
+
+    function makeInvite(role, permissions = {}) {
+      const inviteId = crypto.randomUUID();
+      const payload = { id: inviteId, role, hostel_id: currentHostelId, expires_at: new Date(Date.now() + 864e5).toISOString() };
+
+      // Add permissions if warden
+      if (role === 'warden' && permissions) {
+        payload.permission_finance = permissions.finance || false;
+      }
+
+      supabase.from("invites").insert([payload])
+        .then(({ error }) => {
+          if (error) return alert(error.message);
+          inviteLinkInput.value = `${window.location.origin}/invite.html?id=${inviteId}`;
+          show(inviteLinkSection); hide(inviteCopiedSpan);
+          hide($('invite-warden-modal'));
+        });
+    }
+    copyInviteBtn.onclick = async () => { await navigator.clipboard.writeText(inviteLinkInput.value); show(inviteCopiedSpan); setTimeout(() => hide(inviteCopiedSpan), 2000); };
+
+    async function loadAnnouncements() {
+      const { data } = await supabase.from('announcements').select('*').eq('hostel_id', currentHostelId).order('created_at', { ascending: false });
+      const list = $('announcement-list');
+      const container = $('announcement-list-container');
+      const toggleBtn = $('toggle-announcements-btn');
+
+      if (!data?.length) {
+        list.innerHTML = '<li class="text-center text-gray-400 text-sm py-4">No announcements posted.</li>';
+        toggleBtn.classList.add('hidden');
+        toggleBtn.classList.remove('flex');
+        container.style.maxHeight = 'none';
+        return;
+      }
+
+      list.innerHTML = data.map(a => `<li class="p-4 bg-blue-50/50 border border-blue-100 rounded-lg"> <strong class="text-gray-900 block mb-1">${a.title}</strong> <p class="text-sm text-gray-600">${a.message}</p> <small class="text-xs text-gray-400 mt-2 block">${a.created_at.slice(0, 10).split('-').reverse().join('/')}</small> </li>`).join('');
+
+      if (data.length > 3) {
+        toggleBtn.classList.remove('hidden');
+        toggleBtn.classList.add('flex');
+        
+        const calculateHeight = () => {
+          if (container.classList.contains('expanded')) return;
+          const items = list.querySelectorAll('li');
+          if (!items.length) return;
+          let h = 0;
+          for(let i = 0; i < 3 && i < items.length; i++) {
+            const oh = items[i].offsetHeight;
+            if (oh > 0) {
+              h += oh;
+              if (i > 0) h += 12; // Gap
+            }
+          }
+          if (h > 20) {
+            container.style.maxHeight = (h + 4) + 'px';
+          } else {
+            setTimeout(calculateHeight, 100);
+          }
+        };
+        setTimeout(calculateHeight, 100);
+      } else {
+        toggleBtn.classList.add('hidden');
+        toggleBtn.classList.remove('flex');
+        container.style.maxHeight = 'none';
+      }
+    }
+
+    $('toggle-announcements-btn').onclick = () => {
+      const container = $('announcement-list-container');
+      const list = $('announcement-list');
+      const text = $('toggle-ann-text');
+      const icon = $('toggle-ann-icon');
+      
+      const isExpanded = container.classList.toggle('expanded');
+      
+      if (isExpanded) {
+        container.style.maxHeight = list.scrollHeight + 'px';
+        text.textContent = 'Show Less';
+        icon.classList.add('rotate-180');
+      } else {
+        const items = list.querySelectorAll('li');
+        let h = 0;
+        for(let i = 0; i < 3 && i < items.length; i++) {
+          h += items[i].offsetHeight;
+          if (i > 0) h += 12;
+        }
+        container.style.maxHeight = (h + 2) + 'px';
+        text.textContent = 'View All';
+        icon.classList.remove('rotate-180');
+      }
+    };
+    // ── Entry & Exit Logs ─────────────────────────────────────────────────
+    const BIOMETRIC_WORKER = 'https://biometric.dbrpgrow247.workers.dev';
+    let logsFilter = 'today';   // 'today' | 'week' | 'all'
+    let logsRealtime = null;    // realtime channel handle
+
+    function setLogsFilter(filter, btn) {
+      logsFilter = filter;
+      // Update button styles
+      ['today','week','all'].forEach(f => {
+        const el = document.getElementById('logs-filter-' + f);
+        if (!el) return;
+        if (f === filter) {
+          el.classList.add('bg-blue-600','text-white');
+          el.classList.remove('bg-white','text-gray-600');
+        } else {
+          el.classList.remove('bg-blue-600','text-white');
+          el.classList.add('bg-white','text-gray-600');
+        }
+      });
+      loadLatestLogs();
+    }
+
+    const SOURCE_LABELS = {
+      adms: { label: 'ADMS', cls: 'bg-green-100 text-green-700' },
+      api:  { label: 'API',  cls: 'bg-purple-100 text-purple-700' },
+      web:  { label: 'Web',  cls: 'bg-blue-100 text-blue-700' },
+      csv:  { label: 'CSV',  cls: 'bg-amber-100 text-amber-700' },
+    };
+
+    async function loadLatestLogs() {
+      if (!currentHostelId) return;
+
+      // Build date filter
+      let query = supabase
+        .from('entrylogs_with_details')
+        .select('id,hostellite_id,student_name,room_number,date,time,status,source,finger_id')
+        .eq('hostel_id', currentHostelId)
+        .order('date', { ascending: false })
+        .order('time', { ascending: false })
+        .limit(200);
+
+      if (logsFilter === 'today') {
+        const today = new Date().toISOString().slice(0, 10);
+        query = query.eq('date', today);
+      } else if (logsFilter === 'week') {
+        const weekAgo = new Date(Date.now() - 7 * 864e5).toISOString().slice(0, 10);
+        query = query.gte('date', weekAgo);
+      }
+
+      const { data, error } = await query;
+
+      if (error) {
+        logsBody.innerHTML = `<tr><td colspan="6" class="text-center text-red-400 py-6">Error loading logs: ${error.message}</td></tr>`;
+        return;
+      }
+
+      if (!data?.length) {
+        logsBody.innerHTML = '<tr><td colspan="6" class="text-center text-gray-400 py-6">No activity logs found for this period.</td></tr>';
+        return;
+      }
+
+      logsBody.innerHTML = data.map(r => {
+        const dateStr  = r.date ? r.date.split('-').reverse().join('/') : '-';
+        const timeStr  = r.time ? r.time.slice(0, 5) : '-';   // HH:MM
+        const roomStr  = r.room_number || '-';
+        const nameStr  = r.student_name || r.finger_id ? (r.student_name || `FID:${r.finger_id}`) : '-';
+        const isIN     = (r.status || '').toUpperCase() === 'IN';
+        const statusBadge = `<span class="px-2 py-0.5 rounded text-xs font-semibold ${
+          isIN ? 'bg-green-100 text-green-700' : 'bg-amber-100 text-amber-700'
+        }">${isIN ? '↑ IN' : '↓ OUT'}</span>`;
+        const src      = SOURCE_LABELS[r.source] || { label: r.source || '?', cls: 'bg-gray-100 text-gray-600' };
+        const srcBadge = `<span class="px-1.5 py-0.5 rounded text-[10px] font-semibold ${src.cls}">${src.label}</span>`;
+        const nameCell = r.hostellite_id
+          ? `<span class="hover-student cursor-pointer" data-uid="${r.hostellite_id}">${nameStr}</span>`
+          : nameStr;
+
+        return `<tr>
+          <td class="text-sm">${dateStr}</td>
+          <td class="text-sm font-mono">${timeStr}</td>
+          <td class="text-sm">${roomStr}</td>
+          <td class="text-sm">${nameCell}</td>
+          <td>${statusBadge}</td>
+          <td>${srcBadge}</td>
+        </tr>`;
+      }).join('');
+
+      attachTooltips();
+    }
+
+    // Subscribe to Realtime so new punches appear instantly
+    function subscribeLogsRealtime() {
+      if (logsRealtime || !currentHostelId) return;
+      logsRealtime = supabase
+        .channel('entrylogs:' + currentHostelId)
+        .on('postgres_changes', {
+          event: 'INSERT', schema: 'public', table: 'entrylogs',
+          filter: `hostel_id=eq.${currentHostelId}`
+        }, () => {
+          // Only refresh when the log table is visible
+          if (!$('logs-table-wrapper')?.classList.contains('hidden')) loadLatestLogs();
+        })
+        .subscribe();
+      // Show live dot
+      $('logs-live-dot')?.classList.remove('hidden');
+    }
+
+    // CSV upload handler (USB/CSV device mode)
+    window.uploadLogsCSV = async function(event) {
+      const file = event.target.files?.[0];
+      if (!file || !currentHostelId) return;
+
+      const statusEl = $('logs-csv-status');
+      statusEl.textContent = 'Uploading…';
+      statusEl.className = 'text-xs mb-2 font-medium text-blue-600';
+      statusEl.classList.remove('hidden');
+
+      // We need a device_secret for this hostel's USB/CSV device
+      const { data: devices } = await supabase
+        .from('biometric_devices')
+        .select('device_secret')
+        .eq('hostel_id', currentHostelId)
+        .eq('connection_type', 'usb_csv')
+        .eq('is_active', true)
+        .limit(1);
+
+      if (!devices?.length) {
+        statusEl.textContent = 'No USB/CSV device registered. Add one in Settings → Biometric Devices.';
+        statusEl.className = 'text-xs mb-2 font-medium text-amber-600';
+        event.target.value = '';
+        return;
+      }
+
+      const formData = new FormData();
+      formData.append('device_secret', devices[0].device_secret);
+      formData.append('file', file);
+
+      try {
+        const res  = await fetch(BIOMETRIC_WORKER + '/api/csv-import', { method: 'POST', body: formData });
+        const json = await res.json();
+        if (json.error) throw new Error(json.error);
+        statusEl.textContent = `✓ Imported ${json.imported} records${json.skipped ? ` (${json.skipped} skipped)` : ''}`;
+        statusEl.className = 'text-xs mb-2 font-medium text-green-600';
+        loadLatestLogs();
+      } catch (err) {
+        statusEl.textContent = 'Upload failed: ' + err.message;
+        statusEl.className = 'text-xs mb-2 font-medium text-red-600';
+      }
+      event.target.value = '';
+      setTimeout(() => statusEl.classList.add('hidden'), 5000);
+    };
+    // --- UPDATED LEAVES (Pure Notification, No Action) ---
+    async function loadLeaves() {
+      const { data } = await supabase.from('leaves').select('reason,date_from,date_to,applied_at,hostellite_id,hostellites(name)').eq('hostel_id', currentHostelId).order('applied_at', { ascending: false });
+      if (!data?.length) return;
+      noLeavesTxt.style.display = 'none';
+      leavesList.innerHTML = data.map(l => `
+        <li class="p-3 bg-white border border-gray-100 rounded-lg shadow-sm hover:bg-gray-50 transition-colors"> 
+          <div class="flex justify-between items-start"> 
+             <span class="font-semibold text-gray-800 hover-student" data-uid="${l.hostellite_id}">${l.hostellites?.name ?? 'Unknown'}</span> 
+             <span class="text-xs text-gray-400 border px-2 py-0.5 rounded-full">Info</span> 
+          </div> 
+          <div class="text-sm text-gray-600 mt-1">${l.reason}</div> 
+          <div class="text-xs text-gray-400 mt-2 flex gap-2">
+             <span>📅 ${l.date_from.split('-').reverse().join('/')} → ${l.date_to.split('-').reverse().join('/')}</span>
+          </div> 
+        </li>`).join('');
+      attachTooltips();
+    }
+
+    // --- TOOLTIP LOGIC ---
+    let tooltipCache = {};
+    const tooltipEl = document.getElementById('student-tooltip');
+
+    function attachTooltips() {
+      document.querySelectorAll('.hover-student').forEach(el => {
+        el.addEventListener('mouseenter', async (e) => {
+          const uid = el.getAttribute('data-uid');
+          if (!uid || uid === 'null') return;
+
+          // Position Tooltip
+          const rect = el.getBoundingClientRect();
+          tooltipEl.style.left = `${rect.left}px`;
+          tooltipEl.style.top = `${rect.bottom + 10}px`;
+
+          // Initial Loading State or Cached Data
+          if (tooltipCache[uid]) {
+            renderTooltip(tooltipCache[uid]);
+            tooltipEl.classList.add('show');
+          } else {
+            // Show Loading generic
+            tooltipEl.innerHTML = '<div class="text-center py-4 text-gray-400">Loading...</div>';
+            tooltipEl.classList.add('show');
+
+            // Fetch
+            const { data: s } = await supabase.from('hostellites').select('name, contact, email, room_slot, rooms(room_number)').eq('uid', uid).maybeSingle();
+            if (s) {
+              tooltipCache[uid] = s;
+              renderTooltip(s);
+            } else {
+              tooltipEl.innerHTML = '<div class="text-center py-2 text-red-400">Not Found</div>';
+            }
+          }
+        });
+
+        el.addEventListener('mouseleave', () => {
+          tooltipEl.classList.remove('show');
+        });
+      });
+    }
+
+    function renderTooltip(s) {
+      const initials = s.name ? s.name.substring(0, 2).toUpperCase() : '??';
+      const roomNum = s.rooms?.room_number || 'N/A';
+      tooltipEl.innerHTML = `
+        <div class="tooltip-header">
+           <div class="tooltip-avatar">${initials}</div>
+           <div>
+             <div class="tooltip-name">${s.name}</div>
+             <div class="tooltip-status">Hostellite</div>
+           </div>
+        </div>
+        <div class="tooltip-row">
+           <span class="tooltip-label">Room</span>
+           <span class="tooltip-val">${roomNum} <span class="text-xs font-normal text-gray-400">(${s.room_slot || '-'})</span></span>
+        </div>
+         <div class="tooltip-row">
+           <span class="tooltip-label">Contact</span>
+           <span class="tooltip-val">${s.contact || '-'}</span>
+        </div>
+        <div class="tooltip-row">
+           <span class="tooltip-label">Email</span>
+           <span class="tooltip-val text-xs truncate max-w-[150px] inline-block pt-1" title="${s.email || ''}">${s.email || '-'}</span>
+        </div>
+      `;
+    }
+
+    $('open-announcement-btn')?.addEventListener('click', () => show(annModal));
+    $('announcement-send')?.addEventListener('click', async () => {
+      const title = annTitleInp.value.trim(), msg = annMsgInp.value.trim();
+      if (!title || !msg) return;
+      await supabase.from('announcements').insert([{ hostel_id: currentHostelId, title, message: msg }]);
+      annTitleInp.value = ''; annMsgInp.value = ''; hide(annModal); loadAnnouncements();
+    });
+    $('view-logs-btn')?.addEventListener('click', () => { logsWrap.classList.toggle('hidden'); if (!logsWrap.classList.contains('hidden')) loadLatestLogs(); });
+
+    document.querySelectorAll('.nav-item').forEach(it => {
+      const t = it.getAttribute('data-target');
+      if (!t) return;
+      it.onclick = () => {
+        if (t === 'hostellites') return location.href = 'hstlprofile.html';
+        if (t === 'rooms') return location.href = 'rooms.html';
+        document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+        it.classList.add('active');
+        document.querySelectorAll('main section').forEach(s => s.classList.add('hidden'));
+        const target = document.getElementById(t);
+        if (target) target.classList.remove('hidden');
+      };
+    });
+
+    const payConfigRefs = { bank: $("pay-bank-name"), accName: $("pay-account-name"), accNum: $("pay-account-number"), ifsc: $("pay-ifsc"), upi: $("pay-upi-id"), note: $("pay-note"), qr: $("pay-qr-file"), save: $("pay-config-save"), refresh: $("pay-config-refresh"), status: $("pay-config-status"), qrPreview: $("pay-qr-preview"), qrWrap: $("pay-qr-preview-wrap") };
+    async function loadPaymentConfig() {
+      if (!currentHostelId) return;
+      const { data } = await supabase.from("hostelpaymentconfig").select("*").eq("hostel_id", currentHostelId).maybeSingle();
+      payConfigRefs.bank.value = data?.bank_name ?? "";
+      payConfigRefs.accName.value = data?.account_name ?? "";
+      payConfigRefs.accNum.value = data?.account_number ?? "";
+      payConfigRefs.ifsc.value = data?.ifsc ?? "";
+      payConfigRefs.upi.value = data?.upi_id ?? "";
+      payConfigRefs.note.value = data?.note ?? "";
+      if (data?.qr_url) { payConfigRefs.qrPreview.src = data.qr_url; payConfigRefs.qrWrap.style.display = "block"; }
+    }
+    async function savePaymentConfig() {
+      payConfigRefs.save.disabled = true; payConfigRefs.status.textContent = "Saving...";
+      try {
+        let qrUrl = null;
+        if (payConfigRefs.qr?.files?.[0]) {
+          const file = payConfigRefs.qr.files[0];
+          const options = { maxSizeMB: 0.15, maxWidthOrHeight: 800, useWebWorker: true };
+          const compressedFile = await imageCompression(file, options);
+          const { data } = supabase.storage.from("payment_qr").getPublicUrl(`${currentHostelId}/qr.${(file.name.split(".").pop() || "png")}`);
+          await supabase.storage.from("payment_qr").upload(`${currentHostelId}/qr.${(file.name.split(".").pop() || "png")}`, compressedFile, { upsert: true });
+          qrUrl = data.publicUrl;
+        }
+        const row = { hostel_id: currentHostelId, bank_name: payConfigRefs.bank.value, account_name: payConfigRefs.accName.value, account_number: payConfigRefs.accNum.value, ifsc: payConfigRefs.ifsc.value, upi_id: payConfigRefs.upi.value, note: payConfigRefs.note.value };
+        if (qrUrl) row.qr_url = qrUrl;
+        await supabase.from("hostelpaymentconfig").upsert(row, { onConflict: "hostel_id" });
+        payConfigRefs.status.textContent = "Saved!"; payConfigRefs.status.className = "text-green-600 text-sm ml-auto";
+      } catch (e) { console.error(e); payConfigRefs.status.textContent = "Error saving"; payConfigRefs.status.className = "text-red-600 text-sm ml-auto"; }
+      finally { payConfigRefs.save.disabled = false; }
+    }
+    async function initWardenDashboard() {
+      try {
+        await loadProfileData();
+        document.getElementById("payment-config-card")?.classList.remove("hidden");
+        setTimeout(loadPaymentConfig, 0);
+        inviteWardenBtn.onclick = () => {
+          $('invite-perm-finance').checked = false; // Default off
+
+          const financeToggleContainer = $('invite-finance-toggle-container');
+          if (financeToggleContainer) {
+            financeToggleContainer.style.display = window.userCanAccessFinance ? 'flex' : 'none';
+          }
+
+          show($('invite-warden-modal'));
+        };
+        $('close-invite-modal').onclick = () => hide($('invite-warden-modal'));
+        $('generate-invite-btn').onclick = () => makeInvite('warden', { finance: $('invite-perm-finance').checked });
+
+        inviteStudentBtn.onclick = () => makeInvite('hostellite');
+        $('add-hostellite-small')?.addEventListener('click', () => {
+          location.href = 'hstlprofile.html#add';
+        });
+        loadLeaves();
+        loadLatestLogs();
+        subscribeLogsRealtime(); // live updates via Supabase Realtime
+        await loadFinancialStats(); // NEW: Load Stats (Wait for data)
+        await checkBriefing();
+        await checkRecentPayments(); // Add toast popup call
+
+        // UI Transition
+        await checkNotifications();
+        show(wardenDash); hide(roleSelector); hide(loginModal);
+        loadAnnouncements();
+      } catch (dashErr) {
+        console.error('[initWardenDashboard] Error during dashboard load:', dashErr);
+        // Even on error, still show the dashboard — don't leave user stuck on skeleton
+        show(wardenDash); hide(roleSelector); hide(loginModal);
+      } finally {
+        // ALWAYS hide the loading screen — this is the guarantee
+        hide($('loading-screen'));
+      }
+    }
+
+    async function checkNotifications() {
+      if (!currentHostelId) return;
+      try {
+        // Check Pending Join Requests
+        const { count: pendingRequests } = await supabase.from('hostellites')
+          .select('*', { count: 'exact', head: true })
+          .eq('hostel_id', currentHostelId)
+          .eq('status', 'pending');
+        
+        const reqDot = $('notif-dot-requests');
+        if (reqDot) {
+          if (pendingRequests > 0) reqDot.classList.remove('hidden');
+          else reqDot.classList.add('hidden');
+        }
+
+        // Check Open Complaints
+        const { count: openComplaints } = await supabase.from('complaints')
+          .select('*', { count: 'exact', head: true })
+          .eq('hostel_id', currentHostelId)
+          .eq('status', 'open');
+        
+        const compDot = $('notif-dot-complaints');
+        if (compDot) {
+          if (openComplaints > 0) compDot.classList.remove('hidden');
+          else compDot.classList.add('hidden');
+        }
+      } catch (err) {
+        console.error("Error checking notifications:", err);
+      }
+    }
+
+    async function checkRecentPayments() {
+      const container = $('payment-toast-container');
+      if (!container || !currentHostelId) return;
+
+      const today = new Date();
+      const localStart = new Date(today.getFullYear(), today.getMonth(), today.getDate()).toISOString();
+
+      const { data: recentPayments, error } = await supabase.from('payments')
+        .select('id, amount, created_at, hostellite_id')
+        .eq('hostel_id', currentHostelId)
+        .gte('created_at', localStart);
+
+      if (error || !recentPayments || recentPayments.length === 0) return;
+
+      const seenKey = 'seen_payments_' + currentHostelId;
+      let seenPayments = [];
+      try { seenPayments = JSON.parse(localStorage.getItem(seenKey) || '[]'); } catch (e) { }
+
+      const newPayments = recentPayments.filter(p => !seenPayments.includes(p.id));
+
+      if (newPayments.length === 0) return;
+
+      newPayments.forEach((p, idx) => {
+        seenPayments.push(p.id);
+        setTimeout(() => {
+          const toast = document.createElement('div');
+          toast.className = 'bg-white border-l-4 border-emerald-500 shadow-2xl shadow-emerald-500/20 rounded-lg p-4 flex items-start gap-4 pointer-events-auto transform transition-transform duration-500 translate-x-[120%]';
+          const studentName = p.hostellites?.name || 'A student';
+          toast.innerHTML = `
+            <div class="mt-0.5 bg-emerald-100 text-emerald-600 rounded-full p-2 flex-shrink-0 shadow-inner">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+            </div>
+            <div class="flex-1 pr-4">
+              <p class="text-[13px] font-bold text-gray-800 uppercase tracking-wider">Payment Received</p>
+              <p class="text-[14px] text-gray-600 mt-1 leading-snug"><span class="font-bold text-gray-900">${studentName}</span> paid <span class="font-bold text-emerald-600">₹${p.amount}</span> today.</p>
+            </div>
+            <button onclick="this.parentElement.remove()" class="text-gray-400 hover:text-gray-800 absolute top-2 right-2 text-xl leading-none transition-colors">&times;</button>
+          `;
+          container.appendChild(toast);
+
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+              toast.classList.remove('translate-x-[120%]');
+              toast.classList.add('translate-x-0');
+            });
+          });
+
+          // Auto remove after 10 seconds
+          setTimeout(() => {
+            toast.classList.remove('translate-x-0');
+            toast.classList.add('translate-x-[120%]');
+            setTimeout(() => toast.remove(), 500);
+          }, 10000);
+
+        }, idx * 1000); // Stagger popups by 1s
+      });
+
+      if (seenPayments.length > 500) seenPayments = seenPayments.slice(seenPayments.length - 500);
+      localStorage.setItem(seenKey, JSON.stringify(seenPayments));
+    }
+
+    async function checkSession() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const hash = window.location.hash;
+      if (urlParams.get('reset') === 'true' || hash.includes('type=recovery') || hash.includes('access_token=')) {
+        return; // Let the load event handler show the update password modal
+      }
+
+      try {
+        const { data: { session }, error: sessionErr } = await supabase.auth.getSession();
+        if (sessionErr) throw sessionErr;
+
+        if (!session?.user) {
+          // No session — show role selector
+          hide($('loading-screen'));
+          show(roleSelector);
+          return;
+        }
+
+        const { data: warden, error: wardenErr } = await supabase.from('wardens')
+          .select('hostel_id, is_owner, permission_finance')
+          .eq('uid', session.user.id)
+          .maybeSingle();
+
+        if (warden) {
+          currentLoginRole = 'warden';
+          currentHostelId = warden.hostel_id;
+          window.currentHostelId = warden.hostel_id;
+
+          // Permission Check
+          const canAccessPayments = warden.is_owner || warden.permission_finance;
+          window.userCanAccessFinance = canAccessPayments;
+          const navPay = document.getElementById('nav-payments');
+          if (navPay) {
+            if (canAccessPayments) navPay.classList.remove('hidden');
+            else navPay.classList.add('hidden');
+          }
+
+          // Fetch hostel name quickly
+          const { data: hostel } = await supabase.from('hostels').select('name').eq('id', currentHostelId).single();
+          if (hostel) $('warden-hostel-name').textContent = hostel.name;
+
+          await initWardenDashboard(); // has its own try/finally — always hides loading-screen
+        } else {
+          // Check hostellite
+          const { data: hostellite } = await supabase.from('hostellites')
+            .select('uid, hostel_id, status')
+            .eq('uid', session.user.id)
+            .neq('status', 'archived')
+            .order('created_at', { ascending: false })
+            .limit(1)
+            .maybeSingle();
+
+          if (hostellite) {
+            if (hostellite.status === 'pending') {
+              await supabase.auth.signOut();
+              hide($('loading-screen'));
+              show(roleSelector);
+              alert('Your request to join this hostel is pending warden approval.');
+              return;
+            }
+            if (hostellite.status === 'left' || hostellite.status === 'leaving') {
+              await supabase.auth.signOut();
+              hide($('loading-screen'));
+              show(roleSelector);
+              alert('Access Denied: Your account has been deactivated as you have left or vacated this hostel.');
+              return;
+            }
+            location.href = 'hstldash.html';
+          } else {
+            // BUG FIX: User has a valid auth session but no matching warden or hostellite record.
+            // This can happen with orphaned accounts. Sign out and show role selector.
+            console.warn('[checkSession] Auth user has no warden/hostellite record. Signing out.');
+            await supabase.auth.signOut();
+            hide($('loading-screen'));
+            show(roleSelector);
+          }
+        }
+      } catch (err) {
+        // BUG FIX: If ANY network/DB error occurs, always show the role selector
+        // so the user is never stuck on the loading skeleton.
+        console.error('[checkSession] Fatal error:', err);
+        hide($('loading-screen'));
+        show(roleSelector);
+        window.showToast('Connection error. Please check your internet and try again.', 'warning');
+      }
+    }
+
+    // Run Session Check
+    checkSession();
+
+    $('hostellite-profile-btn')?.addEventListener('click', () => location.href = 'hstlprofile.html');
+    $('manage-rooms-btn')?.addEventListener('click', () => location.href = 'rooms.html');
+    payConfigRefs.save?.addEventListener("click", savePaymentConfig);
+    payConfigRefs.refresh?.addEventListener("click", loadPaymentConfig);
+
+    signOutBtn?.addEventListener('click', async () => { await supabase.auth.signOut({ scope: 'local' }); window.location.replace('/'); });
+
+
+
+    // Handle URL parameters (e.g., ?open=rules)
+    const handleUrlParams = () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const hash = window.location.hash;
+      
+      if (urlParams.get('reset') === 'true' || hash.includes('type=recovery') || hash.includes('access_token=')) {
+        const loadScreen = document.getElementById('loading-screen');
+        if (loadScreen) loadScreen.classList.add('hidden');
+        
+        const roleSel = document.getElementById('role-selector');
+        if (roleSel) roleSel.classList.add('hidden');
+        
+        const updateModal = document.getElementById('update-password-modal');
+        if (updateModal) {
+          updateModal.classList.remove('hidden');
+          updateModal.classList.add('flex');
+        }
+      }
+
+      
+      if (urlParams.get('open') === 'profile') {
+        const checkVisible = setInterval(() => {
+          const profileBtn = document.getElementById('open-profile-btn');
+          if (profileBtn && (!document.getElementById('warden-dashboard').classList.contains('hidden') || !document.getElementById('hostellite-dashboard')?.classList.contains('hidden'))) {
+            profileBtn.click();
+            clearInterval(checkVisible);
+          }
+        }, 100);
+        setTimeout(() => clearInterval(checkVisible), 5000);
+      }
+
+      if (urlParams.get('open') === 'rules') {
+        const checkVisible = setInterval(() => {
+          const rulesBtn = document.getElementById('rules-nav-btn');
+          if (rulesBtn && !document.getElementById('warden-dashboard').classList.contains('hidden')) {
+            rulesBtn.click();
+            clearInterval(checkVisible);
+          }
+        }, 100);
+        setTimeout(() => clearInterval(checkVisible), 5000); // Timeout after 5s
+      }
+    };
+    
+    if (document.readyState === 'complete' || document.readyState === 'interactive') {
+      handleUrlParams();
+    } else {
+      window.addEventListener('DOMContentLoaded', handleUrlParams);
+    }
+  </script>
+  <script>
+    window.openForgotPasswordModal = function() {
+      document.getElementById('login-modal').classList.add('hidden');
+      document.getElementById('login-modal').classList.remove('flex');
+      document.getElementById('forgot-password-modal').classList.remove('hidden');
+      document.getElementById('forgot-password-modal').classList.add('flex');
+      document.getElementById('forgot-password-msg').classList.add('hidden');
+      document.getElementById('forgot-password-email').value = document.getElementById('login-email').value;
+    };
+    window.closeForgotPasswordModal = function() {
+      document.getElementById('forgot-password-modal').classList.add('hidden');
+      document.getElementById('forgot-password-modal').classList.remove('flex');
+      document.getElementById('login-modal').classList.remove('hidden');
+      document.getElementById('login-modal').classList.add('flex');
+    };
+    window.submitForgotPassword = async function() {
+      const email = document.getElementById('forgot-password-email').value.trim();
+      const msg = document.getElementById('forgot-password-msg');
+      const btn = document.getElementById('forgot-password-submit');
+      if (!email) {
+        msg.textContent = 'Please enter your email.';
+        msg.className = 'text-xs mt-4 text-red-600';
+        msg.classList.remove('hidden');
+        return;
+      }
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
+      const { error } = await window.supabase.auth.resetPasswordForEmail(email, {
+        redirectTo: window.location.origin + window.location.pathname + '?reset=true'
+      });
+      btn.disabled = false;
+      btn.textContent = 'Send Link';
+      if (error) {
+        msg.textContent = error.message;
+        msg.className = 'text-xs mt-4 text-red-600';
+      } else {
+        msg.textContent = 'Password reset link sent to your email!';
+        msg.className = 'text-xs mt-4 text-green-600';
+      }
+      msg.classList.remove('hidden');
+    };
+    window.submitUpdatePassword = async function() {
+      const newPwd = document.getElementById('update-password-new').value;
+      const msg = document.getElementById('update-password-msg');
+      const btn = document.getElementById('update-password-submit');
+      if (!newPwd || newPwd.length < 6) {
+        msg.textContent = 'Password must be at least 6 characters.';
+        msg.className = 'text-xs mt-4 text-red-600';
+        msg.classList.remove('hidden');
+        return;
+      }
+      btn.disabled = true;
+      btn.textContent = 'Saving...';
+      const { error } = await window.supabase.auth.updateUser({ password: newPwd });
+      
+      if (error) {
+        btn.disabled = false;
+        btn.textContent = 'Save New Password';
+        msg.textContent = error.message;
+        msg.className = 'text-xs mt-4 text-red-600';
+        msg.classList.remove('hidden');
+      } else {
+        msg.textContent = 'Password updated successfully! Redirecting to login...';
+        msg.className = 'text-xs mt-4 text-green-600';
+        msg.classList.remove('hidden');
+        
+        // Explicitly sign out so they have to log in with the new password
+        await window.supabase.auth.signOut();
+        
+        setTimeout(() => {
+          document.getElementById('update-password-modal').classList.add('hidden');
+          document.getElementById('update-password-modal').classList.remove('flex');
+          window.history.replaceState(null, null, window.location.pathname);
+          window.location.reload();
+        }, 2000);
+      }
+    };
+    window.togglePassword = function (id) {
+      const input = document.getElementById(id);
+      const icon = document.getElementById(id + '-eye');
+      if (input.type === 'password') {
+        input.type = 'text';
+        if (icon) {
+          icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21" />';
+        }
+      } else {
+        input.type = 'password';
+        if (icon) {
+          icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />';
+        }
+      }
+    };
+  </script>
+  <script type="module" src="scripts/warden-profile.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,668 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us • HostelHome — Smarter Hostel Management, Better Living</title>
+  <meta name="title" content="About Us • HostelHome — Smarter Hostel Management, Better Living" />
+  <meta name="description" content="Learn about HostelHome: the modern hostel & PG management platform. Simplifying 1-scan QR admissions, PhonePe PG rent collection, occupancy analytics, digital ID cards, and resident life." />
+  <meta name="keywords" content="HostelHome About, Hostel Management Software, PG Management App, Student Housing Software, Digital Hostel System, Rudra Balkawade, Praj Sankpal" />
+  <meta name="author" content="HostelHome" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://hostelhome.pages.dev/about.html" />
+
+  <!-- Open Graph / Facebook / LinkedIn -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://hostelhome.pages.dev/about.html" />
+  <meta property="og:site_name" content="HostelHome" />
+  <meta property="og:title" content="About Us • HostelHome — Smarter Hostel Management" />
+  <meta property="og:description" content="Making hostel life feel a little more like home. Discover the digital operating system built for modern hostels and PGs." />
+  <meta property="og:image" content="https://hostelhome.pages.dev/icons/hostelhome-logo.png" />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://hostelhome.pages.dev/about.html" />
+  <meta property="twitter:title" content="About Us • HostelHome — Smarter Hostel Management" />
+  <meta property="twitter:description" content="Making hostel life feel a little more like home. 1-Scan admissions, automated rent collections, and occupancy analytics." />
+  <meta property="twitter:image" content="https://hostelhome.pages.dev/icons/hostelhome-logo.png" />
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "About HostelHome",
+    "url": "https://hostelhome.pages.dev/about.html",
+    "description": "HostelHome is a modern hostel and PG management platform built for wardens and students.",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "HostelHome",
+      "url": "https://hostelhome.pages.dev",
+      "logo": "https://hostelhome.pages.dev/icons/hostelhome-logo.png",
+      "sameAs": [
+        "https://www.instagram.com/hostelhome247/"
+      ]
+    }
+  }
+  </script>
+
+  <!-- Google Fonts & Tailwind -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="scripts/ui-core.js"></script>
+  <script src="scripts/android-bridge.js"></script>
+  <link rel="stylesheet" href="dark-mode.css">
+
+  <style>
+    :root {
+      --primary: #2563EB;
+      --primary-dark: #1D4ED8;
+      --bg: #F8FAFC;
+      --card: #FFFFFF;
+      --border: #E2E8F0;
+      --text-main: #0F172A;
+      --text-muted: #64748B;
+    }
+
+    html, body {
+      min-height: 100%;
+      background: var(--bg);
+      color: var(--text-main);
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      margin: 0;
+      scroll-behavior: smooth;
+    }
+
+    h1, h2, h3, h4, .brand-title {
+      font-family: 'Outfit', 'Inter', sans-serif;
+    }
+
+    .glass-card {
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(226, 232, 240, 0.85);
+      border-radius: 24px;
+      box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.05);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    .glass-card-dark {
+      background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 24px;
+      box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.25);
+    }
+
+    .grad-text {
+      background: linear-gradient(135deg, #2563EB 0%, #0EA5E9 50%, #10B981 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      background-size: 200% auto;
+      animation: shine 6s linear infinite;
+    }
+
+    @keyframes shine {
+      to {
+        background-position: 200% center;
+      }
+    }
+
+    .blob {
+      position: absolute;
+      filter: blur(60px);
+      opacity: 0.45;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .blob-1 {
+      width: 450px;
+      height: 450px;
+      left: -150px;
+      top: -100px;
+      background: radial-gradient(circle, #93C5FD 0%, #3B82F6 100%);
+    }
+
+    .blob-2 {
+      width: 500px;
+      height: 500px;
+      right: -200px;
+      top: 10%;
+      background: radial-gradient(circle, #BAE6FD 0%, #38BDF8 100%);
+    }
+
+    .blob-3 {
+      width: 400px;
+      height: 400px;
+      left: 30%;
+      bottom: 10%;
+      background: radial-gradient(circle, #A7F3D0 0%, #34D399 100%);
+    }
+  </style>
+</head>
+
+<body class="relative overflow-x-hidden">
+  <!-- Background Ambient Glows -->
+  <div class="blob blob-1 rounded-full"></div>
+  <div class="blob blob-2 rounded-full"></div>
+  <div class="blob blob-3 rounded-full"></div>
+
+  <!-- Top Navigation Bar -->
+  <header class="sticky top-0 z-50 w-full border-b border-slate-200/80 bg-white/85 backdrop-blur-xl transition-all">
+    <div class="max-w-6xl mx-auto px-5 py-4 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3 group">
+        <div class="w-11 h-11 flex items-center justify-center overflow-hidden transition-transform group-hover:scale-105" style="width:44px; height:44px; flex-shrink:0;">
+          <img src="icons/hostelhome-logo.png" alt="HostelHome Logo" class="w-full h-full object-contain" style="width:44px; height:44px; object-fit:contain;">
+        </div>
+        <div>
+          <div class="text-xl font-black tracking-tight text-slate-900 brand-title">HostelHome</div>
+          <div class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Smarter Management</div>
+        </div>
+      </a>
+
+      <div class="flex items-center gap-3">
+        <a href="index.html" class="px-5 py-2.5 rounded-xl text-xs font-extrabold text-white bg-blue-600 hover:bg-blue-700 shadow-md shadow-blue-500/20 transition-all hover:-translate-y-0.5 flex items-center gap-1.5">
+          <span>Log In</span>
+          <span>→</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-5 py-12 relative z-10 space-y-16">
+
+    <!-- HERO SECTION -->
+    <section class="glass-card p-8 sm:p-12 md:p-16 relative overflow-hidden text-center md:text-left">
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200/80 text-blue-700 text-xs font-extrabold mb-6">
+          <span class="w-2 h-2 rounded-full bg-blue-600 animate-pulse"></span>
+          Modern Hostel & PG Infrastructure
+        </div>
+
+        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-[1.15]">
+          Making hostel life feel a little more <span class="grad-text">like home.</span>
+        </h1>
+
+        <p class="mt-6 text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl font-normal">
+          <strong>HostelHome</strong> is built to bring clarity and effortless control to hostel and PG operations. We eliminate physical registers, manual fee tracking, and scattered messages by connecting wardens and students through a unified desktop dashboard and mobile app.
+        </p>
+      </div>
+    </section>
+
+    <!-- OUR PURPOSE & WHAT WE WORK FOR -->
+    <section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="glass-card p-8 md:col-span-2 flex flex-col justify-between">
+        <div>
+          <div class="w-12 h-12 rounded-2xl bg-blue-600 text-white flex items-center justify-center font-black text-xl mb-6 shadow-md shadow-blue-500/20">
+            🎯
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-4">What Do We Work For?</h2>
+          <p class="text-slate-600 leading-relaxed text-sm sm:text-base">
+            Managing student housing involves dozens of daily operational tasks: admitting new residents, verifying ID records, collecting monthly fees, tracking vacant beds, updating meal menus, and resolving maintenance issues.
+          </p>
+          <p class="mt-3 text-slate-600 leading-relaxed text-sm sm:text-base">
+            We work to give <strong>wardens complete administrative clarity and automated financial management</strong>, while providing <strong>students with a seamless, modern mobile app experience</strong>. We believe technology should handle repetitive paperwork so management can focus on resident safety and students can focus on their future.
+          </p>
+        </div>
+        <div class="mt-8 pt-6 border-t border-slate-100 flex flex-wrap gap-6 text-xs font-bold text-slate-500">
+          <span class="flex items-center gap-1.5"><span class="text-emerald-500">✓</span> Instant QR Onboarding</span>
+          <span class="flex items-center gap-1.5"><span class="text-blue-500">✓</span> PhonePe PG Auto-Verification</span>
+          <span class="flex items-center gap-1.5"><span class="text-purple-500">✓</span> Real-Time Financial Analytics</span>
+        </div>
+      </div>
+
+      <div class="glass-card-dark p-8 text-white flex flex-col justify-between relative overflow-hidden">
+        <div class="absolute -right-8 -bottom-8 w-40 h-40 bg-blue-500/20 rounded-full blur-3xl"></div>
+        <div>
+          <span class="px-3 py-1 rounded-full bg-white/10 text-blue-300 text-[10px] font-extrabold uppercase tracking-widest">Our Vision</span>
+          <h3 class="text-2xl font-black mt-4 mb-3">Transparent Living Ecosystem</h3>
+          <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+            A digital foundation where admissions take seconds, payments settle automatically, and every resident has immediate access to their hostel services.
+          </p>
+        </div>
+        <div class="mt-8 pt-6 border-t border-white/10">
+          <div class="text-3xl font-black text-white">100% Digital</div>
+          <div class="text-xs text-slate-400 font-medium mt-1">From admission to checkout</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- THE PROBLEMS WE SOLVE -->
+    <section class="space-y-8">
+      <div class="text-center max-w-2xl mx-auto">
+        <span class="text-xs font-extrabold text-blue-600 uppercase tracking-widest">Operational Transformation</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-2">The Problems We Solve</h2>
+        <p class="text-slate-500 text-sm sm:text-base mt-3">Replacing manual bottlenecks with structured digital clarity.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- The Manual Dilemma -->
+        <div class="glass-card p-8 border-red-100 bg-red-50/30">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-10 h-10 rounded-xl bg-red-100 text-red-600 flex items-center justify-center font-bold text-lg">✕</div>
+            <div>
+              <h3 class="text-lg font-bold text-slate-900">Traditional Manual Management</h3>
+              <p class="text-xs text-slate-500">Prone to errors, missing records, and fee disputes</p>
+            </div>
+          </div>
+
+          <ul class="space-y-4 text-sm text-slate-600">
+            <li class="flex items-start gap-3">
+              <span class="text-red-500 font-bold mt-0.5">✕</span>
+              <span><strong>Paper Admission Forms:</strong> Manually collecting physical forms, photo copies, and filling physical registers for every resident.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-red-500 font-bold mt-0.5">✕</span>
+              <span><strong>Fee Reconciliation Disputes:</strong> Cross-checking bank SMS alerts, paper receipts, and cash diaries to figure out pending balances.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-red-500 font-bold mt-0.5">✕</span>
+              <span><strong>Scattered Information:</strong> Difficult to quickly locate emergency parent contacts, room allotments, or student verification details.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-red-500 font-bold mt-0.5">✕</span>
+              <span><strong>Unknown Occupancy Trends:</strong> Lack of visual insights into room occupancy, vacant spaces, and seasonal student movement.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-red-500 font-bold mt-0.5">✕</span>
+              <span><strong>Unrecorded Maintenance Complaints:</strong> Plumbing and electrical issues told verbally or over WhatsApp get lost or delayed.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- The HostelHome Solution -->
+        <div class="glass-card p-8 border-emerald-100 bg-emerald-50/30">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center font-bold text-lg">✓</div>
+            <div>
+              <h3 class="text-lg font-bold text-slate-900">The HostelHome Solution</h3>
+              <p class="text-xs text-slate-500">Automated, transparent, and completely organized</p>
+            </div>
+          </div>
+
+          <ul class="space-y-4 text-sm text-slate-700">
+            <li class="flex items-start gap-3">
+              <span class="text-emerald-600 font-bold mt-0.5">✓</span>
+              <span><strong>1-Scan QR Onboarding:</strong> New students scan the hostel QR code, fill their verified profile, and join their room in 30 seconds.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-emerald-600 font-bold mt-0.5">✓</span>
+              <span><strong>PhonePe PG Instant Payments:</strong> Automated real-time payment verification with digital receipts (plus 1-tap manual verification).</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-emerald-600 font-bold mt-0.5">✓</span>
+              <span><strong>Instant Digital ID Cards:</strong> Automated digital student ID cards and complete verified profiles accessible anytime.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-emerald-600 font-bold mt-0.5">✓</span>
+              <span><strong>Live Statistical Graphs:</strong> Visual trends of student numbers over time, total capacity, occupied beds, and vacant spaces.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-emerald-600 font-bold mt-0.5">✓</span>
+              <span><strong>Tracked Maintenance Desk:</strong> In-app complaint lodging with photo attachments and live status resolution tracking.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT WE PROVIDE: WARDENS & MANAGEMENT -->
+    <section class="glass-card p-8 sm:p-10 border-blue-100 space-y-8">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-slate-100">
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 rounded-2xl bg-blue-600 text-white flex items-center justify-center font-bold text-xl shadow-md shadow-blue-500/20">
+            🏢
+          </div>
+          <div>
+            <h2 class="text-2xl sm:text-3xl font-black text-slate-900">For Wardens & Hostel Owners</h2>
+            <p class="text-xs text-slate-500">Comprehensive command center for admissions, finances, rooms, and resident records</p>
+          </div>
+        </div>
+        <span class="px-4 py-1.5 rounded-full bg-blue-50 text-blue-700 text-xs font-extrabold self-start md:self-auto">
+          Web Dashboard & Management Suite
+        </span>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200/70">
+          <div class="text-2xl mb-3">📲</div>
+          <h3 class="font-extrabold text-slate-900 text-base mb-1">Instant QR Onboarding</h3>
+          <p class="text-xs text-slate-500 leading-relaxed">Display a hostel QR code. Incoming students scan, submit verified documents, and get assigned to rooms instantly.</p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200/70">
+          <div class="text-2xl mb-3">💳</div>
+          <h3 class="font-extrabold text-slate-900 text-base mb-1">PhonePe PG & Finances</h3>
+          <p class="text-xs text-slate-500 leading-relaxed">Accept digital rent via PhonePe PG with automated verification, or manually verify cash/direct transfers with one tap.</p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200/70">
+          <div class="text-2xl mb-3">📈</div>
+          <h3 class="font-extrabold text-slate-900 text-base mb-1">Occupancy & Revenue Charts</h3>
+          <p class="text-xs text-slate-500 leading-relaxed">Visual statistical charts tracking student growth over time, total capacity, occupied beds, and vacant rooms.</p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200/70">
+          <div class="text-2xl mb-3">🪪</div>
+          <h3 class="font-extrabold text-slate-900 text-base mb-1">Verified Profiles & ID Cards</h3>
+          <p class="text-xs text-slate-500 leading-relaxed">Full access to verified student profiles, emergency parent contacts, room allotments, and digital ID card records.</p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200/70">
+          <div class="text-2xl mb-3">🍲</div>
+          <h3 class="font-extrabold text-slate-900 text-base mb-1">Weekly Mess Scheduling</h3>
+          <p class="text-xs text-slate-500 leading-relaxed">Publish and update breakfast, lunch, snacks, and dinner menus directly to residents' mobile screens.</p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200/70">
+          <div class="text-2xl mb-3">🚪</div>
+          <h3 class="font-extrabold text-slate-900 text-base mb-1">Permanent Checkout Clearances</h3>
+          <p class="text-xs text-slate-500 leading-relaxed">Daily and weekend leaves are logged smoothly without daily approval friction. Formal clearance is reserved for permanent checkouts.</p>
+        </div>
+      </div>
+
+      <!-- Real Desktop Chart Showcase (Matching Warden Dashboard) -->
+      <div class="mt-8 pt-8 border-t border-slate-100">
+        <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm max-w-4xl mx-auto">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
+            <div>
+              <h4 class="text-lg sm:text-xl font-extrabold text-slate-900">Occupancy Trends</h4>
+              <p class="text-xs text-slate-500 font-medium">Total number of students over time</p>
+            </div>
+            <div class="inline-flex p-1 bg-slate-100 rounded-xl border border-slate-200 text-xs font-bold self-start sm:self-auto">
+              <span class="px-3 py-1 bg-white text-blue-600 rounded-lg shadow-xs">6 Months</span>
+              <span class="px-3 py-1 text-slate-500">1 Year</span>
+            </div>
+          </div>
+
+          <!-- Desktop Area Graph SVG matching dashboard -->
+          <div class="h-44 sm:h-52 w-full pt-4">
+            <svg class="w-full h-full overflow-visible" viewBox="0 0 600 130">
+              <defs>
+                <linearGradient id="areaGradient" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#3B82F6" stop-opacity="0.25" />
+                  <stop offset="100%" stop-color="#3B82F6" stop-opacity="0.0" />
+                </linearGradient>
+              </defs>
+
+              <!-- Grid Horizontal Lines -->
+              <line x1="30" y1="20" x2="580" y2="20" stroke="#F1F5F9" stroke-width="1" />
+              <line x1="30" y1="45" x2="580" y2="45" stroke="#F1F5F9" stroke-width="1" />
+              <line x1="30" y1="70" x2="580" y2="70" stroke="#F1F5F9" stroke-width="1" />
+              <line x1="30" y1="95" x2="580" y2="95" stroke="#F1F5F9" stroke-width="1" />
+              <line x1="30" y1="120" x2="580" y2="120" stroke="#E2E8F0" stroke-width="1" />
+
+              <!-- Y-Axis Labels -->
+              <text x="15" y="24" font-size="9" fill="#94A3B8" font-weight="600" text-anchor="middle">25</text>
+              <text x="15" y="49" font-size="9" fill="#94A3B8" font-weight="600" text-anchor="middle">20</text>
+              <text x="15" y="74" font-size="9" fill="#94A3B8" font-weight="600" text-anchor="middle">15</text>
+              <text x="15" y="99" font-size="9" fill="#94A3B8" font-weight="600" text-anchor="middle">10</text>
+              <text x="15" y="123" font-size="9" fill="#94A3B8" font-weight="600" text-anchor="middle">0</text>
+
+              <!-- Area Fill -->
+              <path d="M 40 105 C 90 90, 110 85, 148 80 C 190 75, 220 68, 256 62 C 295 58, 330 54, 364 48 C 410 40, 440 20, 472 20 L 580 20 L 580 120 L 40 120 Z" fill="url(#areaGradient)" />
+
+              <!-- Smooth Bezier Line -->
+              <path d="M 40 105 C 90 90, 110 85, 148 80 C 190 75, 220 68, 256 62 C 295 58, 330 54, 364 48 C 410 40, 440 20, 472 20 L 580 20" fill="none" stroke="#2563EB" stroke-width="3" stroke-linecap="round" />
+
+              <!-- Data Nodes -->
+              <circle cx="40" cy="105" r="4.5" fill="#FFFFFF" stroke="#2563EB" stroke-width="2" />
+              <circle cx="148" cy="80" r="4.5" fill="#FFFFFF" stroke="#2563EB" stroke-width="2" />
+              <circle cx="256" cy="62" r="4.5" fill="#FFFFFF" stroke="#2563EB" stroke-width="2" />
+              <circle cx="364" cy="48" r="4.5" fill="#FFFFFF" stroke="#2563EB" stroke-width="2" />
+              <circle cx="472" cy="20" r="4.5" fill="#FFFFFF" stroke="#2563EB" stroke-width="2" />
+              <circle cx="580" cy="20" r="4.5" fill="#FFFFFF" stroke="#2563EB" stroke-width="2" />
+
+              <!-- X-Axis Month Labels -->
+              <text x="40" y="138" font-size="9" fill="#64748B" font-weight="600" text-anchor="middle">Mar</text>
+              <text x="148" y="138" font-size="9" fill="#64748B" font-weight="600" text-anchor="middle">Apr</text>
+              <text x="256" y="138" font-size="9" fill="#64748B" font-weight="600" text-anchor="middle">May</text>
+              <text x="364" y="138" font-size="9" fill="#64748B" font-weight="600" text-anchor="middle">Jun</text>
+              <text x="472" y="138" font-size="9" fill="#64748B" font-weight="600" text-anchor="middle">Jul</text>
+              <text x="580" y="138" font-size="9" fill="#64748B" font-weight="600" text-anchor="middle">Aug</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT WE PROVIDE: STUDENTS & RESIDENTS -->
+    <section class="glass-card p-8 sm:p-10 border-emerald-100 space-y-8">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-slate-100">
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 rounded-2xl bg-emerald-600 text-white flex items-center justify-center font-bold text-xl shadow-md shadow-emerald-500/20">
+            📱
+          </div>
+          <div>
+            <h2 class="text-2xl sm:text-3xl font-black text-slate-900">For Students & Residents</h2>
+            <p class="text-xs text-slate-500">Everyday hostel life simplified on your phone</p>
+          </div>
+        </div>
+        <span class="px-4 py-1.5 rounded-full bg-emerald-50 text-emerald-700 text-xs font-extrabold self-start md:self-auto">
+          Native Mobile App Experience
+        </span>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200/70">
+          <div class="text-2xl mb-3">🪪</div>
+          <h3 class="font-extrabold text-slate-900 text-base mb-1">Digital Student ID Card</h3>
+          <p class="text-xs text-slate-500 leading-relaxed">Official hostel ID stored securely in the app. Instant verification at main gates, security checkpoints, and mess counters.</p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200/70">
+          <div class="text-2xl mb-3">⚡</div>
+          <h3 class="font-extrabold text-slate-900 text-base mb-1">Instant PhonePe Payments</h3>
+          <p class="text-xs text-slate-500 leading-relaxed">Pay monthly room rent and deposits via UPI / PhonePe PG with instant automated receipt logging and balance tracking.</p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200/70">
+          <div class="text-2xl mb-3">🍽️</div>
+          <h3 class="font-extrabold text-slate-900 text-base mb-1">Live Daily Mess Menu</h3>
+          <p class="text-xs text-slate-500 leading-relaxed">Check what is cooking for breakfast, lunch, and dinner today directly from your room without walking down to the mess.</p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200/70">
+          <div class="text-2xl mb-3">📝</div>
+          <h3 class="font-extrabold text-slate-900 text-base mb-1">Hassle-Free Leave Logging</h3>
+          <p class="text-xs text-slate-500 leading-relaxed">Log weekend trips and night-outs directly in the app for record-keeping without waiting in queues for sign-offs.</p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200/70">
+          <div class="text-2xl mb-3">🛠️</div>
+          <h3 class="font-extrabold text-slate-900 text-base mb-1">In-App Complaint Box</h3>
+          <p class="text-xs text-slate-500 leading-relaxed">Facing room, plumbing, or electrical issues? Lodge a ticket directly and track its resolution status live.</p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200/70">
+          <div class="text-2xl mb-3">📢</div>
+          <h3 class="font-extrabold text-slate-900 text-base mb-1">Official Notice Board</h3>
+          <p class="text-xs text-slate-500 leading-relaxed">Stay updated with official hostel guidelines, water maintenance timings, and important warden bulletins.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- LIVE APP INTERFACE SHOWCASE (SIDE BY SIDE) -->
+    <section class="glass-card-dark p-8 sm:p-12 text-white relative overflow-hidden">
+      <div class="max-w-3xl mx-auto text-center mb-12 relative z-10">
+        <span class="px-3.5 py-1.5 rounded-full bg-blue-500/20 text-blue-300 text-xs font-black uppercase tracking-wider">Live Interface Preview</span>
+        <h2 class="text-3xl sm:text-4xl font-black mt-4 mb-4">Built for Everyday Simplicity</h2>
+        <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+          Clean visual cues, high contrast, and zero friction across warden management and student living.
+        </p>
+      </div>
+
+      <!-- Real Phone UI Previews Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto relative z-10 items-start">
+        
+        <!-- Warden Mobile View: Stats & Financials -->
+        <div class="bg-slate-50 text-slate-900 rounded-[36px] p-5 sm:p-6 shadow-2xl border-4 border-slate-700/50 max-w-sm mx-auto w-full">
+          <div class="flex items-center justify-between pb-4 border-b border-slate-200">
+            <div class="flex items-center gap-3">
+              <span class="text-xl font-bold text-slate-700">☰</span>
+              <span class="font-extrabold text-base text-slate-900">Stats & Financials</span>
+            </div>
+          </div>
+
+          <div class="my-4 p-1 bg-slate-200/80 rounded-xl flex">
+            <div class="flex-1 py-1.5 text-center text-xs font-extrabold bg-white text-blue-600 rounded-lg shadow-sm">Dashboard</div>
+            <div class="flex-1 py-1.5 text-center text-xs font-bold text-slate-500">Financials</div>
+          </div>
+
+          <div class="bg-gradient-to-br from-blue-600 to-blue-700 text-white rounded-3xl p-5 shadow-lg relative overflow-hidden mb-4">
+            <div class="flex justify-between items-center mb-3">
+              <span class="font-extrabold text-lg">Live Occupancy</span>
+              <span class="px-2.5 py-0.5 rounded-full bg-blue-500/50 text-[11px] font-bold text-emerald-300 flex items-center gap-1">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Available
+              </span>
+            </div>
+
+            <div class="flex items-center justify-between my-3">
+              <div class="relative w-20 h-20 flex items-center justify-center">
+                <svg class="w-full h-full transform -rotate-90" viewBox="0 0 36 36">
+                  <path class="text-blue-400/30" stroke-width="4" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                  <path class="text-white" stroke-dasharray="69, 100" stroke-width="4" stroke-linecap="round" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                </svg>
+                <span class="absolute text-base font-black text-white">69%</span>
+              </div>
+
+              <div class="text-right">
+                <div class="text-[11px] text-blue-200 font-medium">Occupied Beds</div>
+                <div class="text-2xl font-black">25</div>
+                <div class="text-[11px] text-blue-200 font-medium mt-1">Total Capacity</div>
+                <div class="text-2xl font-black">36</div>
+              </div>
+            </div>
+
+            <div class="mt-3 pt-3 border-t border-blue-400/30 text-[11px] text-blue-100 flex items-center gap-1.5">
+              <span>ⓘ</span>
+              <span>You currently have <strong>11 beds vacant</strong> and ready for booking.</span>
+            </div>
+          </div>
+
+          <div class="text-center text-[11px] font-bold text-slate-400 uppercase tracking-widest">
+            Warden Live Metrics
+          </div>
+        </div>
+
+        <!-- Student Mobile View: Resident Dashboard -->
+        <div class="bg-slate-50 text-slate-900 rounded-[36px] p-5 sm:p-6 shadow-2xl border-4 border-slate-700/50 max-w-sm mx-auto w-full">
+          <div class="flex items-center justify-between pb-3">
+            <div class="flex items-center gap-2">
+              <span class="text-xl font-bold text-slate-700">☰</span>
+              <span class="font-extrabold text-base text-slate-900">HostelHome</span>
+            </div>
+            <div class="relative text-slate-600 font-bold">
+              🔔
+              <span class="absolute -top-1 -right-1 w-3.5 h-3.5 bg-red-500 text-white rounded-full text-[9px] font-bold flex items-center justify-center">1</span>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <h4 class="text-base font-black text-slate-900">Welcome, Vegeta</h4>
+            <span class="inline-flex items-center gap-1 text-[10px] font-extrabold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-full mt-0.5">
+              ● Active Resident
+            </span>
+          </div>
+
+          <div class="bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-2xl p-4 shadow-md mb-3">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-base">🏢</span>
+              <span class="font-extrabold text-sm">hosteld</span>
+            </div>
+            <div class="text-[10px] uppercase font-bold text-blue-200 tracking-wider">Room Number</div>
+            <div class="text-xs font-black">203 Hyperbolic Time Chamber</div>
+            <div class="text-[10px] uppercase font-bold text-blue-200 tracking-wider mt-1.5">Email Address</div>
+            <div class="text-xs font-semibold text-blue-50">vegeta@gmail.com</div>
+          </div>
+
+          <div class="bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 text-white rounded-2xl p-4 shadow-md mb-3">
+            <div class="text-[10px] uppercase font-extrabold text-blue-200 tracking-wider">Current Balance Status</div>
+            <div class="flex items-center gap-2 mt-1 mb-2">
+              <span class="text-2xl font-black">₹0</span>
+              <span class="px-2 py-0.5 rounded-md bg-emerald-500/20 text-emerald-300 font-extrabold text-[11px] border border-emerald-400/30">Paid ✓</span>
+            </div>
+            <div class="text-[11px] text-blue-200 font-medium">Security Deposit: ₹1000 <span class="text-emerald-300 font-bold">✓ Paid</span></div>
+          </div>
+
+          <div class="text-center text-[11px] font-bold text-slate-400 uppercase tracking-widest">
+            Student Resident View
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CORE ARCHITECTURAL PILLARS -->
+    <section class="glass-card p-8 sm:p-12">
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <span class="text-xs font-extrabold text-blue-600 uppercase tracking-widest">Platform Reliability</span>
+        <h2 class="text-3xl font-extrabold text-slate-900 mt-2">How We Are Useful</h2>
+        <p class="text-slate-500 text-sm mt-2">Built on four pillars that ensure operational efficiency, financial transparency, and data privacy.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="text-center p-6 rounded-2xl bg-blue-50/50 border border-blue-100">
+          <div class="text-3xl mb-3">⏱️</div>
+          <h3 class="font-black text-slate-900 text-lg mb-2">Zero Paperwork</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">Admissions, digital ID cards, and student records managed 100% digitally via simple QR scans.</p>
+        </div>
+
+        <div class="text-center p-6 rounded-2xl bg-emerald-50/50 border border-emerald-100">
+          <div class="text-3xl mb-3">💳</div>
+          <h3 class="font-black text-slate-900 text-lg mb-2">Automated Payments</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">Integrated PhonePe PG provides real-time payment auto-verification and eliminates fee tracking disputes.</p>
+        </div>
+
+        <div class="text-center p-6 rounded-2xl bg-purple-50/50 border border-purple-100">
+          <div class="text-3xl mb-3">📊</div>
+          <h3 class="font-black text-slate-900 text-lg mb-2">Visual Analytics</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">Statistical graphs tracking vacant beds, student capacity over time, and monthly collection records.</p>
+        </div>
+
+        <div class="text-center p-6 rounded-2xl bg-amber-50/50 border border-amber-100">
+          <div class="text-3xl mb-3">🛡️</div>
+          <h3 class="font-black text-slate-900 text-lg mb-2">Verified Security</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">Secure cloud database with digital ID cards and emergency contacts accessible anytime.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODERN FOOTER -->
+    <footer class="pt-8 pb-12 border-t border-slate-200">
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div class="flex items-center gap-2.5">
+          <div class="w-7 h-7 flex items-center justify-center overflow-hidden shrink-0" style="width:28px; height:28px; flex-shrink:0;">
+            <img src="icons/hostelhome-logo.png" alt="HostelHome Logo" class="w-full h-full object-contain" style="width:28px; height:28px; object-fit:contain;">
+          </div>
+          <span class="text-xs text-slate-500 font-bold">© <span id="year"></span> HostelHome. All rights reserved.</span>
+        </div>
+        <div class="flex flex-wrap gap-5 text-xs font-semibold text-slate-500 items-center">
+          <a href="about.html" class="text-blue-600 font-bold">About Us</a>
+          <a href="founders.html" class="hover:text-blue-600 transition-colors">Founders</a>
+          <a href="pricing.html" class="hover:text-blue-600 transition-colors">Pricing & Plans</a>
+          <a href="privacy.html" target="_blank" rel="noopener noreferrer" class="hover:text-blue-600 transition-colors">Privacy Policy</a>
+          <a href="terms.html" target="_blank" rel="noopener noreferrer" class="hover:text-blue-600 transition-colors">Terms of Service</a>
+          <a href="refund-policy.html" target="_blank" rel="noopener noreferrer" class="hover:text-blue-600 transition-colors">Refund Policy</a>
+          <a href="contact.html" class="hover:text-blue-600 transition-colors">Contact Support</a>
+          <a href="https://www.instagram.com/hostelhome247/" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-pink-600 transition-colors p-1 flex items-center justify-center" title="HostelHome Instagram" aria-label="HostelHome Instagram">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+
+</html>
