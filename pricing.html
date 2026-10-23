@@ -230,7 +230,7 @@
               <span class="text-slate-500 text-sm font-bold">/ mo</span>
               <span id="price-starter-strike" class="text-xs text-slate-400 line-through ml-2 hidden">₹1,199</span>
             </div>
-            <p id="price-starter-summary" class="text-[11px] text-slate-400 font-semibold mt-1">Billed monthly</p>
+            <p id="price-starter-summary" class="text-xs sm:text-sm text-slate-500 font-semibold mt-1 min-h-[28px]">Billed monthly</p>
           </div>
 
           <!-- Feature List -->
@@ -304,7 +304,7 @@
               <span class="text-slate-500 text-sm font-bold">/ mo</span>
               <span id="price-growth-strike" class="text-xs text-slate-400 line-through ml-2 hidden">₹1,599</span>
             </div>
-            <p id="price-growth-summary" class="text-[11px] text-slate-400 font-semibold mt-1">Billed monthly • Best value</p>
+            <p id="price-growth-summary" class="text-xs sm:text-sm text-slate-500 font-semibold mt-1 min-h-[28px]">Billed monthly • Best value</p>
           </div>
 
           <!-- Feature List -->
@@ -545,14 +545,14 @@
     // Exact Pricing Matrix from Register Hostel
     const PLAN_MATRIX = {
       50: {
-        1: { rate: 1199, total: 1199, strike: null, summary: 'Billed monthly' },
-        6: { rate: 1049, total: 6294, strike: 1199, summary: 'Billed ₹6,294 for 6 months' },
-        12: { rate: 979, total: 11748, strike: 1199, summary: 'Billed annually at ₹11,748' }
+        1: { rate: 1199, total: 1199, strike: null, summary: 'Billed monthly', summaryHtml: 'Billed monthly' },
+        6: { rate: 1049, total: 6294, strike: 1199, summary: 'Billed ₹6,294 for 6 months', summaryHtml: 'Billed <span class="text-lg sm:text-xl font-black text-slate-900 tracking-tight">₹6,294</span> for 6 months' },
+        12: { rate: 979, total: 11748, strike: 1199, summary: 'Billed annually at ₹11,748', summaryHtml: 'Billed annually at <span class="text-lg sm:text-xl font-black text-slate-900 tracking-tight">₹11,748</span>' }
       },
       120: {
-        1: { rate: 1599, total: 1599, strike: null, summary: 'Billed monthly' },
-        6: { rate: 1450, total: 8700, strike: 1599, summary: 'Billed ₹8,700 for 6 months' },
-        12: { rate: 1399, total: 16788, strike: 1599, summary: 'Billed annually at ₹16,788' }
+        1: { rate: 1599, total: 1599, strike: null, summary: 'Billed monthly', summaryHtml: 'Billed monthly • Best value' },
+        6: { rate: 1450, total: 8700, strike: 1599, summary: 'Billed ₹8,700 for 6 months', summaryHtml: 'Billed <span class="text-lg sm:text-xl font-black text-slate-900 tracking-tight">₹8,700</span> for 6 months' },
+        12: { rate: 1399, total: 16788, strike: 1599, summary: 'Billed annually at ₹16,788', summaryHtml: 'Billed annually at <span class="text-lg sm:text-xl font-black text-slate-900 tracking-tight">₹16,788</span>' }
       }
     };
 
@@ -582,7 +582,7 @@
       // Update 50 Students (Starter)
       const sData = PLAN_MATRIX[50][selectedCycle];
       document.getElementById('price-starter-rate').innerText = '₹' + sData.rate.toLocaleString('en-IN');
-      document.getElementById('price-starter-summary').innerText = sData.summary;
+      document.getElementById('price-starter-summary').innerHTML = sData.summaryHtml || sData.summary;
       const sStrike = document.getElementById('price-starter-strike');
       if (sData.strike) {
         sStrike.innerText = '₹' + sData.strike.toLocaleString('en-IN');
@@ -594,7 +594,7 @@
       // Update 120 Students (Growth)
       const gData = PLAN_MATRIX[120][selectedCycle];
       document.getElementById('price-growth-rate').innerText = '₹' + gData.rate.toLocaleString('en-IN');
-      document.getElementById('price-growth-summary').innerText = gData.summary;
+      document.getElementById('price-growth-summary').innerHTML = gData.summaryHtml || gData.summary;
       const gStrike = document.getElementById('price-growth-strike');
       if (gData.strike) {
         gStrike.innerText = '₹' + gData.strike.toLocaleString('en-IN');
