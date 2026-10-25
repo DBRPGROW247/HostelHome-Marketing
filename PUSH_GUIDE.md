@@ -32,7 +32,7 @@ git add .
 # 4. Commit changes with a descriptive message
 git commit -m "feat: describe your update here"
 
-# 5. Pull latest remote changes to prevent conflicts
+# 5. Pull latest remote changes to prevent conflicts(optional)
 git pull origin main
 
 # 6. Push updates to GitHub (triggers live deployment)
