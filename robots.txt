@@ -23,4 +23,4 @@ Disallow: /wmeal.html
 Disallow: /settings.html
 Disallow: /hstlprofile.html
 
-Sitemap: https://hostelhome.pages.dev/sitemap.xml
+Sitemap: https://hostelhomeapp.in/sitemap.xml
