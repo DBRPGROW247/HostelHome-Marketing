@@ -9,7 +9,6 @@ HostelHome-Marketing/
 ├── index.html                  # Official Marketing Landing Page & Product Showcase
 ├── about.html                  # About Us & Platform Vision
 ├── pricing.html                # Pricing Tiers & Subscription Features
-├── founders.html               # Founders Story
 ├── contact.html                # Sales & Support Contact
 ├── merchant-upi-guide.html     # Automated PhonePe/UPI Merchant Integration Guide
 ├── delete-account.html         # Google Play Store Mandatory Account Deletion Form
