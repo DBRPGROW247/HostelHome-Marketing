@@ -5,8 +5,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>HostelHome | All-in-One Hostel & PG Management Software</title>
-  <meta name="description" content="Automate hostel & PG operations with HostelHome. Fast 1-scan QR admissions, automated PhonePe UPI rent collection, meal & mess tracking, student leaves, and occupancy analytics.">
-  <meta name="keywords" content="Hostel management software, PG management app, hostel software India, automated hostel billing, student attendance tracking, hostel warden management, hostel fee collection software">
+  <meta name="description" content="Automate hostel & PG management with HostelHome. Fast 1-scan QR admissions, automated PhonePe UPI rent collection, meal & mess tracking, student leaves, and occupancy analytics.">
+  <meta name="keywords" content="Hostel management software, PG management software, PG management app, paying guest management app, hostel software India, automated hostel billing, student attendance tracking, hostel warden management, hostel fee collection software, PG rent collection app">
   <meta name="author" content="HostelHome" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://hostelhomeapp.in/" />
@@ -46,7 +46,7 @@
         "@id": "https://hostelhomeapp.in/#website",
         "url": "https://hostelhomeapp.in/",
         "name": "HostelHome",
-        "description": "Smart Hostel & Student Living Management Platform"
+        "description": "Smart Hostel & PG Living Management Platform"
       },
       {
         "@type": "Organization",
@@ -74,7 +74,61 @@
           "price": "0",
           "priceCurrency": "INR"
         },
-        "description": "Comprehensive hostel and PG management software with QR admissions, automated PhonePe UPI fee collection, and student leave tracking."
+        "description": "Comprehensive hostel and PG management software with QR admissions, automated PhonePe UPI fee collection, room-bed tracking, and student leave management."
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://hostelhomeapp.in/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is HostelHome suitable for both Hostels and Paying Guest (PG) accommodations?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes! HostelHome is purpose-built for college campus hostels, private hostels, and independent PG (Paying Guest) accommodations. Whether you manage single private rooms, 2-sharing, 3-sharing, or multi-bed dorms, the system lets you track per-bed occupancy, security deposits, monthly rent, and tenant KYC seamlessly."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does automated PhonePe UPI fee collection work?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "HostelHome connects directly with PhonePe Merchant and UPI gateways. Residents scan the dynamic QR code using any UPI app (PhonePe, Google Pay, Paytm, BHIM) to pay their monthly rent. Once paid, HostelHome automatically verifies the transaction in real time, marks the ledger as paid, and issues an instant, downloadable PDF payment receipt."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does 1-Scan QR check-in work for new admissions?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Every registered hostel or PG gets a unique printed or digital QR code. When a new student or tenant arrives, they scan the QR using their phone camera. This opens a streamlined digital onboarding form where they enter their details, upload ID proof (Aadhaar/College ID), and emergency contacts. The warden receives a push notification and approves admission with 1 tap, automatically assigning them to a bed."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can wardens manage student leaves and issue digital gate passes?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Students submit leave or night-out requests directly through their app interface. Wardens review the reason and emergency contacts, approving or declining with one click. Approved leaves generate a secure, time-stamped digital QR gate pass that can be scanned at the hostel entrance for foolproof security."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is there a mobile app available for Android?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes! HostelHome provides a dedicated Android app on Google Play (HostelHome on Google Play). Wardens enjoy instant push notifications, biometric fingerprint login, and camera document scanning, while residents can pay rent, check mess menus, and log maintenance complaints directly from their phones."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What are the subscription plans and costs for hostels and PGs?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "HostelHome offers simple, transparent monthly pricing with all features included across all plans: the Starter Plan is ₹1,199/month (up to 50 residents), and the Growth Plan is ₹1,799/month (up to 120 residents). Custom scalable enterprise pricing is available for large institutions."
+            }
+          }
+        ]
       }
     ]
   }
@@ -203,6 +257,7 @@
       <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-600">
         <a href="about.html" class="hover:text-blue-600 transition-colors">About</a>
         <a href="pricing.html" class="hover:text-blue-600 transition-colors">Pricing</a>
+        <a href="#faq" class="hover:text-blue-600 transition-colors">FAQ</a>
         <a href="contact.html" class="hover:text-blue-600 transition-colors">Contact</a>
       </nav>
 
@@ -210,7 +265,7 @@
       <div class="hidden sm:flex items-center gap-3">
         <a href="https://app.hostelhomeapp.in/register-hostel.html"
            class="px-4 py-2.5 rounded-xl text-xs font-extrabold text-emerald-700 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 transition-all hover:-translate-y-0.5 flex items-center gap-1.5">
-          <span>Register New Hostel</span>
+          <span>Register Hostel / PG</span>
         </a>
         <a href="https://app.hostelhomeapp.in"
            class="px-5 py-2.5 rounded-xl text-xs font-extrabold text-white bg-blue-600 hover:bg-blue-700 shadow-md shadow-blue-500/20 transition-all hover:-translate-y-0.5 flex items-center gap-1.5">
@@ -236,12 +291,13 @@
       <nav class="flex flex-col space-y-2 text-sm font-semibold text-slate-700">
         <a href="about.html" class="p-2 rounded-lg hover:bg-slate-50 hover:text-blue-600 transition-colors">About Us</a>
         <a href="pricing.html" class="p-2 rounded-lg hover:bg-slate-50 hover:text-blue-600 transition-colors">Pricing & Plans</a>
+        <a href="#faq" class="p-2 rounded-lg hover:bg-slate-50 hover:text-blue-600 transition-colors">FAQ</a>
         <a href="contact.html" class="p-2 rounded-lg hover:bg-slate-50 hover:text-blue-600 transition-colors">Contact Support</a>
       </nav>
       <div class="pt-3 border-t border-slate-100 flex flex-col gap-2">
         <a href="https://app.hostelhomeapp.in/register-hostel.html"
            class="w-full py-3 px-4 rounded-xl text-xs font-bold text-center text-emerald-800 bg-emerald-50 border border-emerald-200 shadow-sm active:scale-95 transition-all">
-          Register New Hostel
+          Register Hostel / PG
         </a>
         <a href="https://app.hostelhomeapp.in"
            class="w-full py-3 px-4 rounded-xl text-xs font-extrabold text-center text-white bg-blue-600 shadow-md shadow-blue-500/20 active:scale-95 transition-all flex items-center justify-center gap-1.5">
@@ -274,18 +330,18 @@
           </div>
 
           <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-[1.12]">
-            Everything your hostel needs to run on <span class="grad-text">autopilot.</span>
+            Everything your hostel & PG needs to run on <span class="grad-text">autopilot.</span>
           </h1>
 
           <p class="text-base sm:text-lg text-slate-600 leading-relaxed font-normal max-w-xl mx-auto md:mx-0">
-            Streamline student admissions with <strong>1-scan QR check-ins</strong>, automate monthly rent with <strong>PhonePe UPI auto-verification</strong>, manage mess schedules, and control resident operations from one unified cloud dashboard.
+            Streamline admissions for hostels & PGs with <strong>1-scan QR check-ins</strong>, automate monthly rent with <strong>PhonePe UPI auto-verification</strong>, track room-bed sharing, mess menus, and resident operations from one unified cloud dashboard.
           </p>
 
           <!-- CTA Action Buttons + Google Play Store Badge -->
           <div class="pt-2 flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 justify-center md:justify-start">
             <a href="https://app.hostelhomeapp.in/register-hostel.html"
                class="px-5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-sm shadow-xl shadow-emerald-600/20 transition-all hover:-translate-y-0.5 active:scale-[0.99] flex items-center justify-center gap-2">
-              <span>Register New Hostel</span>
+              <span>Register Hostel / PG</span>
               <span class="text-base">&rarr;</span>
             </a>
             <a href="https://app.hostelhomeapp.in"
@@ -313,6 +369,7 @@
           <div class="pt-4 border-t border-slate-100 flex flex-wrap items-center justify-center md:justify-start gap-x-6 gap-y-2 text-xs font-bold text-slate-500">
             <span class="flex items-center gap-1.5"><span class="text-emerald-500">✓</span> 1-Scan Admissions</span>
             <span class="flex items-center gap-1.5"><span class="text-blue-500">✓</span> Automated UPI Collections</span>
+            <span class="flex items-center gap-1.5"><span class="text-indigo-500">✓</span> Hostel & PG Ready</span>
             <span class="flex items-center gap-1.5"><span class="text-purple-500">✓</span> Android App on Play Store</span>
           </div>
         </div>
@@ -325,8 +382,8 @@
               <div class="flex items-center gap-3">
                 <div class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center font-black text-lg">🏠</div>
                 <div>
-                  <div class="text-sm font-black">Live Hostel Overview</div>
-                  <div class="text-[11px] text-slate-400">Real-time occupancy pulse</div>
+                  <div class="text-sm font-black">Live Hostel & PG Overview</div>
+                  <div class="text-[11px] text-slate-400">Real-time room & bed occupancy</div>
                 </div>
               </div>
               <span class="px-2.5 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-[10px] font-extrabold uppercase tracking-wider">Active</span>
@@ -389,11 +446,11 @@
           </div>
           <h3 class="text-xl font-bold text-slate-900">1-Scan QR Admissions</h3>
           <p class="text-slate-600 text-sm leading-relaxed">
-            New residents scan your unique hostel QR to submit photo KYC, ID documents, and emergency contacts. Wardens approve entries with a single click.
+            New students and PG residents scan your property's QR to submit photo KYC, ID documents, and emergency contacts. Wardens and PG owners approve entries with a single click.
           </p>
           <ul class="text-xs text-slate-500 space-y-1.5 pt-2 border-t border-slate-100 font-medium">
-            <li class="flex items-center gap-2"><span class="text-emerald-500">✓</span> Instant student profile creation</li>
-            <li class="flex items-center gap-2"><span class="text-emerald-500">✓</span> Digital ID card issuance</li>
+            <li class="flex items-center gap-2"><span class="text-emerald-500">✓</span> Instant student & tenant profile creation</li>
+            <li class="flex items-center gap-2"><span class="text-emerald-500">✓</span> Digital KYC & ID card issuance</li>
           </ul>
         </div>
 
@@ -404,11 +461,11 @@
           </div>
           <h3 class="text-xl font-bold text-slate-900">Automated UPI Rent Collections</h3>
           <p class="text-slate-600 text-sm leading-relaxed">
-            Integrated PhonePe merchant and direct UPI verification. Automated receipt generation, overdue tracking, and zero bank statement headaches.
+            Integrated PhonePe merchant and direct UPI verification for monthly hostel fees and PG rent. Automated receipt generation, overdue tracking, and zero bank statement headaches.
           </p>
           <ul class="text-xs text-slate-500 space-y-1.5 pt-2 border-t border-slate-100 font-medium">
-            <li class="flex items-center gap-2"><span class="text-emerald-500">✓</span> Direct settlement to hostel bank account</li>
-            <li class="flex items-center gap-2"><span class="text-emerald-500">✓</span> Automatic pending dues reminders</li>
+            <li class="flex items-center gap-2"><span class="text-emerald-500">✓</span> Direct settlement to owner bank account</li>
+            <li class="flex items-center gap-2"><span class="text-emerald-500">✓</span> Automatic pending dues & payment reminders</li>
           </ul>
         </div>
 
@@ -419,11 +476,11 @@
           </div>
           <h3 class="text-xl font-bold text-slate-900">Live Room & Bed Allocation</h3>
           <p class="text-slate-600 text-sm leading-relaxed">
-            Visual room map showing single, double, and triple bed status in real time. Allocate rooms, track vacancies, and manage room switches effortlessly.
+            Visual room map showing single, double, triple, and multi-sharing PG bed status in real time. Allocate rooms, track vacancies, security deposits, and tenant moves effortlessly.
           </p>
           <ul class="text-xs text-slate-500 space-y-1.5 pt-2 border-t border-slate-100 font-medium">
-            <li class="flex items-center gap-2"><span class="text-emerald-500">✓</span> Vacate date predictions</li>
-            <li class="flex items-center gap-2"><span class="text-emerald-500">✓</span> Per-room financial performance</li>
+            <li class="flex items-center gap-2"><span class="text-emerald-500">✓</span> Vacate date predictions & deposit tracking</li>
+            <li class="flex items-center gap-2"><span class="text-emerald-500">✓</span> Per-room & per-bed financial performance</li>
           </ul>
         </div>
 
@@ -478,40 +535,40 @@
     <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
       <div class="glass-card p-8 space-y-6">
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-extrabold">
-          For Hostel Owners & Wardens
+          For Hostel & PG Owners
         </div>
         <h3 class="text-2xl font-extrabold text-slate-900">Complete Administrative Control</h3>
         <p class="text-slate-600 text-sm leading-relaxed">
-          Designed specifically for desktop and mobile wardens to monitor revenue, enforce discipline, and communicate transparently.
+          Designed specifically for hostel wardens and PG property owners to monitor revenue, enforce discipline, and track student living effortlessly.
         </p>
         <div class="space-y-3">
           <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-100 flex items-start gap-3">
             <span class="text-blue-600 font-bold">01</span>
-            <span class="text-xs text-slate-700 font-medium"><strong>Automated Monthly Ledger:</strong> Real-time overview of who has paid, who is overdue, and instant bank reconciliation.</span>
+            <span class="text-xs text-slate-700 font-medium"><strong>Automated Monthly Ledger:</strong> Real-time overview of rent paid, dues pending, security deposits, and instant bank reconciliation.</span>
           </div>
           <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-100 flex items-start gap-3">
             <span class="text-blue-600 font-bold">02</span>
-            <span class="text-xs text-slate-700 font-medium"><strong>Instant Announcements:</strong> Broadcast emergency alerts, gate timing updates, and hostel circulars directly to student apps.</span>
+            <span class="text-xs text-slate-700 font-medium"><strong>Instant Announcements:</strong> Broadcast emergency alerts, gate timing updates, and hostel circulars directly to student & tenant apps.</span>
           </div>
           <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-100 flex items-start gap-3">
             <span class="text-blue-600 font-bold">03</span>
-            <span class="text-xs text-slate-700 font-medium"><strong>Staff & Multi-Warden Delegation:</strong> Invite assistant wardens with customizable permissions for finance or student affairs.</span>
+            <span class="text-xs text-slate-700 font-medium"><strong>Staff & Multi-Warden Delegation:</strong> Invite assistant wardens or PG property managers with customizable roles for finance or operations.</span>
           </div>
         </div>
         <a href="https://app.hostelhomeapp.in/register-hostel.html"
            class="inline-flex items-center gap-2 text-xs font-bold text-emerald-600 hover:text-emerald-800 transition-colors pt-2">
-          <span>Register your hostel on the platform</span>
+          <span>Register your hostel or PG on the platform</span>
           <span>&rarr;</span>
         </a>
       </div>
 
       <div class="glass-card p-8 space-y-6">
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-extrabold">
-          For Students & Residents
+          For Students & PG Residents
         </div>
         <h3 class="text-2xl font-extrabold text-slate-900">Frictionless Resident Experience</h3>
         <p class="text-slate-600 text-sm leading-relaxed">
-          Students get an intuitive self-service portal to stay informed, pay fees quickly, and request hostel services without lining up outside the warden office.
+          Students and tenants get an intuitive self-service portal to stay informed, pay fees quickly via UPI, and request services without queuing up.
         </p>
         <div class="space-y-3">
           <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-100 flex items-start gap-3">
@@ -529,7 +586,7 @@
         </div>
         <a href="https://app.hostelhomeapp.in"
            class="inline-flex items-center gap-2 text-xs font-bold text-blue-600 hover:text-blue-800 transition-colors pt-2">
-          <span>Log in to your student account</span>
+          <span>Log in to your account</span>
           <span>&rarr;</span>
         </a>
       </div>
@@ -548,11 +605,11 @@
           </div>
 
           <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
-            Run your hostel operations on the go. <span class="text-blue-600">Everywhere.</span>
+            Run your hostel & PG operations on the go. <span class="text-blue-600">Everywhere.</span>
           </h2>
 
           <p class="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
-            Designed for wardens and students alike. Receive real-time push alerts for QR admissions, approve leaves instantly, verify UPI fee receipts, and access meal schedules directly from your smartphone.
+            Designed for wardens, PG owners, and residents alike. Receive real-time push alerts for QR admissions, approve leaves instantly, verify UPI fee receipts, and access meal schedules directly from your smartphone.
           </p>
 
           <!-- 4 Grid Mobile Capabilities -->
@@ -667,18 +724,107 @@
       </div>
     </section>
 
+    <!-- FREQUENTLY ASKED QUESTIONS (SEO & FAQ SCHEMA TARGETED) -->
+    <section class="space-y-8" id="faq">
+      <div class="text-center max-w-2xl mx-auto space-y-3">
+        <span class="text-xs font-extrabold text-blue-600 uppercase tracking-widest">Got Questions?</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">Frequently Asked Questions</h2>
+        <p class="text-slate-500 text-sm sm:text-base">Everything you need to know about managing your hostel or PG with HostelHome.</p>
+      </div>
+
+      <div class="max-w-3xl mx-auto space-y-4">
+        <!-- FAQ Item 1 -->
+        <details class="group glass-card p-5 sm:p-6 rounded-2xl transition-all hover:border-blue-300 open:bg-white open:shadow-lg open:shadow-blue-500/5">
+          <summary class="flex items-center justify-between cursor-pointer list-none select-none font-bold text-slate-900 text-base sm:text-lg">
+            <span class="pr-4">Is HostelHome suitable for both Hostels and Paying Guest (PG) accommodations?</span>
+            <span class="w-8 h-8 rounded-xl bg-slate-100 group-open:bg-blue-600 group-open:text-white text-slate-500 flex items-center justify-center shrink-0 transition-transform duration-200 group-open:rotate-180">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+            </span>
+          </summary>
+          <div class="pt-4 text-sm sm:text-base text-slate-600 leading-relaxed border-t border-slate-100 mt-4 space-y-2">
+            <p><strong>Yes, 100%.</strong> HostelHome is purpose-built for college campus hostels, private hostels, and independent PG (Paying Guest) accommodations. Whether you manage single private rooms, 2-sharing, 3-sharing, or multi-bed dorms, the system lets you track per-bed occupancy, security deposits, monthly rent, and tenant KYC with zero friction.</p>
+          </div>
+        </details>
+
+        <!-- FAQ Item 2 -->
+        <details class="group glass-card p-5 sm:p-6 rounded-2xl transition-all hover:border-blue-300 open:bg-white open:shadow-lg open:shadow-blue-500/5">
+          <summary class="flex items-center justify-between cursor-pointer list-none select-none font-bold text-slate-900 text-base sm:text-lg">
+            <span class="pr-4">How does automated PhonePe UPI fee collection work?</span>
+            <span class="w-8 h-8 rounded-xl bg-slate-100 group-open:bg-blue-600 group-open:text-white text-slate-500 flex items-center justify-center shrink-0 transition-transform duration-200 group-open:rotate-180">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+            </span>
+          </summary>
+          <div class="pt-4 text-sm sm:text-base text-slate-600 leading-relaxed border-t border-slate-100 mt-4 space-y-2">
+            <p>HostelHome connects directly with PhonePe Merchant and UPI gateways. Residents scan the dynamic QR code using any UPI app (PhonePe, Google Pay, Paytm, BHIM) to pay their monthly rent. Once paid, HostelHome automatically verifies the transaction in real time, marks the ledger as paid, and issues an instant, downloadable PDF payment receipt. No manual screenshot verification needed!</p>
+          </div>
+        </details>
+
+        <!-- FAQ Item 3 -->
+        <details class="group glass-card p-5 sm:p-6 rounded-2xl transition-all hover:border-blue-300 open:bg-white open:shadow-lg open:shadow-blue-500/5">
+          <summary class="flex items-center justify-between cursor-pointer list-none select-none font-bold text-slate-900 text-base sm:text-lg">
+            <span class="pr-4">How does 1-Scan QR check-in work for new admissions?</span>
+            <span class="w-8 h-8 rounded-xl bg-slate-100 group-open:bg-blue-600 group-open:text-white text-slate-500 flex items-center justify-center shrink-0 transition-transform duration-200 group-open:rotate-180">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+            </span>
+          </summary>
+          <div class="pt-4 text-sm sm:text-base text-slate-600 leading-relaxed border-t border-slate-100 mt-4 space-y-2">
+            <p>Every registered hostel or PG gets a unique printed or digital QR code. When a new student or tenant arrives, they scan the QR using their phone camera. This opens a streamlined digital onboarding form where they enter their details, upload ID proof (Aadhaar/College ID), and emergency contacts. The warden receives a push notification and approves admission with 1 tap, automatically assigning them to a bed.</p>
+          </div>
+        </details>
+
+        <!-- FAQ Item 4 -->
+        <details class="group glass-card p-5 sm:p-6 rounded-2xl transition-all hover:border-blue-300 open:bg-white open:shadow-lg open:shadow-blue-500/5">
+          <summary class="flex items-center justify-between cursor-pointer list-none select-none font-bold text-slate-900 text-base sm:text-lg">
+            <span class="pr-4">Can wardens manage student leaves and issue digital gate passes?</span>
+            <span class="w-8 h-8 rounded-xl bg-slate-100 group-open:bg-blue-600 group-open:text-white text-slate-500 flex items-center justify-center shrink-0 transition-transform duration-200 group-open:rotate-180">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+            </span>
+          </summary>
+          <div class="pt-4 text-sm sm:text-base text-slate-600 leading-relaxed border-t border-slate-100 mt-4 space-y-2">
+            <p>Yes. Students submit leave or night-out requests directly through their app interface. Wardens review the reason and emergency contacts, approving or declining with one click. Approved leaves generate a secure, time-stamped digital QR gate pass that can be scanned at the hostel entrance for foolproof security.</p>
+          </div>
+        </details>
+
+        <!-- FAQ Item 5 -->
+        <details class="group glass-card p-5 sm:p-6 rounded-2xl transition-all hover:border-blue-300 open:bg-white open:shadow-lg open:shadow-blue-500/5">
+          <summary class="flex items-center justify-between cursor-pointer list-none select-none font-bold text-slate-900 text-base sm:text-lg">
+            <span class="pr-4">Is there a mobile app available for Android?</span>
+            <span class="w-8 h-8 rounded-xl bg-slate-100 group-open:bg-blue-600 group-open:text-white text-slate-500 flex items-center justify-center shrink-0 transition-transform duration-200 group-open:rotate-180">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+            </span>
+          </summary>
+          <div class="pt-4 text-sm sm:text-base text-slate-600 leading-relaxed border-t border-slate-100 mt-4 space-y-2">
+            <p>Yes! HostelHome provides a dedicated Android app on Google Play (<a href="https://play.google.com/store/apps/details?id=com.hosteldesk.app" target="_blank" rel="noopener noreferrer" class="text-blue-600 font-bold underline hover:text-blue-800">HostelHome on Google Play</a>). Wardens enjoy instant push notifications, biometric fingerprint login, and camera document scanning, while residents can pay rent, check mess menus, and log maintenance complaints directly from their phones.</p>
+          </div>
+        </details>
+
+        <!-- FAQ Item 6 -->
+        <details class="group glass-card p-5 sm:p-6 rounded-2xl transition-all hover:border-blue-300 open:bg-white open:shadow-lg open:shadow-blue-500/5">
+          <summary class="flex items-center justify-between cursor-pointer list-none select-none font-bold text-slate-900 text-base sm:text-lg">
+            <span class="pr-4">What are the subscription plans and costs for hostels and PGs?</span>
+            <span class="w-8 h-8 rounded-xl bg-slate-100 group-open:bg-blue-600 group-open:text-white text-slate-500 flex items-center justify-center shrink-0 transition-transform duration-200 group-open:rotate-180">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+            </span>
+          </summary>
+          <div class="pt-4 text-sm sm:text-base text-slate-600 leading-relaxed border-t border-slate-100 mt-4 space-y-2">
+            <p>HostelHome offers simple, transparent monthly pricing with <strong>all features included</strong> across all plans: the <strong>Starter Plan</strong> is ₹1,199/month (up to 50 residents), and the <strong>Growth Plan</strong> is ₹1,799/month (up to 120 residents). Custom scalable enterprise pricing is available for large institutions. You can view full details on our <a href="pricing.html" class="text-blue-600 font-bold underline hover:text-blue-800">Pricing Page</a>.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
     <!-- BOTTOM CALL TO ACTION BANNER -->
     <section class="glass-card-dark p-8 sm:p-12 text-center text-white relative overflow-hidden rounded-3xl shadow-2xl">
       <div class="absolute inset-0 bg-blue-600/10 pointer-events-none"></div>
       <div class="max-w-2xl mx-auto space-y-6 relative z-10">
-        <h2 class="text-3xl sm:text-4xl font-black tracking-tight">Ready to modernize your hostel management?</h2>
+        <h2 class="text-3xl sm:text-4xl font-black tracking-tight">Ready to modernize your hostel or PG?</h2>
         <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
-          Join hostel owners and student communities experiencing seamless QR admissions, automated PhonePe rent collection, and digital clarity.
+          Join hostel wardens, PG owners, and student communities experiencing seamless QR admissions, automated PhonePe rent collection, and digital clarity.
         </p>
         <div class="pt-2 flex flex-col sm:flex-row flex-wrap items-center justify-center gap-3.5">
           <a href="https://app.hostelhomeapp.in/register-hostel.html"
              class="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-sm shadow-xl shadow-emerald-600/25 transition-all hover:-translate-y-0.5 active:scale-95 flex items-center justify-center gap-2">
-            <span>Register New Hostel</span>
+            <span>Register Hostel / PG</span>
             <span>&rarr;</span>
           </a>
           <a href="https://app.hostelhomeapp.in"
