@@ -1027,6 +1027,15 @@
           iconClose.classList.add('hidden');
         }
       });
+
+      // Auto-close mobile drawer when tapping in-page anchor links (e.g. FAQ)
+      menuDrawer.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', () => {
+          menuDrawer.classList.add('hidden');
+          iconBars.classList.remove('hidden');
+          iconClose.classList.add('hidden');
+        });
+      });
     }
 
     // Android Play Store Corner Pop-up / Pill logic (Mobile: Small Pill | Desktop: Rectangle)

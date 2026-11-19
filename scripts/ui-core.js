@@ -337,18 +337,47 @@ if (!navigator.onLine) {
     // Push one extra state on page load so there is always something to pop
     // before the browser would leave the page entirely.
     function pushSentinel() {
+        // Only run back-button trapping inside native Android WebView or standalone PWA
+        const isApp = !!(window.Android || (window.HD && typeof window.HD.isNativeAndroid === 'function' && window.HD.isNativeAndroid()));
+        if (!isApp && !window.matchMedia('(display-mode: standalone)').matches) {
+            return;
+        }
         if (!history.state || !history.state.hdSentinel) {
             history.pushState({ hdSentinel: true }, '');
         }
     }
 
     // ── Popstate handler ──────────────────────────────────────────────────────
+    let lastHash = location.hash;
+    window.addEventListener('hashchange', () => {
+        lastHash = location.hash;
+    });
+
     window.addEventListener('popstate', (event) => {
+        // In-page section / anchor navigation (e.g. #faq): do not treat as an app exit
+        if (location.hash && location.hash !== '#sidebar') {
+            lastHash = location.hash;
+            return;
+        }
+
+        // If the user just navigated back from an in-page anchor (e.g. #faq) to root, do not exit
+        if (lastHash && lastHash !== '#sidebar' && !location.hash) {
+            lastHash = '';
+            return;
+        }
+        lastHash = location.hash;
+
         const closed = closeAllUI();
 
         if (closed) {
             // An overlay was open — closing it IS the back action. Done.
             console.log('[back-btn] Overlay closed.');
+            return;
+        }
+
+        // Only prompt exit if running inside native Android WebView or standalone PWA
+        const isApp = !!(window.Android || (window.HD && typeof window.HD.isNativeAndroid === 'function' && window.HD.isNativeAndroid()));
+        if (!isApp && !window.matchMedia('(display-mode: standalone)').matches) {
             return;
         }
 
